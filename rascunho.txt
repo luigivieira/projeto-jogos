@@ -15,6 +15,7 @@ Bibliografia Básica
 
 --------------------------------------------------------------------------------
 
+
 ======
 Aula 1 - Objetivos e Desconstrução
 ======
@@ -25,15 +26,23 @@ Aula 1 - Objetivos e Desconstrução
 * Desconstrução de Jogos
     - Objetivo
 + Critério de Término
-    - Ações (Controle)
     - Motivação
             + Curiosidade
         + Desafio
         + Fantasia
+    - Ações (Controle e capacidade de alterar o mundo)
+        + Importante já ter a definição do objetivo
+        + Relação entre sorte e escolha
+        + Preparação (habilidade) vs Desafio
+        + Diálogos entre jogo e jogador
     - Feedback
             + Sensorial
         + Utilitário
             + Emocional
+* Solicitar a definição de grupos
+* Discutir a possibilidade de haver um pitch do projeto na última aula
+
+OBSERVAÇÃO: SOLICITAR QUE OS PARTICIPANTES TRAGAM MATERIAL PARA AS PRÓXIMAS AULAS
 
 # Atividade:
   Todos juntos, vamos desconstruir
@@ -49,6 +58,9 @@ Aula 2 - Pensando nas Regras do Jogo
 (2 horas de exposição + 1 hora de atividade)
 * Documentação e Comunicação em Projeto (o “Game Design Document”, ou GDD)
 * Caracterização do Público-Alvo (Personas)
+    - Motivação/Importância
+    - Técnicas de escrita (cartões)
+    - Além de preferências: capacidades (cognitiva e motora)
 * Mecânicas de Jogos
     - O que é e para que serve?
     - Relação da mecânicas com os pilares de motivação
@@ -69,46 +81,54 @@ Aula 2 - Pensando nas Regras do Jogo
 
 
 ======
-Aula 3 - Pensando na Experiência de Jogo (“Gameplay”)
+Aula 3 - Pensando na Experiência de Jogo (“Gameplay” e “Jogabilidade”)
 ======
 (2 horas de exposição + 1 hora de atividade)
-* Átomos de Jogos
-    - Objetivo Claro
-    - Recompensas
-    - Jogador como Agente de Mudança
-    - Contexto Compreensível
-    - Regras Compreensíveis
-    - Habilidade e Progressão
-    - Feedback sobre sucesso
-    - Interface Coerente
-    - Desafios e IA
-    - Alternância entre Desafios e Pausas
-    - Balanceamento entre Sorte e Estratégia
-    - Visibilidade e Localização
-    - Uso de Padrões
-    - Gama de Desafios e Habilidades
-    - Custo de Falhas
-    - Historia Significativa
+* Gameplay x Jogabilidade (Playability)
+    - Gameplay: ato de jogar
+    - Jogabilidade: capacidade de jogar bem (usabilidade dentro do jogo)
 * Personagem, Câmera e Controle (“Character, Camera and Control”, ou CCC)
-* Interface e interação
+    - Affordances, modelos conceituais e restrições
+    - Como isso tudo se relaciona com os pilares de motivação (chacoalhar a guitarra no Guitar Hero)
 * Jogabilidade
 - Proteja o jogador de erros e ajude-o a corrigi-lo
 + Save points
++ Guiar o jogador (estéticas-guia, como luzes indicativas, rastros, etc - regra do olho espremido)
++ Bloquear acesso a áreas erradas
++ NPC’s de auxílio (tanto físico como de orientação geral)
 - Consistência
+    + as ações têm sempre o mesmo efeito
+    + o avatar é capaz de nadar ou não (ou toda água mata)
 - Sequência lógica de desafios
     + Balanceamento de dificuldades
-
 * Gráfico de ritmo
+* Átomos de Jogos (Resumo)
+    - Objetivo Claro
+    - Recompensas e punições
+    - Jogador como Agente de Mudança
+    - Contexto Compreensível (* rever o que é)
+    - Regras Compreensíveis
+    - Habilidade e Progressão
+    - Feedback sobre resultado (visual ou sonoro)
+    - Interface consistente
+    - Desafios e IA (desafios tipo “soma zero”, mesmo sem oponentes humanos)
+    - Alternância entre Desafios e Pausas
+    - Balanceamento entre sorte e estratégia (sem demonizar os extremos - jogo da vida x xadrez)
+    - Visibilidade e localização/orientação
+    - Uso de padrões
+    - Narrativa e fantasia significativas
 
+* NOTA: Citar as lentes de design (e o aplicativo)
 # Atividade:
   Analisar o balanceamento e ritmo do gameplay do projeto.
-  Atualizar o GDD do projeto conforme o necessário.
+  Atualizar o GDD do projeto conforme o necessário.
 
 
 ======
 Aula 4 - Pensando na Estética do Jogo (“Juiceness”)
 ======
 (2 horas de exposição + 1 hora de atividade)
+* “Efeitos (visuais, sonoros, etc) que poderiam não existir, mas que existindo melhoram a experiência de jogo”
 * Juiciness para Prazer Sensorial e Emocional
   - O que é e para que serve
   - Exemplos
@@ -131,8 +151,7 @@ Aula 4 - Pensando na Estética do Jogo (“Juiceness”)
 # Atividade:
   Descrever oportunidades de utilizar “juiciness” no projeto.
   Atualizar o GDD conforme o necessário.
-  OBSERVAÇÃO: SOLICITAR AOS PARTICIPANTES QUE TRAGAM MATERIAL PARA A PRÓXIMA
-              AULA -> ATIVIDADE DE PROTOTIPAÇÃO E TESTES
+  OBSERVAÇÃO: REFORÇAR SOLICITAÇÃO PARA QUE OS PARTICIPANTES TRAGAM MATERIAL PARA A PRÓXIMA AULA - ATIVIDADE DE PROTOTIPAÇÃO E TESTES
 
 
 ======
@@ -140,7 +159,10 @@ Aula 5 - Fazendo Testes
 ======
 (1 hora de exposição + 2 horas de atividade)
 * Heurísticas/Lentes
-    - Avaliação Heurística
+    - Relembrar as personas
+    - Apresentar a ideia da avaliação Heurística
+    - Relembrar os átomos como forma de guiar a avaliação sem usuários
+    - Discutir o papel das lentes, mostrar algumas e mostrar o aplicativo
 * Playtest
   - Importância
   + Métodos
@@ -154,6 +176,8 @@ Aula 5 - Fazendo Testes
         + Questionários Padronizados
 . “Game Experience Questionnaire” ou GEQ (http://www.gamexplab.nl/)
 . “Fun Toolkit” (http://goo.gl/b1nS5C)
+* Possivelmente fazer o pitch (se bem aceito)
+* E os playtests!!
 
 # Atividade:
   Criar protótipo dos projetos.
