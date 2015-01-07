@@ -1,0 +1,213 @@
+Plano Geral das Aulas (3 horas por dia, 5 dias - carga horária total de 15 horas)
+=======================
+    1 (segunda-feira). Objetivos do Curso e Desconstrução de Jogos
+    2 (terça-feira). Pensando nas Regras (Mecânica)
+    3 (quarta-feira). Pensando na Experiência ("Gameplay")
+    4 (quinta-feira). Pensando na Estética ("Juiceness")
+    5 (sexta-feira). Fazendo Testes
+
+Bibliografia Básica
+=======================
+
+* Game Design: Uma Abordagem Prática. Paul Schuytema. Cengage Learning. 2008. 
+* A Arte De Game Design: O Livro Original. Jesse Schell. Singular Digital. 2010.
+* Level UP: Um Guia para o Design de Grandes Jogos. Scott Rogers. 2013.
+
+--------------------------------------------------------------------------------
+
+
+======
+Aula 1 - Objetivos e Desconstrução
+======
+(2 horas de exposição + 1 hora de atividade)
+* Escopo do curso
+* Objetivos (e o que não será coberto no curso)
+* Jogo como sistema (enxergue pelos olhos do designer, não do jogador)
+* Desconstrução de Jogos
+    - Objetivo
++ Critério de Término
+    - Motivação
+            + Curiosidade
+        + Desafio
+        + Fantasia
+    - Ações (Controle e capacidade de alterar o mundo)
+        + Importante já ter a definição do objetivo
+        + Relação entre sorte e escolha
+        + Preparação (habilidade) vs Desafio
+        + Diálogos entre jogo e jogador
+    - Feedback
+            + Sensorial
+        + Utilitário
+            + Emocional
+* Solicitar a definição de grupos
+* Discutir a possibilidade de haver um pitch do projeto na última aula
+
+OBSERVAÇÃO: SOLICITAR QUE OS PARTICIPANTES TRAGAM MATERIAL PARA AS PRÓXIMAS
+            AULAS
+
+# Atividade:
+  Todos juntos, vamos desconstruir
+     - Pacman
+     - Super Mario
+     - Counter Strike
+     - Xadrez
+
+
+======
+Aula 2 - Pensando nas Regras do Jogo
+======
+(2 horas de exposição + 1 hora de atividade)
+* Documentação e Comunicação em Projeto (o "Game Design Document", ou GDD)
+* Caracterização do Público-Alvo (Personas)
+    - Motivação/Importância
+    - Técnicas de escrita (cartões)
+    - Além de preferências: capacidades (cognitiva e motora)
+* Mecânicas de Jogos
+    - O que é e para que serve?
+    - Relação da mecânicas com os pilares de motivação
+    - Exemplos de mecânicas básicas:
+      + Analógico:
+             . Rolar e mover
+         . Coleção de peças
+         . Alocação de entidades, etc
+      + Digital:
+         . Alocação de entidades
+             . Plataformas, alavancas, movimentos, etc
+
+# Atividade:
+  Elaborar mecânicas para o projeto de jogo do curso.
+  Deixar coerente com os pilares da motivação.
+  Explicitar: motivo da escolha, impacto no gameplay e relação com as personas.
+  Iniciar a construção de um GDD do projeto.
+
+
+======
+Aula 3 - Pensando na Experiência de Jogo ("Gameplay" e "Jogabilidade")
+======
+(2 horas de exposição + 1 hora de atividade)
+* Gameplay x Jogabilidade (Playability)
+    - Gameplay: ato de jogar
+    - Jogabilidade: capacidade de jogar bem (usabilidade dentro do jogo)
+* Personagem, Câmera e Controle ("Character, Camera and Control", ou CCC)
+    - Affordances, modelos conceituais e restrições
+    - Como isso tudo se relaciona com os pilares de motivação
+      (chacoalhar a guitarra no Guitar Hero)
+* Jogabilidade
+    - Proteja o jogador de erros e ajude-o a corrigi-lo
+        + Save points
+        + Guiar o jogador (estéticas-guia, como luzes indicativas, rastros, etc.
+                           Regra do olho espremido)
+        + Bloquear acesso a áreas erradas
+        + NPC’s de auxílio (tanto físico como de orientação geral)
+    - Consistência
+        + as ações têm sempre o mesmo efeito
+        + o avatar é capaz de nadar ou não (ou toda água mata)
+    - Sequência lógica de desafios
+        + Balanceamento de dificuldades
+* Gráfico de ritmo
+* Átomos de Jogos (Resumo)
+    - Objetivo Claro
+    - Recompensas e punições
+    - Jogador como Agente de Mudança
+    - Contexto Compreensível (* rever o que é)
+    - Regras Compreensíveis
+    - Habilidade e Progressão
+    - Feedback sobre resultado (visual ou sonoro)
+    - Interface consistente
+    - Desafios e IA (desafios tipo "soma zero", mesmo sem oponentes humanos)
+    - Alternância entre Desafios e Pausas
+    - Balanceamento entre sorte e estratégia
+      (sem demonizar os extremos - jogo da vida x xadrez)
+    - Visibilidade e localização/orientação
+    - Uso de padrões
+    - Narrativa e fantasia significativas
+
+* NOTA: Citar as lentes de design (e o aplicativo)
+# Atividade:
+  Analisar o balanceamento e ritmo do gameplay do projeto.
+  Atualizar o GDD do projeto conforme o necessário.
+
+
+======
+Aula 4 - Pensando na Estética do Jogo ("Juiceness")
+======
+(2 horas de exposição + 1 hora de atividade)
+* "Efeitos (visuais, sonoros, etc) que poderiam não existir, mas que existindo
+   melhoram a experiência de jogo"
+* Juiciness para Prazer Sensorial e Emocional
+  - O que é e para que serve
+  - Exemplos
+    + Efeitos Sonoros
+    + Música
+    + Movimento
+    + Luz e Cor
+    + Padrões
+    + Emoções
+    + Socialização
+    + Momentos Inesperados ("O bote mágico de Zork")
+    + Vitória Espetacular (Virada)
+    + Comportamento Viciante
+* Juiciness para Contornar Problemas
+  - Melhorando a "parede invisível"
+  - Exibição de informação (sem necessidade de HUD)
+  - Efeitos sonoros para indicar eventos/estados em vez de informação visual
+  - Lidando com limitações técnicas (bigode do Mário)
+
+# Atividade:
+  Descrever oportunidades de utilizar "juiciness" no projeto.
+  Atualizar o GDD conforme o necessário.
+  OBSERVAÇÃO: REFORÇAR SOLICITAÇÃO PARA QUE OS PARTICIPANTES TRAGAM MATERIAL
+              PARA A PRÓXIMA AULA - ATIVIDADE DE PROTOTIPAÇÃO E TESTES
+
+
+======
+Aula 5 - Fazendo Testes
+======
+(1 hora de exposição + 2 horas de atividade)
+* Heurísticas/Lentes
+    - Relembrar as personas
+    - Apresentar a ideia da avaliação Heurística
+    - Relembrar os átomos como forma de guiar a avaliação sem usuários
+    - Discutir o papel das lentes, mostrar algumas e mostrar o aplicativo
+* Playtest
+  - Importância
+  + Métodos
+    - Protótipos e níveis de fidelidade
+    - Quem convidar para testar
+    - Como conduzir sessões de teste
+        + "Mágico de Oz"
+        + Think-ALoud
+        + Questionários e Entrevistas
+    - Fazendo perguntas produtivas ao fim da sessão de teste
+        + Questionários Padronizados
+. "Game Experience Questionnaire" ou GEQ (http://www.gamexplab.nl/)
+. "Fun Toolkit" (http://goo.gl/b1nS5C)
+* Possivelmente fazer o pitch (se bem aceito)
+* E os playtests!!
+
+# Atividade:
+  Criar protótipo dos projetos.
+  Testar com os colegas e identificar os pontos a melhorar.
+  Atualizar o GDD conforme o necessário.
+
+
+--------------------------------------------------------------------------------
+
+!!!!!!!!!!!!
+! Rascunho !
+!!!!!!!!!!!!
+
+* Quando vamos falar sobre GDD?!
+
+Aulas: 2 horas expositivas + 1 hora prática.
+Como tratar surpresa?
+Relação jogador-personagem.
+Comentar sobre as técnicas diferentes em digital e analógico.
+
+Plano de aulas original
+-----------------------
+    1 (segunda-feira). Objetivos do curso e Desconstrução de jogos;
+    2 (terça-feira). Mecânicas basicas / átomos
+    3 (quarta-feira). GDD / Heuristicas / Juiciness
+    4 (quinta-feira). Prototipação / Playtesting
+    5 (sexta-feira).
