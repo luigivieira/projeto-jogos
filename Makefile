@@ -20,10 +20,10 @@ endif
 
 all: wide
 
-full: ASPECTRATIO = ""
+full: ASPECTRATIO = 
 full: build
 
-wide: ASPECTRATIO = "\def\classopts{,aspectratio=169}\input{" $(FILE) "}"
+wide: ASPECTRATIO = "\def\classopts{,aspectratio=169}\input{$(FILE)}"
 wide: build
 
 build: $(FILE).tex
@@ -32,10 +32,12 @@ ifeq ($(OS),Windows_NT)
 else
 	$(MD) $(OUTPUT_DIR)
 endif
-	$(TEX) $(ASPECTRATIO) -output-directory $(OUTPUT_DIR) $(FILE).tex
+	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $(FILE).tex
+ifneq ("$(wildcard bibliography.bib)","")
 	$(BIB) $(OUTPUT_DIR)$(SEP)$(FILE)
-	$(TEX) $(ASPECTRATIO) -output-directory $(OUTPUT_DIR) $(FILE).tex
-	$(TEX) $(ASPECTRATIO) -output-directory $(OUTPUT_DIR) $(FILE).tex
+	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $(FILE).tex
+endif
+	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $(FILE).tex
 
 clean:
 	$(RM) $(OUTPUT_DIR)$(SEP)$(FILE).aux  $(OUTPUT_DIR)$(SEP)$(FILE).log\
