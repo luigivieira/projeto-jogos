@@ -43,7 +43,7 @@ else
 endif
 	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $*.tex
 ifneq ("$(wildcard bibliography.bib)","")
-	$(BIB) $(OUTPUT_DIR)$(SEP)$(FILE)
+	$(BIB) $(OUTPUT_DIR)$(SEP)$*
 	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $*.tex
 endif
 	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $*.tex
