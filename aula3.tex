@@ -90,6 +90,17 @@
    \addtocounter{framenumber}{\value{framenumberappendix}} 
 }
 
+% Adjust footnotes to not overlap the footbar
+\addtobeamertemplate{footnote}{}{\vspace{1.0ex}}
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
+
+% Redefine the quote environment so short quotes are not broken easily
+\renewenvironment{quote}
+	{\list{}{\leftmargin1em\rightmargin\leftmargin}%
+	\item\relax}
+	{\endlist}
+
 % Section frames (that appear before each section)
 \AtBeginSection[] 
 {
@@ -109,6 +120,27 @@
                           hideothersubsections]}
 		\end{frame}
 	}
+}
+
+\AtBeginSubsection[]
+{
+    \begin{frame}
+        \centering
+        \Large
+        \textbf{\insertsubsection}
+    \end{frame}
+}
+
+\AtBeginSubsubsection[]
+{
+    \begin{frame}
+        \centering
+        \large
+        \insertsubsection
+        \vskip 1em
+        \Large
+        \textbf{\insertsubsubsection}
+    \end{frame}
 }
 
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
@@ -241,12 +273,14 @@ Departamento de Ciência da Computação}
     \end{minipage}
 \end{frame}
 
+% CÍRCULOS
+\subsubsection{Círculo}
 % %s/^zxzx\n\(.*\)\n\(.*\)\n\(.*\)\.png/\% ------------------------------\r\\begin{frame}{\\textbf{Círculos}}\r    \\centering\r    \\begin{figure}\r        \\includegraphics[height=5cm]{\3}\r        \\caption{\1\\footnote{\\url{\2}}}\r    \\end{figure}\r\\end{frame}/g
 %zxzx
 %Sonic
 %http://www.powersonic.com.br/downloads/artworks/classicos/Sonic_3.png
 %sonic.png
-\begin{frame}{\textbf{Círculos}}
+\begin{frame}{\textbf{Círculo}}
     \centering
         \begin{figure}%
             \begin{subfigure}{0.3\textwidth}%
@@ -269,10 +303,9 @@ Departamento de Ciência da Computação}
 \footnotetext[2]{\url{http://img2.wikia.nocookie.net/__cb20111012003236/bomberman/images/6/6d/Bomberman_Art_BSDS.jpg}}
 \footnotetext{\url{http://vignette3.wikia.nocookie.net/sackisback/images/d/d6/Sackboy_sitting.png/revision/latest/scale-to-width/1000?cb=20140627233414}}
 \end{frame}
-% CÍRCULOS
 
 % ------------------------------
-\begin{frame}{\textbf{Círculos}}
+\begin{frame}{\textbf{Círculo}}
     \centering
     Simplificando bastante, pode-se\\
     fazer um personagem assim:
@@ -284,7 +317,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Círculos}}
+\begin{frame}{\textbf{Círculo}}
     \centering
     Ou até assim:
 
@@ -295,8 +328,9 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % TRIANGULAR
+\subsubsection{Triângulo}
 % ------------------------------
-\begin{frame}{\textbf{Triângulo na cabeça}}
+\begin{frame}{\textbf{Cabeça triangular}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{neo_cortex}
@@ -305,7 +339,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Triângulo na cabeça}}
+\begin{frame}{\textbf{Cabeça triangular}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{diablo}
@@ -314,7 +348,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Triângulo na cabeça}}
+\begin{frame}{\textbf{Cabeça triangular}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{joker}
@@ -323,16 +357,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Triângulo na cabeça}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{vader}
-        \caption{Darth Vader (Star Wars)\footnote{\url{http://www.versusbattle.com/wp-content/uploads/2013/03/darth-vader.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Triângulo na cabeça}}
+\begin{frame}{\textbf{Cabeça triangular}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{heihachi}
@@ -341,7 +366,16 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Triângulo na cabeça}}
+\begin{frame}{\textbf{Cabeça triangular}}
+    \centering
+    \begin{figure}
+        \includegraphics[height=5cm]{vader}
+        \caption{Darth Vader (Star Wars)\footnote{\url{http://www.versusbattle.com/wp-content/uploads/2013/03/darth-vader.jpg}}}
+    \end{figure}
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Cabeça triangular}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{molluck}
@@ -351,6 +385,7 @@ Departamento de Ciência da Computação}
 
 
 % QUADRADO
+\subsubsection{Quadrado}
 % ------------------------------
 \begin{frame}{\textbf{Quadrado}}
     \centering
@@ -373,6 +408,15 @@ Departamento de Ciência da Computação}
 \begin{frame}{\textbf{Quadrado}}
     \centering
     \begin{figure}
+        \includegraphics[height=5cm]{marcus}
+        \caption{Marcus Fenix (Gears of War)\footnote{\url{http://media.gow-series.com/images/site/newsimages/gears-of-war-judgment-marcus-fenix-preorder.jpg}}}
+    \end{figure}
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Quadrado}}
+    \centering
+    \begin{figure}
         \includegraphics[height=5cm]{kilrogg}
         \caption{Kilrogg Deadeye (World of Warcraft)\footnote{\url{http://i.ytimg.com/vi/dTUIqJyy1lk/maxresdefault.jpg}}}
     \end{figure}
@@ -387,17 +431,9 @@ Departamento de Ciência da Computação}
     \end{figure}
 \end{frame}
 
-% ------------------------------
-\begin{frame}{\textbf{Quadrado}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{marcus}
-        \caption{Marcus Fenix (Gears of War)\footnote{\url{http://media.gow-series.com/images/site/newsimages/gears-of-war-judgment-marcus-fenix-preorder.jpg}}}
-    \end{figure}
-\end{frame}
-
 
 % TRIÂNGULO INVERTIDO
+\subsubsection{Triângulo para baixo}
 % ------------------------------
 \begin{frame}{\textbf{Triângulo para baixo}}
     \centering
@@ -436,6 +472,16 @@ Departamento de Ciência da Computação}
 
 
 % Silhuetas
+\subsubsection{Silhuetas e cores}
+% ------------------------------
+\begin{frame}{\textbf{Silhueta}}
+    \centering
+    \begin{figure}
+        \includegraphics[height=5cm]{team_fortress2_silhueta}
+        \caption{Team Fortress 2\footnote{\url{http://www.mellow3d.com/misc/tf2.png}}}
+    \end{figure}
+\end{frame}
+
 % ------------------------------
 \begin{frame}{\textbf{Silhueta}}
     \centering
@@ -454,19 +500,11 @@ Departamento de Ciência da Computação}
     \end{figure}
 \end{frame}
 
-% ------------------------------
-\begin{frame}{\textbf{Silhueta}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{team_fortress2_silhueta}
-        \caption{Team Fortress 2\footnote{\url{http://www.mellow3d.com/misc/tf2.png}}}
-    \end{figure}
-\end{frame}
-
 
 % Informação pelo personagem
+\subsubsection{Personagem mostrando informação}
 % ------------------------------
-\begin{frame}{\textbf{O personagem mostrando informações}}
+\begin{frame}{\textbf{O personagem mostrando informação}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{mk}
@@ -475,7 +513,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{O personagem mostrando informações}}
+\begin{frame}{\textbf{O personagem mostrando informação}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{deadspace}
@@ -484,7 +522,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{O personagem mostrando informações}}
+\begin{frame}{\textbf{O personagem mostrando informação}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{doom}
@@ -494,9 +532,12 @@ Departamento de Ciência da Computação}
 
 
 % Companheiros
+\subsubsection{Companheiros}
 % ------------------------------
 \begin{frame}{\textbf{Personagens companheiros}}
     \centering
+    Informativos
+
     \begin{figure}
         \includegraphics[height=5cm]{claptrap}
         \caption{Claptrap (Borderlands)\footnote{\url{http://i.kinja-img.com/gawker-media/image/upload/s--NHlrEvcg--/18j3aiqqtotcpjpg.jpg}}}
@@ -506,16 +547,19 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{Personagens companheiros}}
     \centering
+    Informativos
+
     \begin{figure}
         \includegraphics[height=5cm]{akuaku}
         \caption{Aku Aku (Crash Bandicoot)\footnote{\url{http://fc08.deviantart.net/fs71/i/2014/211/9/e/crash_bandicoot_team_racing_psx_aku_aku_by_danytatu-d7sxgo7.jpg}}}
     \end{figure}
 \end{frame}
 
-% -
 % ------------------------------
 \begin{frame}{\textbf{Personagens companheiros}}
     \centering
+    Complementares
+
     \begin{figure}
         \includegraphics[height=5cm]{sonic_tails}
         \caption{Tails (Sonic the Hedgehog 2)\footnote{\url{http://img1.wikia.nocookie.net/__cb20091012201501/sonic/images/4/49/Sonic_and_Tails_5.png}}}
@@ -525,6 +569,8 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{Personagens companheiros}}
     \centering
+    Complementares
+
     \begin{figure}
         \includegraphics[height=5cm]{donkey_diddy}
         \caption{Diddy (Donkey Kong Country)\footnote{\url{http://images4.fanpop.com/image/photos/22000000/Donkey-and-Diddy-Kong-donkey-kong-22009280-1280-1280.jpg}}}
@@ -534,6 +580,8 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{Personagens companheiros}}
     \centering
+    Complementares e \textbf{afetivos}
+
     \begin{figure}
         \includegraphics[height=5cm]{agro}
         \caption{Agro (Shadow of the Colossus)\footnote{\url{http://moderatelygeeky.com/wp-content/uploads/2013/12/Agro.jpg}}}
@@ -542,6 +590,7 @@ Departamento de Ciência da Computação}
 
 
 % Dimensões
+\subsubsection{Personagem como unidade de medida}
 % ------------------------------
 \begin{frame}{\textbf{Personagens como unidade de medida}}
     \centering
@@ -557,6 +606,7 @@ Departamento de Ciência da Computação}
 \subsection{Câmera}
 
 % Fixa
+\subsubsection{Câmera fixa}
 % ------------------------------
 \begin{frame}{\textbf{Câmera fixa}}
     \centering
@@ -566,15 +616,34 @@ Departamento de Ciência da Computação}
     \end{figure}
 \end{frame}
 
-%Fear Effect
-%http://mlb-s2-p.mlstatic.com/fear-effect-1-playstation-1-psx-4-discos-frete-gratis-16612-MLB20124183563_072014-F.jpg
-%http://www.theisozone.com/images/screens/playstation-57563-41409572983.jpg
-%http://s.uvlist.net/l/y2006/09/26654.jpg
-%fear_effect1.png
-%fear_effect3.png
-%fear_effect2.png
+% ------------------------------
+\begin{frame}{\textbf{Câmera fixa}}
+    \centering
+    \begin{figure}%
+        \begin{subfigure}{0.3\textwidth}%
+            \centering
+            \includegraphics[height=1.4cm]{fear_effect1}%
+            \caption{Fear Effect\footnotemark{}}%
+        \end{subfigure}%
+
+        \begin{subfigure}{0.49\textwidth}%
+            \centering
+            \includegraphics[height=3.9cm]{fear_effect3}%
+            \caption{Vista superior\footnotemark{}}%
+        \end{subfigure}%
+        \begin{subfigure}{0.49\textwidth}%
+            \centering
+            \includegraphics[height=3.9cm]{fear_effect2}%
+            \caption{Vista lateral\footnotemark{}}%
+        \end{subfigure}%
+    \end{figure}
+\footnotetext[34]{\url{http://picturezzz.ru/pictures/174677cd9d0846e825bf3db338b37569.jpg}}
+\footnotetext[35]{\url{http://www.theisozone.com/images/screens/playstation-57563-41409572983.jpg}}
+\footnotetext{\url{http://s.uvlist.net/l/y2006/09/26654.jpg}}
+\end{frame}
 
 % Rolagem
+\subsubsection{Câmera de rolagem}
 % ------------------------------
 \begin{frame}{\textbf{Câmera de rolagem}}
     \centering
@@ -594,6 +663,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % Primeira pessoa
+\subsubsection{Câmera em primeira pessoa - Vantagens}
 % ------------------------------
 \begin{frame}{\textbf{Câmera em primeira pessoa}}
     \centering
@@ -604,7 +674,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Câmera em primeira pessoa}}
+\begin{frame}{\textbf{Câmera em primeira pessoa - Desvantagens}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{chivalry}
@@ -613,7 +683,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Câmera em primeira pessoa}}
+\begin{frame}{\textbf{Câmera em primeira pessoa - Ambientação}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{outlast}
@@ -622,7 +692,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Câmera em primeira pessoa}}
+\begin{frame}{\textbf{Câmera em primeira pessoa - Efeitos}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{farcry3_drops}
@@ -631,8 +701,9 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % Terceira pessoa
+\subsubsection{Câmera em terceira pessoa}
 % ------------------------------
-\begin{frame}{\textbf{Câmera em terceira}}
+\begin{frame}{\textbf{Câmera em terceira - Vantagens}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{assassins_creed}
@@ -641,7 +712,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Câmera em terceira}}
+\begin{frame}{\textbf{Câmera em terceira - Desvantagens}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{resident_evil6}
@@ -650,8 +721,9 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % 2.5D
+\subsubsection{2.5D}
 % ------------------------------
-\begin{frame}{\textbf{2.5D}}
+\begin{frame}{\textbf{2.5D - 3D fingindo 2D}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{street_fighter}
@@ -660,7 +732,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{2.5D}}
+\begin{frame}{\textbf{2.5D - 2D fingindo ser 3D}}
     \centering
     \begin{figure}
         \includegraphics[height=5cm]{golden_axe}
@@ -669,6 +741,7 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % Isométrica
+\subsubsection{Projeção isométrica}
 % ------------------------------
 \begin{frame}{\textbf{Projeção isométrica}}
     \centering
