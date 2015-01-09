@@ -85,6 +85,14 @@
 
 % Adjust footnotes to not overlap the footbar
 \addtobeamertemplate{footnote}{}{\vspace{1.0ex}}
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
+
+% Redefine the quote environment so short quotes are not broken easily
+\renewenvironment{quote}
+	{\list{}{\leftmargin1em\rightmargin\leftmargin}%
+	\item\relax}
+	{\endlist}
 
 % Section frames (that appear before each section)
 \AtBeginSection[] 
@@ -312,17 +320,17 @@ Departamento de Ciência da Computação}
 	
 	\begin{outline}[enumerate]
 		\1 Introduzir os principais conceitos sobre o projeto de jogos (\textit{game design})
-			\2 {\scriptsize pontualmente destacando as diferentes características dos meios utilizados (digital e analógico/tabuleiro)}
+			\2[-] {\scriptsize pontualmente destacando as diferentes características dos meios utilizados (digital e analógico/tabuleiro)}
 	    
 		\vspace{1em}
 	    
 		\1 Exercitar a construção de um protótipo com fidelidade crescente
-			\2 {\scriptsize utilizando primordialmente prototipagem em papel}
+			\2[-] {\scriptsize utilizando primordialmente prototipagem em papel}
 		
 		\vspace{1em}
 			    
 		\1 Exercitar a avaliação da experiência de jogo (\textit{playtesting})
-			\2 {\scriptsize executando e analisando avaliações heurísticas e sessões de jogo com jogadores planejados e reais}
+			\2[-] {\scriptsize executando e analisando avaliações heurísticas e sessões de jogo com jogadores planejados e reais}
 	\end{outline}
 	
 \end{frame}
@@ -443,7 +451,7 @@ Departamento de Ciência da Computação}
 	
 	\begin{center}
 		{\large
-			Material do curso disponível em:\\[2em]
+			As apresentações do curso\footnote{Sem as imagens com copyright} estão disponíveis em:\\[1em]
 			\url{http://www.ime.usp.br/~lidet/projeto-jogos/}
 		}
 	\end{center}
@@ -469,25 +477,53 @@ Departamento de Ciência da Computação}
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.9\paperwidth]{floor-is-lava}
+		\caption{\textbf{The Floor is Lava} \copyright{2011-2015} DerekHunter\footnote{\url{http://derekhunter.deviantart.com/art/The-Floor-is-Lava-276153571}}}
 	\end{figure}
 	
-	\vspace{-2em}
-	
-	\begin{center}
-		{\tiny \textbf{The Floor is Lava} by DerekHunter (\url{http://derekhunter.deviantart.com/art/The-Floor-is-Lava-276153571})}
-	\end{center}
 	\vspace{2em}
 
 \end{frame}
 
 % ------------------------------
-\begin{frame} 
-	\frametitle{\textbf{Atividades lúdicas}}
+\begin{frame}
+	\frametitle{\textbf{Diversão, jogar e brincar}}
 
+	Segundo Jesse Schell:
+
+	\vspace{1em}
+
+	\begin{outline}
+		\1 Diversão é o prazer com surpresas
+	    
+		\vspace{1em}
+	    
+		\1 Jogar e brincar (\textit{play}) são manipulações que saciam a curiosidade
+		
+		\vspace{1em}
+			    
+		\1 Um brinquedo é um objeto com o qual se brinca
+
+		\vspace{1em}
+			    
+		\1 Um bom brinquedo é um objeto com o qual é divertido brincar
+
+		\vspace{1em}
+			    
+		\1 Um jogo é uma atividade de resolução de problemas, encarada com uma atitude lúdica
+			
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame} 
+	\frametitle{\textbf{Tipos de atividades lúdicas}}
+
+	O nível de interatividade de uma atividade lúdica serve como definição geral:
     \begin{figure}
 	    \centering
    		\includegraphics[height=0.5\paperheight]{types-of-play}
-        \caption{A hierarquia de atividades lúdicas é decorrente do nível de interatividade \cite{Fullerton2008}}
+        \caption{\textbf{Hierarquia das atividades lúdicas}, baseado em \cite{Fullerton2008}}
     \end{figure}
 
 \end{frame}
@@ -496,10 +532,11 @@ Departamento de Ciência da Computação}
 \begin{frame} 
 	\frametitle{\textbf{Tipos de atividades lúdicas}}
 
+	Atualmente considera-se também um eixo adicional, relacionado à granularidade do produto projetado:
     \begin{figure}
 	    \centering
-        \includegraphics[height=0.7\paperheight]{taxonomy}
-        \caption{A taxonomia das atividades lúdicas segue dois eixos, o do jogar-brincar e o do projeto todo-parte \cite{Groh2012}}
+        \includegraphics[height=0.65\paperheight]{taxonomy}
+        \caption{\textbf{Taxonomia das atividades lúdicas nos eixos jogar-brincar e todo-parte}, baseado em \cite{Groh2012}}
     \end{figure}
 
 \end{frame}
@@ -508,27 +545,27 @@ Departamento de Ciência da Computação}
 \begin{frame}
 	\frametitle{\textbf{Jogos são sistemas}}
 	
-	Um jogo é \cite{Fullerton2008}:
+	Uma definição possível é que um jogo é \cite{Fullerton2008}:
 	
 	\begin{outline}
 		\1 Um sistema fechado e formal
 		
 		\vspace{1em}
 		
-		\1 Que engaja jogadores com conflitos estruturados
+		\1 Que engaja jogadores em conflitos estruturados
 
 		\vspace{1em}
 		
-		\1 E resolve sua incerteza com resultados desiguais
+		\1 E resolve as incertezas com resultados desiguais
 	\end{outline}	
 
 	\vspace{3em}
 
 	\begin{quotation}
 		\noindent
-		{\large ``Videogames são apenas a evolução natural dos jogos tradicionais em uma nova mídia. As regras que os governam ainda são as mesmas.''\\[0.5em]
+		{\large Videogames são apenas a evolução natural dos jogos tradicionais em uma nova mídia. As regras que os governam ainda são as mesmas.\\[0.5em]
 		\noindent
-		Jesse Schell}
+		\hfill-- Jesse Schell}
 	\end{quotation}
 
 \end{frame}
