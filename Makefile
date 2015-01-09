@@ -8,6 +8,12 @@ FILES := $(wildcard *.tex)
 # Convert it to an "array" of individual targets without extension
 MODULES := $(patsubst %.tex,%,$(FILES))
 
+# Check if WIDE was set as on from command line (with the sintax: make [target]
+# WIDE=on), and in that case set the aspect ratio accordingly
+ifeq ($(WIDE),on)
+ASPECTRATIO = "\def\classopts{,aspectratio=169}\input{$*}"
+endif
+
 # Definition of basic commands according to the operating system
 $(info Target platform: $(OS))
 ifeq ($(OS),Windows_NT)
@@ -25,23 +31,11 @@ endif
 # default target: compile all existing tex files
 all: $(MODULES)
 
-# subtarget for defining wide screen (16:9) as the aspect ratio
-# (otherwise, it will be regular 4:3). This subtype must be defined before
-# any other:
-#    make wide all
-# or
-#    make wide aula1
-wide: WIDE=on
-wide: $(MODULES)
-
 # smart target: compile each module defined in the "list" (either from the
 # command line, like 'make aula1' or all existing from the wildcard in case
 # of 'make all')
 $(MODULES): % :
-ifdef WIDE
-	$(info Modo widescreen ligado)
-	ASPECTRATIO = "\def\classopts{,aspectratio=169}\input{$*}"
-endif
+	$(info Aspect ration is: $(ASPECTRATIO))
 ifeq ($(OS),Windows_NT)
 	if not exist $(OUTPUT_DIR) $(MD) $(OUTPUT_DIR)
 else
@@ -49,7 +43,7 @@ else
 endif
 	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $*.tex
 ifneq ("$(wildcard bibliography.bib)","")
-	$(BIB) $(OUTPUT_DIR)$(SEP)$(FILE)
+	$(BIB) $(OUTPUT_DIR)$(SEP)$*
 	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $*.tex
 endif
 	$(TEX) -output-directory $(OUTPUT_DIR) $(ASPECTRATIO) $*.tex

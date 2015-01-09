@@ -16,15 +16,13 @@
 \usepackage{array}
 \usepackage{framed}
 \usepackage{booktabs}
-\usepackage{caption}
+\usepackage[compatibility=false]{caption}
 \usepackage{subcaption}
 \usepackage{outlines}
 \usepackage{ulem}
 \usepackage{xcolor,colortbl}
 \usepackage{ragged2e}
 \usepackage{tikz}
-
-\captionsetup{compatibility=false}
 
 % ---------------------------------------------------------------------------- %
 % Presentation definitions
@@ -37,6 +35,7 @@
 \setbeamerfont{title}{size=\normalsize}
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{bibliography item}[text]%
+\setbeamertemplate{headline}{} % Remove upper bar
 
 % colors
 \definecolor{lidet_orange}{rgb}{0.9, 0.49, 0.09}
@@ -84,6 +83,9 @@
    \addtocounter{framenumber}{\value{framenumberappendix}} 
 }
 
+% Adjust footnotes to not overlap the footbar
+\addtobeamertemplate{footnote}{}{\vspace{1.0ex}}
+
 % Section frames (that appear before each section)
 \AtBeginSection[] 
 {
@@ -106,15 +108,18 @@
 % ---------------------------------------------------------------------------- %
 % Presentation title, author and institution
 % ---------------------------------------------------------------------------- %
+\newcommand{\lessontitle}{Aula 1 - Enxergando Jogos como Sistemas}
 \title{\textbf{Introdução ao Projeto de Jogos}}
-\subtitle{{\small Aula 1 - Enxergando Jogos como Sistemas}}
+\subtitle{{\small \lessontitle}}
 
-\author[Luiz Carlos Vieira]{\scriptsize
-    Luiz Carlos Vieira e Vinícius Kiwi Daros\\
+\newcommand{\authors}{Luiz C. Vieira e Vinícius K. Daros}
+\author[\authors]{\scriptsize
+    \authors\\
     \{luigivieira,vinicius.k.daros\}@gmail.com
 }
 
-\institute[LIDET (IME - USP)]{\\[1.0mm] 
+\newcommand{\lidet}{LIDET (IME - USP)}
+\institute[\lidet]{\\[1.0mm]
 Curso de Verão (2015)\\
 Departamento de Ciência da Computação}
 
@@ -158,16 +163,30 @@ Departamento de Ciência da Computação}
 
 % setup navigation symbols and footline
 \setbeamertemplate{navigation symbols}{}
-\setbeamertemplate{footline}{
-   \begin{beamercolorbox}[ht=4ex,leftskip=.3cm,rightskip=.3cm]{author in head/foot}
-    %\usebeamercolor{lidet_orange}
-    \hrule
-    \vspace{0.1cm}
-    \insertdate \hfill \insertframenumber/\inserttotalframenumber \newline
-    \insertshortauthor \ - \inserttitle \hfill \insertshortinstitute
-   \end{beamercolorbox}
-   \vspace*{0.1cm}
-} 
+\makeatletter
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=0.28\paperwidth,ht=4ex,dp=1ex,left,%
+                               leftskip=2ex]{author in head/foot}%
+            \usebeamerfont{title in head/foot}
+            \insertdate\newline%
+            \vskip 0.6ex%
+            \authors
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=0.53\paperwidth,ht=4ex,dp=1ex,center]%
+                              {author in head/foot}%
+            \usebeamerfont{author in head/foot}\lessontitle%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=0.19\paperwidth,ht=4ex,dp=1ex,right,%
+                               rightskip=2ex]{author in head/foot}%
+            \insertframenumber{}/\inserttotalframenumber \newline
+            \lidet%
+        \end{beamercolorbox}%
+    }%
+    \vskip 4cm%
+}
+\makeatother
 
 % ---------------------------------------------------------------------------- %
 \begin{frame}[plain]
@@ -178,22 +197,28 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Sobre o Curso}
+\section{Introdução}
 % ---------------------------------------------------------------------------- %
 
-\subsection{Provimento}
+\subsection{Provimento e motivação}
 
 % ------------------------------
 \begin{frame}
 	\frametitle{\textbf{Laboratório}}
 	
 	\begin{center}
-		\includegraphics[height=0.2\paperheight]{lidet-logo}
+		\includegraphics[height=0.2\paperheight]{lidet-logo}\\
+		\url{http://www.ime.usp.br/~lidet}
 	\end{center}
+	
+	\vspace{2em}
+	
 	\begin{outline}
 		\1 Criado e gerido pelo Prof. Dr. Flávio Soares Corrêa da Silva
 			\2[-] {\scriptsize origem no LIAMF (Laboratório de Inteligência Artificial e Métodos Formais)}
 			\2[-] {\scriptsize dentro do Departamento de Ciência da Computação do IME-USP}
+		
+		\vspace{1em}
 		
 		\1 Pesquisas em interatividade e entretenimento digital
 			\2[-] {\scriptsize governo eletrônico, interoperabilidade entre museus, inteligência artificial em jogos eletrônicos, avaliação de experiência de jogadores}
@@ -206,82 +231,319 @@ Departamento de Ciência da Computação}
 	\frametitle{\textbf{Ministrantes}}
 	
 	\begin{columns}[c]
-		\column{0.5\textwidth}
+	
+		\column{0.2\textwidth}
+		
 			\begin{center}
-				\includegraphics[height=0.3\paperheight]{luiz}\\
-				\textbf{Luiz Carlos Vieira}
+				\includegraphics[height=0.2\paperheight]{luiz}\\
+				\textbf{Luiz \mbox{Carlos Vieira}}
 			\end{center}
+			
+		\column{0.8\textwidth}
+		
 			\begin{outline}
-				\1 {\scriptsize Doutorando em Ciência da Computação}
-					\2[-] {\tiny avaliação de diversão em jogos digitais por meio do rastreamento e análise de expressões faciais}
+				\1 Doutorando em Ciência da Computação
+					\2[-] {\scriptsize avaliação de diversão em jogos digitais por meio do rastreamento e análise de expressões faciais}
 				
-				\1 {\scriptsize Projetista de jogos de tabuleiro}
-					\2[-] {\tiny coautor de Turned (publicado na Europa), Xôôô Peste e Reviravolta (em publicação)}
+				\vspace{1em}
+				
+				\1 Projetista de jogos de tabuleiro
+					\2[-] {\scriptsize coautor de Turned (publicado na Europa), Xôôô Peste e Reviravolta (em publicação)}
+			\end{outline}
+			
+	\end{columns}		
+		
+	\vspace{2em}
+		
+	\begin{columns}[c]		
+
+		\column{0.8\textwidth}
+			
+			\begin{outline}
+				\1 Mestrando em Ciência da Computação
+					\2[-] {\scriptsize construção de pilotos virtuais com aprendizado de máquina em simuladores automobilísticos}
+				
+				\vspace{1em}
+				
+				\1 Integrante do USP Game Dev
+					\2[-] {\scriptsize grupo de pesquisa e desenvolvimento de jogos digitais e analógicos}
 			\end{outline}
 		
-		\column{0.5\textwidth}
+		\column{0.2\textwidth}
+		
 			\begin{center}
-				\includegraphics[height=0.3\paperheight]{vinicius}\\
+				\includegraphics[height=0.2\paperheight]{vinicius}\\
 				\textbf{Vinícius Kiwi Daros}
 			\end{center}
-			\begin{outline}
-				\1 {\scriptsize Mestrando em Ciência da Computação}
-					\2[-] {\tiny construção de pilotos virtuais com aprendizado de máquina em simuladores automobilísticos}
-				
-				\1 {\scriptsize Integrante do USP Game Dev}
-					\2[-] {\tiny grupo de pesquisa e desenvolvimento de jogos digitais e analógicos}
-			\end{outline}
 		
 	\end{columns}	
 
 \end{frame}
 
-\subsection{Bibliografia Sugerida}
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{Motivação}}
+	
+	\begin{block}{}
+	
+		\vspace{1em}
+	
+		\begin{quotation}
+			\noindent
+			\justify
+			{\large Complementar à formação técnica/operacional de qualidade (leia-se ``Ciência da Computação'') com a capacitação em aspectos humanos relacionados ao \textbf{design de experiências}}
+		\end{quotation}
+
+		\vspace{1em}
+
+	\end{block}
+	
+	\begin{center}
+		\includegraphics[height=0.4\paperheight]{word-cloud}\\
+	\end{center}
+
+\end{frame}
+
+\subsection{Objetivos, programa e bibliografia}
 
 % ------------------------------
 \begin{frame} 
-	\frametitle{\textbf{Bibliografia sugerida para o curso}}
+	\frametitle{\textbf{Objetivos}}
+	
+	\begin{outline}[enumerate]
+		\1 Introduzir os principais conceitos sobre o projeto de jogos (\textit{game design})
+			\2 {\scriptsize pontualmente destacando as diferentes características dos meios utilizados (digital e analógico/tabuleiro)}
+	    
+		\vspace{1em}
+	    
+		\1 Exercitar a construção de um protótipo com fidelidade crescente
+			\2 {\scriptsize utilizando primordialmente prototipagem em papel}
+		
+		\vspace{1em}
+			    
+		\1 Exercitar a avaliação da experiência de jogo (\textit{playtesting})
+			\2 {\scriptsize executando e analisando avaliações heurísticas e sessões de jogo com jogadores planejados e reais}
+	\end{outline}
+	
+\end{frame}
+
+% ------------------------------
+\begin{frame} 
+	\frametitle{\textbf{Programa}}
 	
 	\begin{columns}[c]
-		\column{0.33\textwidth}
-			\begin{center}
-				\frame{\includegraphics[height=0.5\paperheight]{schuytema}}\\
-				Paul Schuytema\\
-				\textit{Game Design: Uma Abordagem Prática}\\
-				Cengage Learning, 2008
-			\end{center}
-		\column{0.33\textwidth}
-			\begin{center}
-				\frame{\includegraphics[height=0.5\paperheight]{schell}}\\
-				Jesse Schell\\
-				\textit{A Arte De Game Design: O Livro Original}\\
-				Singular Digital, 2010
-			\end{center}
+		
+		\column{0.2\textwidth}
+
+		\column{0.8\textwidth}
+	
+			\begin{outline}
+			
+				\1[\textbf{12/01 (segunda)}:] Enxergando jogos como sistemas
+					\2[-] {\scriptsize jogos sob a ótica do designer}
+					\2[-] {\scriptsize desconstrução de jogos clássicos}
+			    
+				\vspace{0.5em}
+			    
+				\1[\textbf{13/01 (terça)}:] Pensando nas regras do jogo
+					\2[-] {\scriptsize comunicação, documentação e público-alvo}
+					\2[-] {\scriptsize detalhamento da mecânica}
+				
+				\vspace{0.5em}
+					    
+				\1[\textbf{14/01 (quarta)}:] Pensando na experiência de jogo
+					\2[-] {\scriptsize experiência pragmática (jogabilidade x \textit{gameplay})}
+					\2[-] {\scriptsize interatividade e interação (CCC)}
+		
+				\vspace{0.5em}
+					    
+				\1[\textbf{15/01 (quinta)}:] Pensando na estética do jogo
+					\2[-] {\scriptsize experiência hedônica (\textit{juiceness})}
+					\2[-] {\scriptsize contorno e exploração de problemas}
+		
+				\vspace{0.5em}
+					    
+				\1[\textbf{16/01 (sexta)}:] Realizando avaliações e testes (\textit{playtesting})
+					\2[-] {\scriptsize avaliação heurística}
+					\2[-] {\scriptsize \textit{playtesting} com participantes}
+					
+			\end{outline}	
+
+	\end{columns}
+
+	\hfill
+
+\end{frame}
+
+% ------------------------------
+\begin{frame} 
+	\frametitle{\textbf{Avisos importantes}}
+	
+	\begin{block}{\centering\textbf{ATENÇÃO!}}
+	
+		\begin{outline}
+			\1 As aulas ocorrem pela manhã, no período entre 09:00 e 12:00
+				\2[-] {\scriptsize \textbf{não se atrase!}}
+				\2[-] {\scriptsize as aulas começam no horário programado}
+		    
+			\vspace{1em}
+		    
+			\1 Apesar de bastante conteúdo expositivo, as aulas são primordialmente práticas
+				\2[-] {\scriptsize \textbf{traga seu próprio material!}}
+				\2[-] {\scriptsize  para documentação e construção de protótipos:\\ \textit{caderno, sulfites, régua, tesoura, cola, fita adesiva, lápis, borracha, canetas coloridas, cartolina, dados, cartas de baralho, botões, feijões, ...}}
+			
+			\vspace{1em}
+				    
+			\1 O curso se encerra com a execução de avaliações do protótipo criado em aula
+				\2 {\scriptsize \textbf{não esqueça o projeto/material em casa!}}
+				\2 {\scriptsize infelizmente não há espaço para armazená-lo na USP}
+		\end{outline}
+
+	\end{block}	
+	
+\end{frame}
+
+% ------------------------------
+\begin{frame} 
+	\frametitle{\textbf{Bibliografia básica}}
+	
+	\begin{columns}[c]
+	
 		\column{0.33\textwidth}
 			\begin{center}
 				\frame{\includegraphics[height=0.5\paperheight]{rogers}}\\
-				Scott Rogers\\
-				\textit{Level UP: Um Guia para o Design de Grandes Jogos}\\
-				Blucher, 2013
+				Scott Rogers\\[0.5em]
+				\textit{{\large Level UP: Um Guia para o Design de Grandes Jogos}}\\[0.5em]
+				{\small Blucher, 2013}
 			\end{center}
+			
+		\column{0.33\textwidth}
+			\begin{center}
+				\frame{\includegraphics[height=0.5\paperheight]{schell}}\\
+				Jesse Schell\\[0.5em]
+				\textit{{\large A Arte De Game Design: O Livro Original}}\\[0.5em]
+				{\small Elsevier, 2010}
+			\end{center}
+			
+		\column{0.33\textwidth}
+			\begin{center}
+				\frame{\includegraphics[height=0.5\paperheight]{schuytema}}\\
+				Paul Schuytema\\[0.5em]
+				\textit{{\large Game Design: Uma Abordagem Prática - Série Profissional}}\\[0.5em]
+				{\small Cengage Learning, 2008}
+			\end{center}
+			
 	\end{columns}		
 	
 \end{frame}
 
+% ------------------------------
+\begin{frame} 
+	\frametitle{\textbf{Material do curso}}
+	
+	\begin{center}
+		{\large
+			Material do curso disponível em:\\[2em]
+			\url{http://www.ime.usp.br/~lidet/projeto-jogos/}
+		}
+	\end{center}
+	
+\end{frame}
 
+% ---------------------------------------------------------------------------- %
+\section{Jogos como Sistemas}
+% ---------------------------------------------------------------------------- %
+
+\subsection{Definições e Conceitos}
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{O que é um jogo?}}
+
+	\begin{center}
+		A atividade dessas crianças, é um jogo ou apenas uma brincadeira?
+	\end{center}	
+
+	\vspace{-2em}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\paperwidth]{floor-is-lava}
+	\end{figure}
+	
+	\vspace{-2em}
+	
+	\begin{center}
+		{\tiny \textbf{The Floor is Lava} by DerekHunter (\url{http://derekhunter.deviantart.com/art/The-Floor-is-Lava-276153571})}
+	\end{center}
+	\vspace{2em}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame} 
+	\frametitle{\textbf{Atividades lúdicas}}
+
+    \begin{figure}
+	    \centering
+   		\includegraphics[height=0.5\paperheight]{types-of-play}
+        \caption{A hierarquia de atividades lúdicas é decorrente do nível de interatividade \cite{Fullerton2008}}
+    \end{figure}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame} 
+	\frametitle{\textbf{Tipos de atividades lúdicas}}
+
+    \begin{figure}
+	    \centering
+        \includegraphics[height=0.7\paperheight]{taxonomy}
+        \caption{A taxonomia das atividades lúdicas segue dois eixos, o do jogar-brincar e o do projeto todo-parte \cite{Groh2012}}
+    \end{figure}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{Jogos são sistemas}}
+	
+	Um jogo é \cite{Fullerton2008}:
+	
+	\begin{outline}
+		\1 Um sistema fechado e formal
+		
+		\vspace{1em}
+		
+		\1 Que engaja jogadores com conflitos estruturados
+
+		\vspace{1em}
+		
+		\1 E resolve sua incerteza com resultados desiguais
+	\end{outline}	
+
+	\vspace{3em}
+
+	\begin{quotation}
+		\noindent
+		{\large ``Videogames são apenas a evolução natural dos jogos tradicionais em uma nova mídia. As regras que os governam ainda são as mesmas.''\\[0.5em]
+		\noindent
+		Jesse Schell}
+	\end{quotation}
+
+\end{frame}
 
 % ------------------------------------------
 % References
 % ------------------------------------------
 
-%\referencesbegin
-%\begin{frame}[plain, allowframebreaks]
-%	\frametitle{\textbf{References}}
-%	\bibliographystyle{abbrv}
-%	{\tiny \bibliography{bibliography}}
-%\end{frame}
-%\referencesend
-
+\referencesbegin
+\begin{frame}[plain, allowframebreaks]
+	\frametitle{\textbf{References}}
+	\bibliographystyle{abbrv}
+	{\tiny \bibliography{bibliography}}
+\end{frame}
+\referencesend
 
 % ---------------------------------------------------------------------------- %
 % Last Slide = cover + thanks
