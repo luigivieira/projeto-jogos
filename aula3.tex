@@ -23,6 +23,7 @@
 \usepackage{xcolor,colortbl}
 \usepackage{ragged2e}
 \usepackage{tikz}
+\usepackage{multicol}
 
 % ---------------------------------------------------------------------------- %
 % Presentation definitions
@@ -282,22 +283,22 @@ Departamento de Ciência da Computação}
 %sonic.png
 \begin{frame}{\textbf{Círculo}}
     \centering
-        \begin{figure}%
-            \begin{subfigure}{0.3\textwidth}%
-                \centering
-                \includegraphics[height=5cm]{sonic}%
-                \caption{Sonic\footnotemark{}}%
-            \end{subfigure}%
-            \begin{subfigure}{0.3\textwidth}%
-                \centering
-                \includegraphics[height=5cm]{bomberman}%
-                \caption{Bomberman\footnotemark{}}%
-            \end{subfigure}%
-            \begin{subfigure}{0.3\textwidth}%
-                \centering
-                \includegraphics[height=5cm]{sackboy}
-                \caption{Sackboy\footnotemark{}}%
-            \end{subfigure}%
+    \begin{figure}%
+        \begin{subfigure}{0.3\textwidth}%
+            \centering
+            \includegraphics[height=5cm]{sonic}%
+            \caption{Sonic\footnotemark{}}%
+        \end{subfigure}%
+        \begin{subfigure}{0.3\textwidth}%
+            \centering
+            \includegraphics[height=5cm]{bomberman}%
+            \caption{Bomberman\footnotemark{}}%
+        \end{subfigure}%
+        \begin{subfigure}{0.3\textwidth}%
+            \centering
+            \includegraphics[height=5cm]{sackboy}
+            \caption{Sackboy\footnotemark{}}%
+        \end{subfigure}%
     \end{figure}
 \footnotetext[1]{\url{http://www.powersonic.com.br/downloads/artworks/classicos/Sonic_3.png}}
 \footnotetext[2]{\url{http://img2.wikia.nocookie.net/__cb20111012003236/bomberman/images/6/6d/Bomberman_Art_BSDS.jpg}}
@@ -389,19 +390,19 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{Quadrado}}
     \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{ralph}
-        \caption{Ralph (Wreck it Ralph)\footnote{\url{http://cache.g4tv.com/ImageDb3/303386_S/wreck-it-ralph-game-coming-from-activision-and-disney-interactive.jpg}}}
+    \begin{figure}%
+        \begin{subfigure}{0.49\textwidth}%
+            \centering
+            \includegraphics[height=4.5cm]{ralph}
+            \caption{Ralph (Wreck it Ralph)\footnotemark{}}
+        \end{subfigure}
+        \begin{subfigure}{0.49\textwidth}%
+            \includegraphics[height=4.5cm]{dammd}
+            \caption{Dammd (Final Fight)\footnotemark{}}
+        \end{subfigure}
     \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Quadrado}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{dammd}
-        \caption{Dammd (Final Fight)\footnote{\url{http://www.arcadequartermaster.com/ffight/boss_damnd.png}}}
-    \end{figure}
+    \footnotetext[12]{\url{http://cache.g4tv.com/ImageDb3/303386_S/wreck-it-ralph-game-coming-from-activision-and-disney-interactive.jpg}}
+    \footnotetext{\url{http://www.arcadequartermaster.com/ffight/boss_damnd.png}}
 \end{frame}
 
 % ------------------------------
@@ -416,19 +417,20 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{Quadrado}}
     \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{kilrogg}
-        \caption{Kilrogg Deadeye (World of Warcraft)\footnote{\url{http://i.ytimg.com/vi/dTUIqJyy1lk/maxresdefault.jpg}}}
+    \begin{figure}%
+        \begin{subfigure}{0.49\textwidth}%
+            \centering
+            \includegraphics[height=5cm]{kilrogg}
+            \caption{Kilrogg Deadeye (World of Warcraft)\footnotemark{}}
+        \end{subfigure}
+        \begin{subfigure}{0.49\textwidth}%
+            \centering
+            \includegraphics[height=5cm]{heavy}
+            \caption{Heavy (Team Fortress 2)\footnotemark{}}
+        \end{subfigure}
     \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Quadrado}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{heavy}
-        \caption{Heavy (Team Fortress 2)\footnote{\url{https://wiki.teamfortress.com/w/images/thumb/a/a0/Community_Heavy_Strategy_Header.png/300px-Community_Heavy_Strategy_Header.png?t=20111122050936}}}
-    \end{figure}
+    \footnotetext[15]{\url{http://i.ytimg.com/vi/dTUIqJyy1lk/maxresdefault.jpg}}
+    \footnotetext{\url{https://wiki.teamfortress.com/w/images/thumb/a/a0/Community_Heavy_Strategy_Header.png/300px-Community_Heavy_Strategy_Header.png?t=20111122050936}}
 \end{frame}
 
 
@@ -446,28 +448,26 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{Triângulo para baixo}}
     \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{cody}
-        \caption{Cody (Final Fight)\footnote{\url{http://www.arcadequartermaster.com/ffight/sprite_cody.png}}}
+    \begin{figure}%
+        \begin{subfigure}{0.3\textwidth}%
+            \centering
+            \includegraphics[height=4cm]{cody}
+            \caption{Cody (Final Fight)\footnotemark{}}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}%
+            \centering
+            \includegraphics[height=4cm]{kratos}
+            \caption{Kratos (God of War II)\footnotemark{}}
+        \end{subfigure}
+        \begin{subfigure}{0.3\textwidth}%
+            \centering
+            \includegraphics[height=4cm]{batman}
+            \caption{Batman (Batman Arkhan Asylum)\footnotemark{}}
+        \end{subfigure}
     \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Triângulo para baixo}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{kratos}
-        \caption{Kratos (God of War II)\footnote{\url{http://199.101.98.242/media/shots/150564-God_of_War_II_\%28USA\%29-3.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Triângulo para baixo}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{batman}
-        \caption{Batman (Batman Arkhan Asylum)\footnote{\url{http://img1.wikia.nocookie.net/__cb20131108203507/marvel_dc/images/6/62/Batman_Arkhamverse_003.jpg}}}
-    \end{figure}
+    \footnotetext[18]{\url{http://www.arcadequartermaster.com/ffight/sprite_cody.png}}
+    \footnotetext[19]{\url{http://199.101.98.242/media/shots/150564-God_of_War_II_\%28USA\%29-3.jpg}}
+    \footnotetext{\url{http://img1.wikia.nocookie.net/__cb20131108203507/marvel_dc/images/6/62/Batman_Arkhamverse_003.jpg}}
 \end{frame}
 
 
@@ -537,22 +537,21 @@ Departamento de Ciência da Computação}
 \begin{frame}{\textbf{Personagens companheiros}}
     \centering
     Informativos
-
-    \begin{figure}
-        \includegraphics[height=5cm]{claptrap}
-        \caption{Claptrap (Borderlands)\footnote{\url{http://i.kinja-img.com/gawker-media/image/upload/s--NHlrEvcg--/18j3aiqqtotcpjpg.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Personagens companheiros}}
     \centering
-    Informativos
-
-    \begin{figure}
-        \includegraphics[height=5cm]{akuaku}
-        \caption{Aku Aku (Crash Bandicoot)\footnote{\url{http://fc08.deviantart.net/fs71/i/2014/211/9/e/crash_bandicoot_team_racing_psx_aku_aku_by_danytatu-d7sxgo7.jpg}}}
+    \begin{figure}%
+        \begin{subfigure}{0.49\textwidth}%
+            \centering
+            \includegraphics[height=4cm]{claptrap}
+            \caption{Claptrap (Borderlands)\footnotemark{}}
+        \end{subfigure}
+        \begin{subfigure}{0.49\textwidth}%
+            \centering
+            \includegraphics[height=4cm]{akuaku}
+            \caption{Aku Aku\\(Crash Bandicoot)\footnotemark{}}
+        \end{subfigure}
     \end{figure}
+    \footnotetext[27]{\url{http://i.kinja-img.com/gawker-media/image/upload/s--NHlrEvcg--/18j3aiqqtotcpjpg.jpg}}
+    \footnotetext{\url{http://fc08.deviantart.net/fs71/i/2014/211/9/e/crash_bandicoot_team_racing_psx_aku_aku_by_danytatu-d7sxgo7.jpg}}
 \end{frame}
 
 % ------------------------------
@@ -757,50 +756,122 @@ Departamento de Ciência da Computação}
 
 % ------------------------------
 \begin{frame}{\textbf{Controle}}
+    \centering
+    \begin{minipage}{4cm}
+        \begin{figure}
+            \includegraphics[height=2cm]{keyboard}
+            \caption{Teclado\footnotemark{}}
+        \end{figure}
+    \end{minipage}
+    \hspace{2.5cm}%
+    \begin{minipage}{4cm}
+        \begin{figure}
+            \includegraphics[height=2cm]{touch}
+            \caption{Telas \textit{touch}\footnotemark{}}
+       \end{figure}
+    \end{minipage}
 
-%http://www.wintecind.com/features/filemate/imagegallery/Notebook/images/B2020/3FMNB2020WBK-R_800953176162_AV.jpg
-%keyboard.png
+    \vskip -1.7cm%
+    \begin{minipage}{3cm}
+        \begin{figure}
+            \includegraphics[height=2cm]{wii_controller}
+            \caption{Controle do Wii\footnotemark{}}
+        \end{figure}
+    \end{minipage}
 
-%http://images.amazon.com/images/G/01/videogames/detail-page/B000IMYKQ0-1-lg.jpg
-%wii_controller.png
+    \vskip -0.6cm%
+    \begin{minipage}{4cm}
+        \begin{figure}
+            \includegraphics[height=1.9cm]{playstation_controller}
+            \caption{Controle do PlayStation\footnotemark{}}
+        \end{figure}
+    \end{minipage}
+    \hspace{2.5cm}%
+    \begin{minipage}{4cm}
+        \begin{figure}
+            \includegraphics[height=2cm]{xbox_controller}
+            \caption{Controle do Xbox\footnotemark{}}
+        \end{figure}
+    \end{minipage}
 
-%http://pixabay.com/get/b3d60eb87415c735405c/1420749677/tablet-314153_1280.png?direct
-%touch.png
+    %Teclado
+    \footnotetext[48]{\url{http://www.fgcu.edu/BTS/images/keyboard-mouse.jpg}}
 
-%http://www.evilcontrollers.com/media/catalog/product/cache/1/image/490x351/9df78eab33525d08d6e5fb8d27136e95/x/b/xboxone-frontview-stockblack.png
-%xbox_cotroller.png
+    %Touch
+    \footnotetext[49]{\url{http://pixabay.com/get/b3d60eb87415c735405c/1420749677/tablet-314153_1280.png?direct}}
 
-%http://ecx.images-amazon.com/images/I/71uQYNKiKCL._SL1500_.jpg
-%playstation_controller.png
+    %Wii
+    \footnotetext[50]{\url{http://images.amazon.com/images/G/01/videogames/detail-page/B000IMYKQ0-1-lg.jpg}}
+
+    %PlayStation
+    \footnotetext[51]{\url{http://ecx.images-amazon.com/images/I/71uQYNKiKCL._SL1500_.jpg}}
+
+    %Xbox
+    \footnotetext{\url{http://www.sosgamers.com/wp-content/uploads/2013/05/Xbox-One-Mando-1.jpg}}
 \end{frame}
 
 % Ergonomia
 % ------------------------------
-\begin{frame}{\textbf{Controle}}
-Level UP! - Scott Rogers
-ergonomia.png
+\begin{frame}{\textbf{Ergonomia}}
+    \begin{figure}
+        \includegraphics[height=5.5cm]{ergonomia}
+        \caption{\footnote{\textbf{Level UP!}, Scott Rogers}}
+    \end{figure}
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Button mashing}}
+    \centering
+    \begin{figure}
+        \includegraphics[height=5cm]{button_mashing}
+        \caption{Esmagando botões\footnote{\url{http://25.media.tumblr.com/tumblr_laz6viN7NI1qbbpaoo1_500.jpg}}}
+    \end{figure}
 \end{frame}
 
 
 % ---------------------------------------------------------------------------- %
-\section{Jogabilidade}
+\section{Um pouco sobre jogabilidade}
 % ---------------------------------------------------------------------------- %
 
 % ------------------------------
-\subsection{Protejendo o jogador de erros} %...e ajudando-o a corrigí-los
-    % -> Save points
-    % -> Guiar o jogador (Regra do olho espremido)
-    % -> Bloquear acesso a áreas erradas
-    % -> NPC’s de auxílio (tanto físico como de orientação geral)
+\subsection{Protegendo o jogador de erros...}
+% ------------------------------
+\begin{frame}{\textbf{Protejendo o jogador de erros...}}
+    \centering
+    \vskip -2cm%
+    ... e ajudando-o a corrigi-los
+    \vskip 1.5cm%
+
+    \begin{minipage}{7cm}
+        \begin{itemize}
+            \item Save points
+            \vskip 0.3cm%
+            \item Guiar o jogador\\
+                  (teste do olho apertado)
+            \vskip 0.3cm%
+            \item Bloqueie acesso a áreas indesejadas
+            \vskip 0.3cm%
+            \item NPC's de auxílio
+        \end{itemize}
+    \end{minipage}
+\end{frame}
 
 % ------------------------------
-\subsection{Consistência}
-    % -> as ações têm sempre o mesmo efeito
-    % -> o avatar é capaz de nadar ou não (ou toda água mata)
+\begin{frame}{\textbf{Protejendo o jogador de erros...}}
+    \centering
+    Mantenha a consistência
+    \vskip 0.4cm%
 
-% ------------------------------
-\subsection{Sequência lógica de desafios}
-    % -> Balanceamento de dificuldades
+    \begin{minipage}{4.5cm}
+        \begin{itemize}
+            \item Ações
+            \vskip 0.3cm%
+            \item Perigos e inimigos
+            \vskip 0.3cm%
+            \item Recompensas
+        \end{itemize}
+    \end{minipage}
+\end{frame}
 
 
 % ---------------------------------------------------------------------------- %
@@ -821,7 +892,7 @@ ergonomia.png
     \centering
     \begin{minipage}{7cm}
         \begin{itemize}
-            \item Descrição sussinta de cada fase
+            \item Descrição sucinta de cada fase
             \vskip 0.3cm%
             \item Permite acompanhar e controlar...
             \begin{itemize}
@@ -846,7 +917,7 @@ ergonomia.png
     \textbf{Número do nível}         & 1.2                             \\ \hline
     \textbf{Título/ambiente}         & Tumba dos escravos              \\ \hline
     \textbf{Hora do dia}             & Noite                           \\ \hline
-    \textbf{Elementos de história}   & Kha encontra um mapa e sai da pimâmide
+    \textbf{Elementos de história}   & Kha encontra um mapa e sai da pirâmide
                                        por uma passagem secreta feita pelos
                                        escravos                        \\ \hline
     \textbf{Progressão de gameplay}  & Jogador sabe se movimentar e combate
@@ -855,7 +926,7 @@ ergonomia.png
                                        voadores, múmias de escravos (básico),
                                        múmias de escravos (com ferramentas)
                                        \\ \hline
-    \textbf{Mecânicas}               & Alavancas, portas escondidas, vazos
+    \textbf{Mecânicas}               & Alavancas, portas escondidas, vasos
                                        quebráveis, plataformas móveis, escritas
                                        nas paredes                     \\ \hline
     \textbf{Perigos}                 & Armadilha de espinhos na parede,
@@ -865,7 +936,7 @@ ergonomia.png
     \textbf{Habilidades destravados} & Olhar item de perto, pulo duplo,
                                        escorregar                      \\ \hline
     \textbf{Power-ups encontrados}   & Haste de alavanca, recuperar vida,
-                                       vagalume, moedas de ouro, moedas de prata
+                                       vaga-lume, moedas de ouro, moedas de prata
                                        \\ \hline
     \textbf{Tesouros}                & 25 moedas de prata, 5 moedas de ouro
                                        \\ \hline
@@ -885,27 +956,28 @@ ergonomia.png
 % ------------------------------
 \begin{frame}{\textbf{Átomos de jogos}}
     \centering
-    \footnotesize
-    \begin{minipage}{7cm}
-        \begin{itemize}
+    %\footnotesize
+	\begin{multicols}{2}
+        \begin{enumerate}
             \item Objetivo Claro
             \item Recompensas e punições
             \item Jogador como Agente de Mudança
-            \item Contexto Compreensível (* rever o que é)
+            %\item Contexto Compreensível (* rever o que é)
             \item Regras Compreensíveis
             \item Habilidade e Progressão
-            \item Feedback sobre resultado (visual ou sonoro)
+            \item Feedback sobre ação
+                  %(visual ou sonoro)
             \item Interface consistente
-            \item Desafios e IA (desafios tipo "soma zero", mesmo sem oponentes
-                  humanos)
+            \item Desafios e IA
+                 %(desafios tipo "soma zero", mesmo sem oponentes humanos)
             \item Alternância entre Desafios e Pausas
             \item Balanceamento entre sorte e estratégia
                   %(sem demonizar os extremos - jogo da vida x xadrez)
-            \item Visibilidade e localização/orientação
+            \item Visibilidade e localização$/$orientação
             \item Uso de padrões
             \item Narrativa e fantasia significativas
-        \end{itemize}
-    \end{minipage}
+        \end{enumerate}
+    \end{multicols}
 \end{frame}
 
 
