@@ -67,12 +67,12 @@ Aula 2 - Pensando nas Regras do Jogo
     - Relação da mecânicas com os pilares de motivação
     - Exemplos de mecânicas básicas:
       + Analógico:
-             . Rolar e mover
+         . Rolar e mover
          . Coleção de peças
          . Alocação de entidades, etc
       + Digital:
          . Alocação de entidades
-             . Plataformas, alavancas, movimentos, etc
+         . Plataformas, alavancas, movimentos, etc
 
 # Atividade:
   Elaborar mecânicas para o projeto de jogo do curso.
