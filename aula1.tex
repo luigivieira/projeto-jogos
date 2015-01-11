@@ -110,6 +110,27 @@
 	}
 }
 
+\AtBeginSubsection[]
+{
+    \begin{frame}
+        \centering
+        \Large
+        \textbf{\insertsubsection}
+    \end{frame}
+}
+
+\AtBeginSubsubsection[]
+{
+    \begin{frame}
+        \centering
+        \large
+        \insertsubsection
+        \vskip 1em
+        \Large
+        \textbf{\insertsubsubsection}
+    \end{frame}
+}
+
 \DeclareGraphicsExtensions{.pdf,.jpg,.png}
 \graphicspath{{./images/}}
 
@@ -451,7 +472,7 @@ Departamento de Ciência da Computação}
 	
 	\begin{center}
 		{\large
-			As apresentações do curso\footnote{Sem as imagens com copyright} estão disponíveis em:\\[1em]
+			As apresentações\footnote{Sem as imagens com copyright} do curso estão disponíveis em:\\[1em]
 			\url{http://www.ime.usp.br/~lidet/projeto-jogos/}
 		}
 	\end{center}
@@ -459,17 +480,17 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Jogos como Sistemas}
+\section{O Design de Jogos}
 % ---------------------------------------------------------------------------- %
 
-\subsection{Definições e Conceitos}
+\subsection{Conceitualização}
 
 % ------------------------------
 \begin{frame}
 	\frametitle{\textbf{O que é um jogo?}}
 
 	\begin{center}
-		A atividade dessas crianças, é um jogo ou apenas uma brincadeira?
+		A atividade dessas crianças é um jogo ou uma brincadeira?
 	\end{center}	
 
 	\vspace{-2em}
@@ -520,6 +541,7 @@ Departamento de Ciência da Computação}
 	\frametitle{\textbf{Tipos de atividades lúdicas}}
 
 	O nível de interatividade de uma atividade lúdica também auxilia a definição geral:
+	
     \begin{figure}
 	    \centering
    		\includegraphics[height=0.5\paperheight]{types-of-play}
@@ -532,7 +554,8 @@ Departamento de Ciência da Computação}
 \begin{frame} 
 	\frametitle{\textbf{Tipos de atividades lúdicas}}
 
-	Considera-se também um eixo adicional, relacionado à forma do produto (ou processo) projetado:
+	Um eixo adicional, relacionado à forma do produto (ou processo) projetado, aprimora tal classificação:
+	
     \begin{figure}
 	    \centering
         \includegraphics[height=0.65\paperheight]{taxonomy}
@@ -543,27 +566,111 @@ Departamento de Ciência da Computação}
 
 % ------------------------------
 \begin{frame}
-	\frametitle{\textbf{Jogo como sistema}}
+	\frametitle{\textbf{O que torna atividades lúdicas divertidas}}
+
+	As atividades lúdicas envolvem aprendizado em três dimensões \cite{Malone1980}:
+
+	\vspace{1em}
+
+	\begin{outline}
+		\1 Curiosidade
+			\2[-] {\scriptsize comportamento exploratório decorrente do interesse natural em adquirir conhecimento}
+			
+		\vspace{1em}
+		
+		\1 Desafio
+			\2[-] {\scriptsize oportunidades para ação em que há um balenceamento entre dificuldade e habilidade}
+					
+		\vspace{1em}
+		
+		\1 Fantasia
+			\2[-] {\scriptsize imagens mentais não presentes nos sentidos que ajudam a acomodar a realidade}
+	\end{outline}
+\end{frame}
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{A teoria do fluxo}}
+
+	\begin{figure}
+	    \centering
+        \includegraphics[height=0.8\paperheight]{flow-model}
+        \caption{\textbf{Modelo dos estados do Fluxo}, baseado em \cite{Nakamura2001}}
+    \end{figure}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{Diferentes tipos de experiências}}
+
+	\begin{table}
+		\tiny
+		\setlength{\tabcolsep}{5pt}
+		\renewcommand{\arraystretch}{1}
+		\caption{\textbf{A dinâmica da experiência em interações individuais e sociais}, baseado em \cite{Forlizzi2004}}
+		\begin{tabular}{ll}
+			\toprule
+			\textbf{Tipo de Interação} & \textbf{Descrição}\\
+			\midrule
+			Fluente & Automática e bem aprendida, não compete por atenção\\
+			Cognitiva & Requer esforço atentivo e resulta em conhecimento ou confusão\\
+			Expressiva & Auxilia na formação de relacionamento com o produto\\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+
+	\vspace{-1em}
+
+ 	\begin{figure}
+	    \centering
+        \includegraphics[height=0.5\paperheight]{experience-dynamics}
+    \end{figure}
+    
+	\vspace{-1em}
+	    
+	\begin{table}
+		\tiny
+		\setlength{\tabcolsep}{5pt}
+		\renewcommand{\arraystretch}{1}
+		\begin{tabular}{ll}
+			\toprule
+			\textbf{Tipo de Experiência} & \textbf{Descrição}\\
+			\midrule
+			Experiência & Fluxo constante de interação com o produto\\
+			Uma experiência & Pode ser articulada e inspira mudanças comportamentais e emocionais\\
+			Coexperiência & Cria significado e emoção em uso conjunto\\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+
+\end{frame}
+
+\subsection{Jogos como sistemas}
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{O que é um jogo?}}
 	
-	Esta é uma definição possível sobre o que é um jogo \cite{Fullerton2008}:
+	Eis \emph{uma} definição possível \cite{Fullerton2008}:
 
 	\vspace{0.2em}
 	
 	\begin{outline}
-		\1 Um sistema fechado e \emph{formal} (com regras)
+		\1 Um sistema fechado e \emph{formal} (isto é, com regras)
 		
-		\vspace{1em}
+		\vspace{0.5em}
 		
 		\1 Que engaja jogadores em \emph{conflitos} estruturados
 
-		\vspace{1em}
+		\vspace{0.5em}
 		
 		\1 E resolve as \emph{incertezas} com resultados desiguais
 	\end{outline}	
 
 	\vspace{1.5em}
 
-	A definição advém do mecanismo psicológico da atenção \cite{Koster2004}:
+	Tal definição advém do mecanismo psicológico da atenção \cite{Koster2004}:
 
 	\vspace{0.2em}
 
@@ -573,7 +680,7 @@ Departamento de Ciência da Computação}
 		
 		\vspace{1em}
 		
-		\1 Incertezas são padrões familiares ainda parcialmente entendidos
+		\1 Incertezas são padrões familiares ainda parcialmente compreendidos
 			\2[-] {\scriptsize jogos fornecem tais padrões para os jogadores ``digerirem'' (\textit{chunking})}
 	\end{outline}
 
@@ -581,9 +688,9 @@ Departamento de Ciência da Computação}
 
 % ------------------------------
 \begin{frame}
-	\frametitle{\textbf{Jogo como meio}}
+	\frametitle{\textbf{Qual é o papel do projetista?}}
 
-	O jogo é um meio de comunicação entre projetista (\textit{game designer}) e jogador (\textit{player})
+	O jogo é também um meio de comunicação entre projetista (\textit{game designer}) e jogador (\textit{player})
 
 	\vspace{1em}
 
@@ -606,6 +713,8 @@ Departamento de Ciência da Computação}
 
 \end{frame}
 
+\subsection{Desconstruindo jogos}
+
 % ------------------------------
 \begin{frame}
 	\frametitle{\textbf{Jogos digitais x analógicos}}
@@ -619,30 +728,219 @@ Departamento de Ciência da Computação}
 
 \end{frame}
 
-% ---------------------------------------------------------------------------- %
-\section{Desconstrução de jogos}
-% ---------------------------------------------------------------------------- %
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{Elementos básicos de um jogo}}
 
-\subsection{XXXX}
+	\begin{columns}[c]
+	
+		\column{0.5\textwidth}
+		
+		    \vspace{-2em}
+		
+			\begin{figure}
+			    \centering
+		        \includegraphics[height=0.7\paperheight]{game-elements}
+		        \vspace{0.5em}
+		        \caption{\textbf{O tetraedro elemental dos jogos}, baseado na ilustração original de Jesse Schell}
+		    \end{figure}
+		    
+		\column{0.5\textwidth}
+		
+		    \vspace{-1em}
+		
+			\begin{outline}
+				\1 Estética
+					\2[-] {\scriptsize aparência e sentimento do jogo}
+					\2[-] {\scriptsize impacto mais direto na experiência}
+				
+				\vspace{0.5em}
+				
+				\1 Mecânica
+					\2[-] {\scriptsize procedimentos e regras do jogo}
+					\2[-] {\scriptsize descreve objetivo e ações possíveis}
+
+				\vspace{0.5em}
+					
+				\1 Narrativa
+					\2[-] {\scriptsize sequência de eventos no jogo}
+					\2[-] {\scriptsize linear, pré-configurada ou emergente}
+
+				\vspace{0.5em}
+
+				\1 Tecnologia
+					\2[-] {\scriptsize materiais e interações que tornam o jogo possível}
+					\2[-] {\scriptsize papel, computadores ou lasers}
+			\end{outline}
+		
+	\end{columns}
+
+\end{frame}
 
 % ------------------------------
 \begin{frame}
-	\frametitle{\textbf{BLABLABLA}}
+	\frametitle{\textbf{Jogos e outras formas de entretenimento}}
 
-	\begin{center}
-		A atividade dessas crianças, é um jogo ou apenas uma brincadeira?
-	\end{center}	
+	\begin{outline}
+		\1 Livros e filmes envolvem tecnologia, narrativa e estética
+		
+		\vspace{0.5em}
+		
+		\1 Mas não envolvem mecânica!
+	\end{outline}
 
-	\vspace{-2em}
-	
-	\begin{figure}
-		\centering
-		\includegraphics[width=0.9\paperwidth]{floor-is-lava}
-		\caption{\textbf{The Floor is Lava} \copyright{2011-2015} DerekHunter\footnote{\url{http://derekhunter.deviantart.com/art/The-Floor-is-Lava-276153571}}}
-	\end{figure}
-	
 	\vspace{2em}
 
+	\begin{block}{}
+	
+		\vspace{1em}
+	
+		\begin{center}
+			{\Large A mecânica é o que torna um jogo um jogo}
+		\end{center}
+
+		\vspace{0.2em}
+
+	\end{block}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{Mecânica}}
+
+	Os elementos fundamentais da mecânica são:
+
+	\vspace{1em}
+
+	\begin{outline}
+		\1 Objetivo
+			\2[-] \emph{do jogador, e não do designer!}
+		
+		\vspace{0.5em}
+		
+		\1 Condição de término
+			\2[-] com as condições de vitória e derrota
+			
+		\vspace{0.5em}
+
+		\1 Ações
+			\2[-] as formas como o jogador é capaz de controlar o ``mundo''
+			
+		\vspace{0.5em}
+		
+		\1 \textit{Feedback}
+			\2[-] as formas como o jogo ``responde'' ao jogador
+	\end{outline}
+
+	\vspace{1em}
+
+	Há diferentes tipos de \textit{feedback}:
+	
+	\begin{outline}
+		\1 Sensorial
+			\2[-] \emph{respostas diretas aos sentidos}
+		
+		\vspace{0.5em}
+		
+		\1 Utilitário
+			\2[-] 
+			
+		\vspace{0.5em}
+
+		\1 Emocional
+			\2[-] 
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{Dimensões da estética}}
+
+	\begin{outline}
+		\1 Existem diferentes tipos/significados para ``estética'' \cite{Niedenthal2009}
+			\2[-] fenômeno sensorial (visual, auditivo, tátil e encorporado)
+			\2[-] aspectos apreciativos compartilhados com outras artes
+			\2[-] expressão geral da experiência do jogador
+	\end{outline}
+
+	\begin{table}
+		\scriptsize
+		\setlength{\tabcolsep}{1pt}
+		\renewcommand{\arraystretch}{1}
+		\caption{\textbf{Estéticas da experiência de jogo} \cite{Hunicke2004}}
+		\begin{tabular}{cc}
+			\toprule
+			\textbf{Sensação} & \textbf{Interação Social}\\
+			Jogo como prazer sensorial & Jogo como plataforma social\\[1em]
+			\textbf{Fantasia} & \textbf{Descoberta}\\
+			Jogo como faz-de-conta & Jogo como território inexplorado\\[1em]
+			\textbf{Narrativa} & \textbf{Expressão}\\
+			Jogo como drama & Jogo como autodescoberta\\[1em]
+			\textbf{Desafio} & \textbf{Submissão}\\
+			Jogo como curso de obstáculos & Jogo como passatempo\\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
+\section{???}
+% ---------------------------------------------------------------------------- %
+
+
+% ---------------------------------------------------------------------------- %
+\section{Atividade}
+% ---------------------------------------------------------------------------- %
+
+% ------------------------------
+\begin{frame}
+	\frametitle{\textbf{Desconstrução de jogos clássicos}}
+
+	\vspace{-1.5em}
+
+	\begin{center}
+		Já em grupos, desconstrua os seguintes jogos:
+	\end{center}
+	
+	\vspace{-1.5em}
+
+	\begin{figure}
+	    \centering
+
+	    \begin{subfigure}[!h]{0.25\paperwidth}
+	    	\centering
+	    	\includegraphics[height=0.22\paperheight]{pacman-screenshot}
+	        \caption{\scriptsize\textbf{Pac-Man} \copyright{1980} Namco\footnotemark{}}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.25\paperwidth}
+			\centering
+	        \includegraphics[height=0.2\paperheight]{supermario-screenshot}
+	        \caption{\scriptsize\textbf{Super Mario Bros.} \copyright{1985} Nintendo\footnotemark{}}
+	    \end{subfigure}
+	   	~
+	    \begin{subfigure}[!h]{0.25\paperwidth}
+	    	\centering
+	        \includegraphics[height=0.2\paperheight]{chess-board}
+	        \caption{\scriptsize\textbf{Xadrez}\footnotemark{}}
+	    \end{subfigure}
+	    \\[0.5em]
+		\begin{subfigure}[!h]{0.35\paperwidth}
+			\centering
+	        \includegraphics[height=0.2\paperheight]{cs-screenshot}
+	        \caption{\scriptsize\textbf{Counter-Strike} \copyright{1999} Valve\footnotemark{}}
+	    \end{subfigure}
+
+    \end{figure}
+
+	\footnotetext[3]{\url{http://www.arcade-museum.com/game_detail.php?game_id=10816}}
+	\footnotetext[4]{\url{http://www.arcade-museum.com/game_detail.php?game_id=9913}}
+	\footnotetext[5]{\url{http://pt.wikipedia.org/wiki/Xadrez}}
+	\footnotetext{\url{http://en.wikipedia.org/wiki/Counter-Strike}}
+    
 \end{frame}
 
 % ------------------------------------------
@@ -657,61 +955,6 @@ Departamento de Ciência da Computação}
 \end{frame}
 \referencesend
 
-% ---------------------------------------------------------------------------- %
-% Last Slide = activity
-% ---------------------------------------------------------------------------- %
-
-% ---------------------------------------------------------------------------- %
-\section{Atividade}
-% ---------------------------------------------------------------------------- %
-
-% ------------------------------
-\begin{frame}
-	\frametitle{\textbf{Atividade: desconstruindo jogos clássicos}}
-
-	\vspace{-1.5em}
-
-	\begin{center}
-		Já em grupos, tente desconstruir os seguintes jogos:
-	\end{center}
-	
-	\vspace{-2em}
-
-	\begin{figure}
-	    \centering
-
-	    \begin{subfigure}[!h]{0.25\paperwidth}
-	    	\centering
-	    	\includegraphics[height=0.22\paperheight]{pacman-screenshot}
-	        \caption{\tiny\textbf{Pac-Man} \copyright{1980} Namco\footnotemark{}}
-	    \end{subfigure}
-	    ~
-		\begin{subfigure}[!h]{0.25\paperwidth}
-			\centering
-	        \includegraphics[height=0.2\paperheight]{supermario-screenshot}
-	        \caption{\tiny\textbf{Super Mario Bros.} \copyright{1985} Nintendo\footnotemark{}}
-	    \end{subfigure}
-	   	~
-	    \begin{subfigure}[!h]{0.25\paperwidth}
-	    	\centering
-	        \includegraphics[height=0.2\paperheight]{chess-board}
-	        \caption{\tiny\textbf{Xadrez} Índia (cerca de 500 d.C.)\footnotemark{}}
-	    \end{subfigure}
-	    \\[0.5em]
-		\begin{subfigure}[!h]{0.25\paperwidth}
-			\centering
-	        \includegraphics[height=0.2\paperheight]{cs-screenshot}
-	        \caption{\tiny\textbf{Counter-Strike} \copyright{1999} Valve\footnotemark{}}
-	    \end{subfigure}
-
-    \end{figure}
-
-	\footnotetext[4]{\url{http://www.arcade-museum.com/game_detail.php?game_id=10816}}
-	\footnotetext[5]{\url{http://www.arcade-museum.com/game_detail.php?game_id=9913}}
-	\footnotetext[6]{\url{http://pt.wikipedia.org/wiki/Xadrez}}
-	\footnotetext{\url{http://en.wikipedia.org/wiki/Counter-Strike}}
-    
-\end{frame}
 
 \end{document}
 
