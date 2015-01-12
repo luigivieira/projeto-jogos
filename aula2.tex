@@ -405,30 +405,74 @@ Departamento de Ciência da Computação}
 
 
 % ---------------------------------------------------------------------------- %
-\section{Público-alvo}
+\section{Definição do público-alvo}
 % ---------------------------------------------------------------------------- %
+
 % ------------------------------
 \begin{frame}{\textbf{Motivação e importância}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{description}
-            \item[Gameplay:] ações dentro do jogo
-            \vskip 1cm%
-            \item[Jogabilidade:] capacidade de jogar bem
-        \end{description}
-    \end{minipage}
+
+	\begin{outline}
+
+		\1 A experiência é individual e dependente de contexto
+			\2[-] {\scriptsize e assim é impossível de garantir!}
+
+		\vspace{1em}
+
+		\1 É difícil fazer testes antes de tomar algumas decisões de projeto
+			\2[-] {\scriptsize porque os testadores precisam de algo pra jogar!}
+
+		\vspace{1em}
+
+		\1 As decisões de projeto são sempre direcionadas a jogadores humanos
+			\2[-] {\scriptsize afinal jogos são feitos para alguém jogar!}
+
+		\vspace{1em}
+
+		\1 Os projetistas costumam ter ideias vagas ou contraditórias sobre os jogadores
+			\2[-] {\scriptsize acabando por se basear em si mesmos e/ou em pessoas muito similares a eles}
+
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Motivação e importância}}
+
+	Deve ser possível perceber algumas dificuldades:
+
+	\vspace{0.5em}
+
+	\begin{outline}
+		\1 Dificuldade na identificação e na comunicação das experiências desejadas
+			\2[-] {\scriptsize cada projetista, artista, programador, etc pode ter alvos diferentes}
+			\2[-] {\scriptsize é um problema grande especialmente em projetos com muitos profissionais}
+
+		\vspace{1em}
+
+		\1 Dificuldade na realização e aproveitamento dos testes de avaliação
+			\2[-] {\scriptsize os protótipos iniciais serão provavelmente distantes do desejado}
+			\2[-] {\scriptsize é mais difícil obter participantes adequados}
+			\2[-] {\scriptsize as avaliações obtidas são menos úteis}
+			\2[-] {\scriptsize a equipe pode demorar a perceber o real o público-alvo}
+	\end{outline}
+
 \end{frame}
 
 % ------------------------------
 \begin{frame}{\textbf{Cartões de personas}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{description}
-            \item[Gameplay:] ações dentro do jogo
-            \vskip 1cm%
-            \item[Jogabilidade:] capacidade de jogar bem
-        \end{description}
-    \end{minipage}
+
+	Uma técnica bastante útil é chamada de Personas:
+
+	\begin{quotation}
+		\noindent
+		{\large ``Personas são arquétipos de usuários que representam o público-alvo de um produto.
+		Eles são mais bem desenvolvidos em conjunto com a pesquisa de mercado.''\\[0.5em]
+		\noindent
+		\hfill -- Emily Brown \cite{Brown2010}}
+	\end{quotation}
+
+	\cite{Pruitt2003}\\
+	
 \end{frame}
 
 % ------------------------------
@@ -895,6 +939,19 @@ Departamento de Ciência da Computação}
         \end{itemize}
 	\end{minipage}
 \end{frame}
+
+% ------------------------------------------
+% References
+% ------------------------------------------
+
+\referencesbegin
+\begin{frame}[plain, allowframebreaks]
+	\frametitle{\textbf{References}}
+	\bibliographystyle{abbrv}
+	{\tiny \bibliography{bibliography}}
+\end{frame}
+\referencesend
+
 
 \end{document}
 
