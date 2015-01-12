@@ -229,7 +229,7 @@ Departamento de Ciência da Computação}
 \section{Introdução}
 % ---------------------------------------------------------------------------- %
 
-\subsection{Provimento e motivação}
+\subsection{Ministrantes e motivação}
 
 % ------------------------------
 \begin{frame}
@@ -320,7 +320,7 @@ Departamento de Ciência da Computação}
 		\begin{quotation}
 			\noindent
 			\justify
-			{\large Complementar a formação técnica/operacional de qualidade (leia-se ``Ciência da Computação'') com a capacitação em aspectos humanos relacionados ao \textbf{design de experiências}}
+			{\large Introduzir e fomentar o interesse sobre os aspectos humanos relacionados ao \textbf{design de experiências} ao invés dos aspectos técnicos de implementação}
 		\end{quotation}
 
 		\vspace{1em}
@@ -406,14 +406,43 @@ Departamento de Ciência da Computação}
 
 % ------------------------------
 \begin{frame} 
+	\frametitle{\textbf{Protótipo de jogo}}
+
+	\begin{outline}
+		\1 Projeto
+			\2[-] {\scriptsize protótipo de baixa fidelidade de um jogo}
+			\2[-] {\scriptsize analógico ou digital}
+	    
+		\vspace{1em}
+	    
+		\1 Atividades
+			\2[-] {\scriptsize incrementais ao longo das aulas}
+			\2[-] {\scriptsize construção iterativa do projeto}
+	    
+		\vspace{1em}
+	    
+		\1 Grupos
+			\2[-] {\scriptsize trabalho em grupo (4 pessoas)}
+		
+		\vspace{1em}
+			    
+		\1 Encerramento
+			\2[-] {\scriptsize executação de \textit{playtests} com os protótipos}
+			\2[-] {\scriptsize \textit{pitch} de 3 minutos(!)}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame} 
 	\frametitle{\textbf{Avisos importantes}}
 	
 	\begin{block}{\centering\textbf{ATENÇÃO!}}
 	
 		\begin{outline}
 			\1 As aulas ocorrem pela manhã, no período entre 09:00 e 12:00
+				\2[-] {\scriptsize intervalo de 10 minutos às 10:00}
 				\2[-] {\scriptsize \textbf{não se atrase!}}
-				\2[-] {\scriptsize as aulas começam no horário programado}
 		    
 			\vspace{1em}
 		    
@@ -425,7 +454,6 @@ Departamento de Ciência da Computação}
 				    
 			\1 O curso se encerra com a execução de avaliações do protótipo criado em aula
 				\2 {\scriptsize \textbf{não esqueça o projeto/material em casa!}}
-				\2 {\scriptsize infelizmente não há espaço para armazená-lo na USP}
 		\end{outline}
 
 	\end{block}	
@@ -467,17 +495,17 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ------------------------------
-\begin{frame} 
-	\frametitle{\textbf{Material do curso}}
+%\begin{frame} 
+%	\frametitle{\textbf{Material do curso}}
 	
-	\begin{center}
-		{\large
-			As apresentações\footnote{Sem as imagens com copyright} do curso estarão disponíveis em:\\[1em]
-			\url{http://www.ime.usp.br/~lidet/projeto-jogos/}
-		}
-	\end{center}
+%	\begin{center}
+%		{\large
+%			As apresentações\footnote{Sem as imagens com copyright} do curso estarão disponíveis em:\\[1em]
+%			\url{http://www.ime.usp.br/~lidet/projeto-jogos/}
+%		}
+%	\end{center}
 	
-\end{frame}
+%\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \section{O Design de Jogos}
@@ -507,9 +535,9 @@ Departamento de Ciência da Computação}
 
 % ------------------------------
 \begin{frame}
-	\frametitle{\textbf{O que torna atividades lúdicas divertidas}}
+	\frametitle{\textbf{Motivação intrínsica}}
 
-	As atividades lúdicas envolvem aprendizado em três dimensões \cite{Malone1980}:
+	As atividades lúdicas envolvem aprendizado em três dimensões (pilares da motivação intrínsica) \cite{Malone1980}:
 
 	\vspace{1em}
 
@@ -885,34 +913,44 @@ Departamento de Ciência da Computação}
 \begin{frame}
 	\frametitle{\textbf{Desconstrução de jogos}}
 
-	Qualquer jogo existente pode ser ``desconstruído'' nesses elementos:
+	\begin{minipage}{3cm}
 
-	\begin{block}{Exemplo: Pong}
-	
-		\begin{columns}[c]
-			
-			\column{0.3\textwidth}
-			
-				\begin{figure}
-					\centering
-					\includegraphics[height=0.2\paperheight]{pong-screenshot}
-					\caption{\scriptsize\textbf{Pong} \copyright{1972} Atari\footnotemark{}}
-				\end{figure}
-				
-			\column{0.7\textwidth}
-			
-				{\scriptsize
-					\textbf{Objetivo}: fazer a bolinha cruzar o fundo da área do adversário\\
-					\textbf{Condição de Término}: a bolinha ultrapassa a linha de fundo de um dos jogadores\\
-					\textbf{Ações}: $1)$ mover o bastão para cima; $2)$ mover o bastão para baixo\\
-					\textbf{Feedback}: $1)$ sinais sonoros do impacto da bolinha nos bastões, paredes e fundo de linha; $2)$ alteração do placar numérico; $3)$ movimentação dos bastões ao comando do jogador\\
-					\textbf{Estéticas de experiência}: $1)$ curiosidade da interação com computadores (há época); $2)$ desafio e passatempo; $3)$ descoberta de habilidades (jogadas de efeitos); $4)$ interação social (``\textit{high score}''); $5)$ fantasia esportiva (tênis)
-				}
-			
-		\end{columns}
+		\begin{figure}
+			\centering
+			\includegraphics[width=\textwidth]{pong-screenshot}
+			\caption{\scriptsize\textbf{Pong} \copyright{1972} Atari\footnotemark{}}
+		\end{figure}
 
-	\end{block}	
-	
+	\end{minipage}
+	\begin{minipage}{7cm}
+
+		\begin{outline}
+			\1 {\scriptsize \textbf{Objetivo}: fazer a bolinha cruzar o fundo da área do adversário}
+			\1 {\scriptsize \textbf{Condição de Término}: a bolinha ultrapassa a linha de fundo de um dos jogadores}
+			\1 {\scriptsize \textbf{Ações}:}
+				\2[-] {\scriptsize mover o bastão para cima}
+				\2[-] {\scriptsize mover o bastão para baixo}
+		\end{outline}
+
+	\end{minipage}
+
+	\begin{minipage}{\paperwidth}
+
+		\begin{outline}
+			\1 {\scriptsize \textbf{Feedback}:}
+				\2[-] {\scriptsize sinais sonoros do impacto da bolinha nos bastões, paredes e fundo de linha}
+				\2[-] {\scriptsize alteração do placar numérico}
+				\2[-] {\scriptsize movimentação dos bastões ao comando do jogador}
+			\1 {\scriptsize \textbf{Estéticas de experiência}:}
+				\2[-] {\scriptsize curiosidade da interação com computadores (há época)}
+				\2[-] {\scriptsize desafio e passatempo}
+				\2[-] {\scriptsize descoberta de habilidades (jogadas de efeitos)}
+				\2[-] {\scriptsize interação social (``\textit{high score}'')}
+				\2[-] {\scriptsize fantasia esportiva (tênis)}
+		\end{outline}
+
+	\end{minipage}
+			
 	\footnotetext{\url{http://en.wikipedia.org/wiki/Pong}}
 	
 \end{frame}
