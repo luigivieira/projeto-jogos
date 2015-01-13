@@ -24,6 +24,7 @@
 \usepackage{ragged2e}
 \usepackage{tikz}
 \usepackage{multicol}
+\usepackage{multirow}
 
 % ---------------------------------------------------------------------------- %
 % Presentation definitions
@@ -512,8 +513,47 @@ Departamento de Ciência da Computação}
 \section{Definição do público-alvo}
 % ---------------------------------------------------------------------------- %
 
+\subsection{Motivação}
+
 % ------------------------------
-\begin{frame}{\textbf{Motivação e importância}}
+\begin{frame}{\textbf{Público-alvo}}
+
+	\vspace{-1em}
+
+	\begin{center}
+		As melhores escolhas para a mecânica, estética, narrativa e tecnologia devem decorrer do público-alvo.\\[1em]
+		\emph{Mas como identificar esse público?}
+	\end{center}
+
+	\vspace{-1em}
+
+	\begin{columns}[c]
+	
+		\column{0.5\textwidth}
+		
+			\begin{figure}
+				\centering
+		    	\includegraphics[width=0.4\paperwidth]{shadow-mordor-screenshot}
+		        \caption{\tiny\textbf{Middle-earth: Shadow of Mordor} \copyright{2014} Warner Bros. Interactive Entertainment\footnotemark{}}
+			\end{figure}
+		
+		\column{0.5\textwidth}
+		
+			\begin{figure}
+				\centering
+		        \includegraphics[width=0.4\paperwidth]{candy-crush-screenshot}
+		        \caption{\tiny\textbf{Candy Crush Saga} \copyright{2012} King\footnotemark{}\\[1.4em]}
+			\end{figure}		
+		
+	\end{columns}
+
+	\footnotetext[4]{\url{https://www.shadowofmordor.com/}}
+	\footnotetext{\url{http://www.candycrushsaga.com/}}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Eis a situação}}
 
 	\begin{outline}
 
@@ -522,7 +562,7 @@ Departamento de Ciência da Computação}
 
 		\vspace{1em}
 
-		\1 É difícil fazer testes antes de tomar algumas decisões de projeto
+		\1 É difícil fazer testes antes de tomar ao menos algumas decisões de projeto
 			\2[-] {\scriptsize porque os testadores precisam de algo pra jogar!}
 
 		\vspace{1em}
@@ -532,19 +572,15 @@ Departamento de Ciência da Computação}
 
 		\vspace{1em}
 
-		\1 Os projetistas costumam ter ideias vagas ou contraditórias sobre os jogadores
-			\2[-] {\scriptsize acabando por se basear em si mesmos e/ou em pessoas muito similares a eles}
+		\1 Os projetistas costumam ter ideias vagas ou contraditórias sobre os jogadores \cite{Pruitt2003}
+			\2[-] {\scriptsize acabando por basear suas escolhas em si mesmos e/ou em pessoas muito similares a eles próprios}
 
 	\end{outline}
 
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Motivação e importância}}
-
-	Deve ser possível perceber algumas dificuldades:
-
-	\vspace{0.5em}
+\begin{frame}{\textbf{O que gera potenciais problemas}}
 
 	\begin{outline}
 		\1 Dificuldade na identificação e na comunicação das experiências desejadas
@@ -554,45 +590,267 @@ Departamento de Ciência da Computação}
 		\vspace{1em}
 
 		\1 Dificuldade na realização e aproveitamento dos testes de avaliação
-			\2[-] {\scriptsize os protótipos iniciais serão provavelmente distantes do desejado}
-			\2[-] {\scriptsize é mais difícil obter participantes adequados}
-			\2[-] {\scriptsize as avaliações obtidas são menos úteis}
-			\2[-] {\scriptsize a equipe pode demorar a perceber o real o público-alvo}
+			\2[-] {\scriptsize os protótipos iniciais serão provavelmente muito distantes do ideal}
+			\2[-] {\scriptsize tornando mais difícil obter participantes adequados}
+			\2[-] {\scriptsize fazendo as avaliações obtidas serem menos úteis}
+			\2[-] {\scriptsize e ocasionando maior demora da equipe em perceber o real público do jogo}
+	\end{outline}
+
+\end{frame}
+
+\subsection{Personas}
+
+% ------------------------------
+\begin{frame}{\textbf{A ferramenta chamada Personas}}
+
+	Uma técnica/ferramenta bastante útil é chamada de Personas:
+
+	\vspace{3em}
+
+	\begin{quotation}
+		\noindent
+		{\large ``Personas são arquétipos de usuários que representam o público-alvo de um produto. Elas são desenvolvidas e discutidas em proximidade às pesquisas de mercado, e são uma definição formal da audiência do jogo.''\\[0.5em]
+		\noindent
+		\hfill -- Emily Brown \cite{Brown2010}}
+	\end{quotation}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Personagens são úteis para discussão}}
+
+	\begin{outline}
+		\1 Personagens fictícios com detalhes pessoais
+			\2[-] {\scriptsize nome, idade, foto, hobbies, trabalho, estilo de vida, tipo de software que utiliza, tipo de jogo que joga, etc}
+			\2[-] {\scriptsize \emph{principalmente} objetivos com relação ao produto}
+
+		\vspace{1em}
+
+		\1 Similar a uma segmentação de mercado
+			\2[-] {\scriptsize e por isso em geral em pequenas quantidades (3 a 6 Personas dependendo da profundidade do uso do produto \cite{Pruitt2003})}
+
+		\vspace{1em}
+
+		\1 São utilizados em todas as discussões durante o projeto do jogo
+			\2[-] {\scriptsize escolhas da mecânicas, estéticos, narrativa e tecnologia}
+			\2[-] {\scriptsize priorização da construção dos elementos do jogo}
+			\2[-] {\scriptsize ``anti-Personas'' para identificar pessoas que não irão jogar}
+	\end{outline}
+
+\end{frame}
+
+\subsection{Criação e uso}
+
+% ------------------------------
+\begin{frame}{\textbf{Processo básico de criação e uso}}
+
+	\begin{outline}
+		\1 Colete informações de todas as fontes possíveis
+			\2[-] {\scriptsize clientes, pesquisas de mercado, dados imaginados, etc}
+			
+		\vspace{1em}
+				
+		\1 Crie um espectro inicial de personalidades
+			\2[-] {\scriptsize basicamente, crie as pessoas fictícias a partir dos dados}
+			\2[-] {\scriptsize e construa cenários (histórias) de uso do produto para cada Persona}
+			
+		\vspace{1em}
+		
+		\1 Procure padrões
+			\2[-] {\scriptsize faça entrevistas, conduza testes, etc}
+			\2[-] {\scriptsize isso pode auxiliar a unir Personas que representam o mesmo ``grupo'' de usuários}
+			
+		\vspace{1em}
+		
+		\1 Refine o conjunto de personalidades
+			\2[-] {\scriptsize procurando manter um número pequeno de Personas, ainda que representativo}
+			\2[-] {\scriptsize a quantidade pequena facilita tornar o produto mais ``pessoal''}
 	\end{outline}
 
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Cartões de personas}}
+\begin{frame}{\textbf{Cunhando as Personas}}
 
-	Uma técnica bastante útil é chamada de Personas:
-    \vskip 2em
+	\begin{outline}
+		\1 Podem ser cunhados basicamente de duas formas
+			\2[-] {\scriptsize coleta de dados etnograficos (pessoas reais)}
+			\2[-] {\scriptsize concepção (imaginação) de papéis totalmente fictícios}
+			
+		\vspace{1em}
+				
+		\1 Pela coleta de dados etnográficos
+			\2[-] {\scriptsize coletados com entrevistas, pesquisas, estudos de campo, etc}
+			\2[-] {\scriptsize exploração para criar personagens fictícios dos grupos nos dados}
+			\2[-] {\scriptsize uso de ``documento de fundação'' para cada Persona}
+			
+	\end{outline}
 
-	\begin{quotation}
-		\noindent
-		{\large ``Personas são arquétipos de usuários que representam o público-alvo de um produto.
-		Eles são mais bem desenvolvidos em conjunto com a pesquisa de mercado.''\\[0.5em]
-		\noindent
-		\hfill -- Emily Brown \cite{Brown2010}}
-	\end{quotation}
-
-    % TODO: colocar um gancho de citação.
-	\cite{Pruitt2003}\\
-	
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Adequação às capacidades do público-alvo}}
-    \centering
-    \begin{minipage}{5cm}
-        \begin{itemize}
-            \item Capacidades cognitivas
-            \vskip 1cm%
-            \item Capacidades motoras
-        \end{itemize}
-    \end{minipage}
+\begin{frame}{\textbf{Criação a partir de coleta etnográfica}}
+
+	\begin{outline}
+	
+		\1 Faça entrevistas, pesquisas ou estudos de campo
+			\2[-] {\scriptsize para coletar dados socioeconômicos, idade, preferências, etc}
+			\2[-] {\scriptsize alternativamente pode-se obter tais dados de pesquisas de mercado anteriores ou contratadas}
+	
+		\vspace{1em}
+	
+		\1 Explore os dados para combiná-los e criar personagens fictícios
+			\2[-] {\scriptsize divida a equipe em times e peça para que criem personagens de forma independente}
+			
+		\vspace{1em}
+				
+		\1 Apóie o processo em um ``documento de fundação''
+			\2[-] {\scriptsize um guia de perguntas que todos os times se devem fazer}
+			\2[-] {\scriptsize e que devem ser respondidas utilizando os dados coletados}
+	\end{outline}
+
 \end{frame}
 
+% ------------------------------
+\begin{frame}{\textbf{Exemplo de documento de fundação}}
+
+	\begin{minipage}{7cm}
+		\tiny
+		\textbf{Visão Geral -- Alan Waters (Empresário)}\\
+		Conheça o Alan, seu negócio e sua família.\\[0.5em]
+		\textbf{Um Dia na Vida}\\
+		Acompanhe o Alan ao longo de um dia típico.\\[0.5em]
+		\textbf{Atividades Laborais}\\
+		Olhe para a descrição da posição do Alan e seu papel no trabalho.\\[0.5em]
+		\textbf{Atividades Pessoais e de Laser}\\
+		Obtenha informação sobre o que o Alan faz quando ele não esta no trabalho.\\[0.5em]
+		\textbf{Objetivos, Medos e Aspirações}\\
+		Entenda as preocupações que o Alan tem com sua vida, carreira e negocio.\\[0.5em]
+		\textbf{Proficiência com Computadores, Conhecimentos e Habilidades}\\
+		Aprenda sobre a experiência do Alan com computadores.\\[0.5em]
+		\textbf{Tamanho do Mercado e Influência}\\
+		Entenda o impacto que pessoas como o Alan têm no nosso negocio.\\[0.5em]
+		\textbf{Atributos Demográficos}\\
+		Leia informações-chave sobre a demografia de Alan e sua família.\\[0.5em]
+		\textbf{Atributos Tecnológicos}\\
+		Tenha uma noção do que Alan faz com tecnologia.\\[0.5em]
+		\textbf{Comunicação}\\
+		Aprenda como Alan se mantém em contanto com outras pessoas.\\[0.5em]
+		\textbf{Considerações Internas}\\
+		Descubra como o Alan é fora de seu país.\\[0.5em]
+		\textbf{Aspas}\\
+		Ouça o que o Alan tem a dizer.\\
+	\end{minipage}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Criação a partir imaginação}}
+
+	\begin{outline}
+		\1 Escolha arbitrariamente ``variáveis'' quantitativas e/ou qualitativas
+			\2[-] {\scriptsize e defina intervalos válidos de valores}
+			
+		\vspace{1em}
+				
+		\1 Combine os valores dessas variáveis para criar o espectro básico de Personas
+			\2[-] {\scriptsize não importa o quão bizarra seja uma combinação}
+			\2[-] {\scriptsize a ideia é justamente aleatorizar a criação de personagens}
+			
+		\vspace{1em}
+		
+		\1 Devido a não utilização de dados reais, é ainda mais importante o refino
+			\2[-] {\scriptsize principalmente pela observação de jogadores nos \textit{playtests}}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Exemplo de variáveis para concepção de Personas}}
+
+	\begin{table}
+		\tiny
+		\setlength{\tabcolsep}{10pt}
+		\renewcommand{\arraystretch}{1.5}
+		\caption{\textbf{Exemplo de tabela de variáveis para a caracterização de Personas}}
+		\begin{tabular}{cccc}
+			\toprule
+			\multirow{2}{*}{\textbf{Características Físicas}} & \textit{Idade} & \multicolumn{2}{c}{20--35}\\
+			\cline{2-4}
+			& \textit{Gênero} & Masculino & Feminino\\[1em]
+			
+			\multirow{2}{*}{\textbf{Preferências}} & \textit{Esporte} & \multicolumn{2}{c}{Futebol}\\
+			\cline{2-4}
+			& \textit{Bebida} & Cerveja & Drinks\\[1em]
+			
+			\textbf{Características Socioeconômicas} & \textit{Formação} & \multicolumn{2}{c}{Universitária}\\[1em]
+			
+			\multirow{2}{*}{\textbf{Características de Personalidade}} & \textit{Temperamento} & \multicolumn{2}{c}{Bem-Humorado}\\
+			\cline{2-4}
+			& \textit{Tribo} & Rock & Eclético\\[1em]
+			
+			\multirow{2}{*}{\textbf{Repertório}} & \textit{Game-cultura} & Jogos Casuais & Puzzles\\
+			\cline{2-4}
+			& \textit{Interesses} & Esportes & Tecnologia\\[1em]			
+			
+			\textbf{Características Regionais} & \textit{Região de Habitação} & \multicolumn{2}{c}{Metrópole}\\
+						
+			\bottomrule
+		\end{tabular}
+	\end{table}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Exemplo de Personas imaginadas}}
+
+	\begin{table}
+		\tiny
+		\setlength{\tabcolsep}{3pt}
+		\renewcommand{\arraystretch}{1.5}
+		\caption{\textbf{Exemplos de Personas criadas a partir da combinação de variáveis}}
+		\begin{tabular}{cccccc}
+			\toprule
+			\textbf{Nome} & Álvaro & Beatriz & Cláudio & Elvis & Fernanda\\
+			\textbf{Idade} & 25 & 29 & 22 & 34 & 20\\
+			\textbf{Gênero} & Masculino & Feminino  & Masculino & Masculino & Feminino\\
+			\textbf{Esporte} & Futebol & Futebol & Futebol & Futebol & Futebol\\
+			\textbf{Bebida} & Cerveja & Drinks & Drinks & Cerveja & Drinks\\
+			\textbf{Formação} & Universitária & Universitária & Universitária & Universitária & Universitária\\
+			\textbf{Temperamento} & Bem-Humorado & Bem-Humorado & Bem-Humorado & Bem-Humorado & Bem-Humorado\\
+			\textbf{Tribo} & Rock & Rock & Rock & Rock & Rock\\
+			\textbf{Game-cultura} & Jogos Casuais & Jogos Casuais & Puzzles & Puzzles & Jogos Casuais\\
+			\textbf{Interesses} & Esportes & Tecnologia & Esportes & Tecnologia & Esportes\\
+			\textbf{Região de Habitação} & Metrópole & Metrópole & Metrópole & Metrópole & Metrópole\\						
+			\bottomrule
+		\end{tabular}
+	\end{table}
+
+\end{frame}
+
+\subsection{Exemplos adicionais}
+
+% ------------------------------
+\begin{frame}{\textbf{Cartão de Persona - Exemplo 1}}
+
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.7\paperheight]{persona-sample1}
+		\caption{\tiny\textbf{Exemplo de cartao de Persona em contexto de sistema de compras} \copyright{2014} Munro\footnote{\url{http://www.indiegamegirl.com/buyer-personas/}}}
+	\end{figure}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Cartão de Persona - Exemplo 2}}
+
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.7\paperheight]{persona-sample2}
+		\caption{\tiny\textbf{Exemplo de cartao de Persona em contexto de comércio eletrônico} \copyright{2010} UX for the Masses\footnote{\url{http://www.uxforthemasses.com/personas/}}}
+	\end{figure}
+
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \section{GDD - Game Design Document}
@@ -976,4 +1234,3 @@ Departamento de Ciência da Computação}
 
 
 \end{document}
-
