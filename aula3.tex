@@ -150,7 +150,7 @@
 % ---------------------------------------------------------------------------- %
 % Presentation title, author and institution
 % ---------------------------------------------------------------------------- %
-\newcommand{\lessontitle}{Aula 3 - Pensando no gameplay}
+\newcommand{\lessontitle}{Aula 3 - Pensando na Experiência de Jogo}
 \title{\textbf{Introdução ao Projeto de Jogos}}
 \subtitle{{\small \lessontitle}}
 
@@ -236,24 +236,121 @@ Departamento de Ciência da Computação}
 	\footnotesize{ \tableofcontents }
 \end{frame}
 
+% ---------------------------------------------------------------------------- %
+\section{Gameplay e Jogabilidade}
+% ---------------------------------------------------------------------------- %
 
-% ---------------------------------------------------------------------------- %
-\section{Gameplay vs. Jogabilidade}
-% ---------------------------------------------------------------------------- %
+\subsection{Definições}
 
 % ------------------------------
 \begin{frame}{\textbf{Gameplay vs. Jogabilidade}}
+
+	\begin{outline}
+		\1 \textit{Gameplay} e jogabilidade (\textit{playability}) são termos muito utilizados \cite{Nacke2009}
+			\2[-] {\scriptsize as vezes confundidos, embora sejam distintos}
+			
+		\vspace{1em}
+			
+		\1 \textbf{Gameplay}: ``o ato de jogar''
+			\2[-] {\scriptsize padrão de interações que emerge durante uma sessão de jogo}
+			\2[-] {\scriptsize caminho de escolhas do jogador em busca do objetivo}
+			\2[-] {\scriptsize caracteriza a experiência em termos da mecânica}
+		
+		\vspace{1em}
+			
+		\1 \textbf{Jogabilidade}: ``a capacidade de jogar''
+			\2[-] {\scriptsize qualidades de um jogo que determinam o quão jogável ele é}
+			\2[-] {\scriptsize escolhas de design que buscam facilitar a diversão}
+			\2[-] {\scriptsize caracteriza a experiência em termos da interface e da estética}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Prazer, satisfação e utilidade}}
+
+	\vspace{-1em}
+
+	\begin{columns}[c]
+	
+		\column{0.4\textwidth}
+		
+			\begin{figure}
+				\centering
+				\includegraphics[height=0.6\paperheight]{UX-aspects}\\
+				\caption{\textbf{Elementos da Experiência de Usuário}, baseado em \cite{Jordan2002,Bentley2002}}
+			\end{figure}		
+			
+		\column{0.6\textwidth}
+		
+			\begin{outline}
+				\1 {\scriptsize Aspectos pragmáticos: usabilidade/jogabilidade (no caso de jogos)}
+					\2[-] {\tiny utilidade (características necessárias)}
+					\2[-] {\tiny eficácia e eficiência (bons resultados, fáceis de alcançar)}
+					\2[-] {\tiny segurança (prevenção de erros graves e fácil recuperação)}
+					\2[-] {\tiny aprendizado (fácil de aprender como usar)}
+					\2[-] {\tiny reconhecimento (fácil de lembrar como executar ações)}
+					\2[-] {\tiny satisfação (ausência de desconforto e atitudes positivas)}
+					
+				\1 {\scriptsize Aspectos hedônicos: experiência}
+					\2[-] {\tiny estimulação (dos sentidos)}
+					\2[-] {\tiny identifação (com a criação de significado)}
+					\2[-] {\tiny evocação (com a recorrência de boas memórias)}
+
+			\end{outline}
+			
+	\end{columns}
+
+\end{frame}
+
+% ------------------------------
+\subsection{Trabalhando a jogabilidade}
+% ------------------------------
+
+\begin{frame}{\textbf{Protejendo o jogador de erros...}}
     \centering
+    \vskip -2cm%
+    ... e ajudando-o a corrigi-los
+    \vskip 1.5cm%
+
     \begin{minipage}{7cm}
-        \begin{description}
-            \item[Gameplay:] ações dentro do jogo
-            \vskip 1cm%
-            \item[Jogabilidade:] capacidade de jogar bem\\
-                                 (usabilidade dentro do jogo)
-        \end{description}
+        \begin{itemize}
+            \item Save points
+            \vskip 0.3cm%
+            \item Guiar o jogador\\
+                  (teste do olho apertado)
+            \vskip 0.3cm%
+            \item Bloqueie acesso a áreas indesejadas
+            \vskip 0.3cm%
+            \item NPC's de auxílio
+        \end{itemize}
     \end{minipage}
 \end{frame}
 
+% ------------------------------
+\begin{frame}{\textbf{Mantendo a consistência}}
+    \centering
+    É também importante manter consistência nas escolhas de design:
+    \vskip 0.4cm%
+
+    \begin{minipage}{4.5cm}
+        \begin{itemize}
+            \item Ações
+            \vskip 0.3cm%
+            \item Perigos e inimigos
+            \vskip 0.3cm%
+            \item Recompensas
+        \end{itemize}
+    \end{minipage}
+    
+    \vspace{3em}
+    
+    \begin{block}{}
+    	\centering
+    	Mais dicas de jogabilidade no decorrer desta aula...
+    \end{block}
+    
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \section{CCC - Character (Personagem), Câmera, Controle}
@@ -599,7 +696,24 @@ Departamento de Ciência da Computação}
     \end{figure}
 \end{frame}
 
+\subsubsection{Personagens em jogos de tabuleiro}
+% ------------------------------
+\begin{frame}{\textbf{Com diferentes formas e níveis de detalhe}}
+    \centering
+    \begin{figure}
+        \includegraphics[height=5cm]{catan-pieces}
+        \caption{\tiny\textbf{Diferentes versões das peças de ``Colonizadores de Catan''} \copyright{1995} Klaus Teuber\footnote{\url{http://boardgamegeek.com/boardgame/13/settlers-catan}}}
+    \end{figure}
+\end{frame}
 
+% ------------------------------
+\begin{frame}{\textbf{E mesmo permitindo customizações}}
+    \centering
+    \begin{figure}
+        \includegraphics[height=5cm]{zombicide-pieces}
+        \caption{\tiny\textbf{Peças de ``Zombicide''} \copyright{2011-2014} Guilhotine Games\footnote{\url{http://zombicide.com/pt/}}}
+    \end{figure}
+\end{frame}
 
 % ------------------------------
 \subsection{Câmera}
@@ -828,52 +942,6 @@ Departamento de Ciência da Computação}
     \end{figure}
 \end{frame}
 
-
-% ---------------------------------------------------------------------------- %
-\section{Um pouco sobre jogabilidade}
-% ---------------------------------------------------------------------------- %
-
-% ------------------------------
-\subsection{Protegendo o jogador de erros...}
-% ------------------------------
-\begin{frame}{\textbf{Protejendo o jogador de erros...}}
-    \centering
-    \vskip -2cm%
-    ... e ajudando-o a corrigi-los
-    \vskip 1.5cm%
-
-    \begin{minipage}{7cm}
-        \begin{itemize}
-            \item Save points
-            \vskip 0.3cm%
-            \item Guiar o jogador\\
-                  (teste do olho apertado)
-            \vskip 0.3cm%
-            \item Bloqueie acesso a áreas indesejadas
-            \vskip 0.3cm%
-            \item NPC's de auxílio
-        \end{itemize}
-    \end{minipage}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Protejendo o jogador de erros...}}
-    \centering
-    Mantenha a consistência
-    \vskip 0.4cm%
-
-    \begin{minipage}{4.5cm}
-        \begin{itemize}
-            \item Ações
-            \vskip 0.3cm%
-            \item Perigos e inimigos
-            \vskip 0.3cm%
-            \item Recompensas
-        \end{itemize}
-    \end{minipage}
-\end{frame}
-
-
 % ---------------------------------------------------------------------------- %
 \section{Gráfico de ritmo}
 % ---------------------------------------------------------------------------- %
@@ -958,12 +1026,17 @@ Departamento de Ciência da Computação}
 
 
 % ---------------------------------------------------------------------------- %
-\section{Átomos de jogos}
+\section{Átomos de jogos e lentes de game design}
 % ---------------------------------------------------------------------------- %
 
 % ------------------------------
 \begin{frame}{\textbf{Átomos de jogos}}
     \centering
+    
+    Os elementos a seguir (átomos) servem como referência básica sobre os assuntos tratados:
+    
+    \vspace{1em}
+    
     %\footnotesize
 	\begin{multicols}{2}
         \begin{enumerate}
@@ -988,6 +1061,22 @@ Departamento de Ciência da Computação}
     \end{multicols}
 \end{frame}
 
+% ------------------------------
+\begin{frame}{\textbf{Lentes de game design}}
+
+	\begin{outline}
+		\1 As lentes de game design são também muito úteis
+		
+		\1 O aplicativo gratuito (Android) pode ser baixado de:\\
+			{\scriptsize \url{https://play.google.com/store/apps/details?id=com.schellgames.deckoflenses&hl=pt_BR}}
+	\end{outline}
+
+	\begin{figure}
+		\includegraphics[height=4.5cm]{game-design-lenses}
+		\caption{\tiny\textbf{Exemplos das lentes de game design} \copyright{2008} Jesse Schell\footnote{\url{http://www.amazon.com/The-Art-Game-Design-Lenses/dp/0615218288}}}
+	\end{figure}
+
+\end{frame}
 
 % ---------------------------------------------------------------------------- %
 \section{Atividade}
@@ -1005,5 +1094,16 @@ Departamento de Ciência da Computação}
 	\end{minipage}
 \end{frame}
 
-\end{document}
+% ------------------------------------------
+% References
+% ------------------------------------------
 
+\referencesbegin
+\begin{frame}[plain, allowframebreaks]
+	\frametitle{\textbf{References}}
+	\bibliographystyle{abbrv}
+	{\tiny \bibliography{bibliography}}
+\end{frame}
+\referencesend
+
+\end{document}
