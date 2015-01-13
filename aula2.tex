@@ -270,39 +270,59 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{O que é mecânica de jogo?}}
     \centering
+    \begin{minipage}{5cm}
     \begin{itemize}
         \item O baralho é um jogo?
         \pause
         \vskip 1cm%
         \item E poker é um jogo?
     \end{itemize}
+    \end{minipage}
 \end{frame}
 
 % ------------------------------
 \begin{frame}{\textbf{O que é mecânica de jogo?}}
     \centering
-    Regras que definem como o jogador e os diversos elementos presentes no jogo
-    interagem entre si.
-    % -> Adaptação de
-    %    Sicart, Miguel. "Defining Game Mechanics",
-    %    http://gamestudies.org/0802/articles/sicart
-    %    (consultado em 13 de janeiro de 2015)
+	\begin{quotation}
+		\noindent
+		{\large Regras definem como o jogador e os diversos elementos presentes no jogo interagem entre si.\\[0.5em]
+		\noindent
+		\hfill -- Adaptado de Sicart, Miguel.\\
+        \hfill    \textbf{``Defining Game Mechanics''}\footnote{\url{http://gamestudies.org/0802/articles/sicart} (consultado em 13 de janeiro de 2015)}
+        }
+	\end{quotation}
 \end{frame}
 
 % ------------------------------
 \begin{frame}{\textbf{Regras}}
-% Regras... \cite{Tekinbas2003}
-% - Limitam a ação do jogador
-% - São explícitas e livres de ambiguidade
-% - São compartilhadas por todos os jogadores
-% - São fixas
-% - Seu cumprimento é obrigatório
-% - São reutilizáveis
+    De acordo com Salen Tekinbas and Eric Zimmerman\cite{Tekinbas2003}, as regras...
+    \vskip 1em
+
+    \begin{itemize}
+        \item ... imitam a ação do jogador
+        \item ... são explícitas e livres de ambiguidade
+        \item ... são compartilhadas por todos os jogadores
+        \item ... são fixas
+        \item ... seu cumprimento é obrigatório
+        \item ... são reutilizáveis
+    \end{itemize}
 \end{frame}
 
 % ------------------------------
 \begin{frame}{\textbf{Regras em três camadas}}
 % Regras em três camadas:\cite{Tekinbas2003}
+	\begin{outline}
+		\1 Regras operacionais
+			\2[-] {\scriptsize Guiam o comportamento do jogador}
+			\2[-] {\scriptsize Podem ser vistas como ``as regras escritas''}
+		\vspace{1em}
+		\1 Regras constitutivas
+			\2[-] {\scriptsize São independentes dos materiais e até do jogador}
+			\2[-] {\scriptsize Formalização da estrutura matemática}
+		\vspace{1em}
+		\1 Regras implícia
+			\2[-] {\scriptsize Convenções e regras não escritas}
+			\2[-] {\scriptsize Fair play, boas práticas,``espírito esportivo''}
 % - Regras operacionais
 %   -> Regras ``escritas''
 %   -> Guiam o comportamento do jogador
@@ -335,6 +355,20 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 
+%\subsection{Mecânicas e os pilares de motivação}
+%% ------------------------------
+%\begin{frame}{\textbf{Mecânicas e os pilares de motivação}}
+%    \centering
+%    \begin{minipage}{7cm}
+%        \begin{description}
+%            \item[Gameplay:] ações dentro do jogo
+%            \vskip 1cm%
+%            \item[Jogabilidade:] capacidade de jogar bem
+%        \end{description}
+%    \end{minipage}
+%\end{frame}
+
+
 \subsection{Fanstasia integrada à mecânica}
 % Fantasia integrada na mecância
 % -> The Amazing Spider-Man 2 \url{https://www.youtube.com/watch?v=o9kr9ZhydK0}
@@ -348,26 +382,13 @@ Departamento de Ciência da Computação}
 % Quando a fantasia não se encaixa na mecânica, perde-se imersão.
 % -> Mais difícil para o jogador assimilar ações
 
+
 \subsection{O personagem precisa mesmo morrer?}
 % Você precisa mesmo matar o personagem?
 % -> Explicação dos arcades
 % -> Save points
 % -> Time rewind (Prince of Persia) -> jogos de corrida
 %    \url{http://i.playground.ru/i/28/78/11/00/blog/icon.600xauto.jpg?v1}
-
-
-\subsection{Mecânicas e os pilares de motivação}
-% ------------------------------
-\begin{frame}{\textbf{Mecânicas e os pilares de motivação}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{description}
-            \item[Gameplay:] ações dentro do jogo
-            \vskip 1cm%
-            \item[Jogabilidade:] capacidade de jogar bem
-        \end{description}
-    \end{minipage}
-\end{frame}
 
 
 % ------------------------------
@@ -428,19 +449,6 @@ Departamento de Ciência da Computação}
     % Quebra-cabeça de tempo (espera)
 
 
-% ------------------------------
-\begin{frame}{\textbf{}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{itemize}
-            \item Forma e função
-            \vskip 1cm%
-            \item Personalidade
-        \end{itemize}
-    \end{minipage}
-\end{frame}
-
-
 % ---------------------------------------------------------------------------- %
 \section{Definição do público-alvo}
 % ---------------------------------------------------------------------------- %
@@ -499,6 +507,7 @@ Departamento de Ciência da Computação}
 \begin{frame}{\textbf{Cartões de personas}}
 
 	Uma técnica bastante útil é chamada de Personas:
+    \vskip 2em
 
 	\begin{quotation}
 		\noindent
@@ -508,6 +517,7 @@ Departamento de Ciência da Computação}
 		\hfill -- Emily Brown \cite{Brown2010}}
 	\end{quotation}
 
+    % TODO: colocar um gancho de citação.
 	\cite{Pruitt2003}\\
 	
 \end{frame}
@@ -515,12 +525,12 @@ Departamento de Ciência da Computação}
 % ------------------------------
 \begin{frame}{\textbf{Adequação às capacidades do público-alvo}}
     \centering
-    \begin{minipage}{7cm}
-        \begin{description}
-            \item[Gameplay:] ações dentro do jogo
+    \begin{minipage}{5cm}
+        \begin{itemize}
+            \item Capacidades cognitivas
             \vskip 1cm%
-            \item[Jogabilidade:] capacidade de jogar bem
-        \end{description}
+            \item Capacidades motoras
+        \end{itemize}
     \end{minipage}
 \end{frame}
 
