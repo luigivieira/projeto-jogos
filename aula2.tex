@@ -238,171 +238,216 @@ Departamento de Ciência da Computação}
 	\footnotesize{ \tableofcontents }
 \end{frame}
 
-%* Documentação e Comunicação em Projeto (o "Game Design Document", ou GDD)
-%* Caracterização do Público-Alvo (Personas)
-%    - Motivação/Importância
-%    - Técnicas de escrita (cartões)
-%    - Além de preferências: capacidades (cognitiva e motora)
-%* Mecânicas de Jogos
-%    - O que é e para que serve?
-%    - Relação da mecânicas com os pilares de motivação
-%    - Exemplos de mecânicas básicas:
-%      + Analógico:
-%         . Rolar e mover
-%         . Coleção de peças
-%         . Alocação de entidades, etc
-%      + Digital:
-%         . Alocação de entidades
-%         . Plataformas, alavancas, movimentos, etc
-%# Atividade:
-%  Elaborar mecânicas para o projeto de jogo do curso.
-%  Deixar coerente com os pilares da motivação.
-%  Explicitar: motivo da escolha, impacto no gameplay e relação com as personas.
-%  Iniciar a construção de um GDD do projeto.
 
 % ---------------------------------------------------------------------------- %
 \section{Mecânicas de jogo}
 % ---------------------------------------------------------------------------- %
+
+% MISC:
+
+% Alguns jogos são projetados de modo que o único modo de vencer ou cumprir
+% certo objetivo seja fazer exatamente o que o designer quer (como nos puzzles)
+% Jogadores são guiados em ``trilhos'' -> tutoriais
+% Mas no geral, é interessante ter um conjunto pequeno e bem claro de regras
+% mas que permitam ``infinitas'' possibilidades -> comportamento emergente.
+% -> Rocket jump
+
+% Regras são escritas no manual. Mecânicas ficam escondidas.
+
+% Mecânicas não dependem de mídia (ou implementação)
+% -> Porém a mídia certamente está relacionada com a viabilidade do uso de
+%    certas mecânicas.
+
+% Missões -> exercitam o aprendizado das mecânicas
+% -> Mate 10 monstros
+
+% Fluxo: Desafio x Habilidade
+
 % Senso de urgência -> motivação
+
 % Progressão
 
+\subsection{O que é mecânica de jogo?}
 % ------------------------------
 \begin{frame}{\textbf{O que é mecânica de jogo?}}
     \centering
-    Regras que definem como o jogador e os diversos elementos presentes no jogo
-    interagem entre si.
-    % As mecânicas definem o que o jogador poder fazer, como pode ser feito e
-    % qual será a resposta do jogo para essa ação (ou não ação).
-
-    % Regras são escritas no manual. Mecânicas ficam escondidas.
-
-    % Mecânicas não dependem de mídia (ou implementação)
-    % -> Porém a mídia certamente está relacionada com a viabilidade do uso de
-    %    certas mecânicas.
-
-    % Alguns jogos são projetados de modo que o único modo de vencer ou cumprir
-    % certo objetivo seja fazer exatamente o que o designer quer (como nos puzzles)
-    % Jogadores são guiados em ``trilhos'' -> tutoriais
-    % Mas no geral, é interessante ter um conjunto pequeno e bem claro de regras
-    % mas que permitam ``infinitas'' possibilidades -> comportamento emergente.
-    % -> Rocket jump
-
-    % Feedback negativo -> trabalha para atenuar o efeito que tenta despontar.
-    % Feedback positivo -> amplifica as diferenças
-
-    % Missões -> exercitam o aprendizado das mecânicas
-    % -> Mate 10 monstros
-
-    % Fluxo: Desafio x Habilidade
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{O que é mecânica de jogo?}}
-    \centering
+    \begin{minipage}{5cm}
     \begin{itemize}
         \item O baralho é um jogo?
         \pause
         \vskip 1cm%
         \item E poker é um jogo?
     \end{itemize}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Mecânicas e os pilares de motivação}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{description}
-            \item[Gameplay:] ações dentro do jogo
-            \vskip 1cm%
-            \item[Jogabilidade:] capacidade de jogar bem
-        \end{description}
     \end{minipage}
 \end{frame}
 
+% ------------------------------
+\begin{frame}{\textbf{O que é mecânica de jogo?}}
+    \centering
+	\begin{quotation}
+		\noindent
+		{\large Regras definem como o jogador e os diversos elementos presentes no jogo interagem entre si.\\[0.5em]
+		\noindent
+		\hfill -- Adaptado de Sicart, Miguel.\\
+        \hfill    \textbf{``Defining Game Mechanics''}\footnote{\url{http://gamestudies.org/0802/articles/sicart} (consultado em 13 de janeiro de 2015)}
+        }
+	\end{quotation}
+\end{frame}
 
 % ------------------------------
-\subsection{Exemplos de mecânicas básicas}
+\begin{frame}{\textbf{Regras}}
+    De acordo com Salen Tekinbas and Eric Zimmerman\cite{Tekinbas2003}, as regras...
+    \vskip 1em
+
+    \begin{itemize}
+        \item ... imitam a ação do jogador
+        \item ... são explícitas e livres de ambiguidade
+        \item ... são compartilhadas por todos os jogadores
+        \item ... são fixas
+        \item ... seu cumprimento é obrigatório
+        \item ... são reutilizáveis
+    \end{itemize}
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Regras em três camadas}}
+% Regras em três camadas:\cite{Tekinbas2003}
+	\begin{outline}
+		\1 Regras operacionais
+			\2[-] {\scriptsize Guiam o comportamento do jogador}
+			\2[-] {\scriptsize Podem ser vistas como ``as regras escritas''}
+		\vspace{1em}
+		\1 Regras constitutivas
+			\2[-] {\scriptsize São independentes dos materiais e até do jogador}
+			\2[-] {\scriptsize Formalização da estrutura matemática}
+		\vspace{1em}
+		\1 Regras implícia
+			\2[-] {\scriptsize Convenções e regras não escritas}
+			\2[-] {\scriptsize Fair play, boas práticas,``espírito esportivo''}
+% - Regras operacionais
+%   -> Regras ``escritas''
+%   -> Guiam o comportamento do jogador
+% - Regras constituintes
+%   -> Regras de funcionamento por baixo do pano
+%   -> Formalização matemática
+%   -> Dois jogos ``diferentes'' podem ter as mesmas regras constituintes (3 to 15)
+%   -> São independentes de materiais e até mesmo do jogador
+% - Regras implícitas
+%   -> Regras não escritas (bom senso)
+%   -> Boas práticas, espírito esportivo
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Menos é mais}}
+% Nolan's law:
+% All the best games are easy to learn and difficult to master. They should reward the first quarter and the hundredth.
+% Nolan Bushnell (fundador da Atari)
+% - Funciona muito bem para jogos estratégicos e também para jogos de habilidade
+% - Go, Xadrez, poker
+% - Flappy bird, Super Meetboy, Street Fighter IV
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Sistemas de feedback}}
+    % Feedback negativo -> trabalha para atenuar o efeito que tenta despontar.
+    %                      Estabiliza o sistema (jogo)
+    % Feedback positivo -> amplifica as diferenças
+    %                      Favorece o desequilíbrio
+\end{frame}
+
+
+%\subsection{Mecânicas e os pilares de motivação}
+%% ------------------------------
+%\begin{frame}{\textbf{Mecânicas e os pilares de motivação}}
+%    \centering
+%    \begin{minipage}{7cm}
+%        \begin{description}
+%            \item[Gameplay:] ações dentro do jogo
+%            \vskip 1cm%
+%            \item[Jogabilidade:] capacidade de jogar bem
+%        \end{description}
+%    \end{minipage}
+%\end{frame}
+
+
+\subsection{Fanstasia integrada à mecânica}
+% Fantasia integrada na mecância
+% -> The Amazing Spider-Man 2 \url{https://www.youtube.com/watch?v=o9kr9ZhydK0}
+% -> Unfinished swan \url{https://www.youtube.com/watch?v=WyFtfvFG4IE}
+% -> Amnesia - The Dark Descent /url{https://www.youtube.com/watch?v=JEHPwAvrc_U}
+% -> Closure \url{https://www.youtube.com/watch?v=aGRkFT3NHp8}
+% -> Ticket to ride \url{http://cf.geekdo-images.com/images/pic2332558_lg.jpg}
+% -> Ca$h 'n Gun$ \url{http://cf.geekdo-images.com/images/pic959405_lg.jpg}
+% -> Framed \url{https://www.youtube.com/watch?v=jDyC2Ht6pnU}
+
+% Quando a fantasia não se encaixa na mecânica, perde-se imersão.
+% -> Mais difícil para o jogador assimilar ações
+
+
+\subsection{O personagem precisa mesmo morrer?}
+% Você precisa mesmo matar o personagem?
+% -> Explicação dos arcades
+% -> Save points
+% -> Time rewind (Prince of Persia) -> jogos de corrida
+%    \url{http://i.playground.ru/i/28/78/11/00/blog/icon.600xauto.jpg?v1}
+
+
+% ------------------------------
+\subsection{Exemplos de mecânicas}
     % Exemplos (deturbando a definição inicial)
     % Power-ups
+    %   - Pacman
     % Racing games
-    % Efeito elástico (catch-up)
+    %   - Gamão, Jamaica
+    % Efeito elástico (catch-up) -> feed back negativo do sistema
+    %   - Daytona USA
     % Pontos de experiência -> feedback positivo
-    % Coleta de recursos (harvest)
-    % Construção (elementos estáticos, melhorias, unidades) (com gasto de recursos)
-    % Combate de unidades
-    % Sistema jokenpo
-    % Árvore de tecnologia/habilidades
-    % Set collection
-    % Trocas
+    %   - Qualquer RPG basicamente
+    %   - Diablo II
     % Worker placement
+    %   - Stone Age, Agrícola, Caylus, Age of Empires, Star Craft
+    % Coleta de recursos (harvest)
+    %   - Stone Age, Agrícola, Caylus, Age of Empires, Star Craft
+    % Construção (elementos estáticos, melhorias, unidades) (com gasto de recursos)
+    %   - Stone Age, Agrícola, Caylus, Age of Empires, Star Craft
+    % Combate de unidades
+    %   - Small World, Age of Empires, Star Craft
+    % Pedra-papel-tesoura
+    %   - Age
+    % Árvore de tecnologia/habilidades
+    %   - Caylus, Diablo II
+    % Set collection
+    %   - 7 Wonders, Citadels
     % Interpretação
+    %   - Avalon, Spy Party
     % Blefe
+    %   - Cash'n Guns
+    % Troca
+    %   - Settlers of Catan
     % Aposta/leilão
     % Tile placement
-    % Informação escondida (? é mecânica?)
-    % Tranca e fechadura (não precisa ser literal)
-    % -> Habilidade/tile que permite gerar construções de um tier acima
-    % -> Recursos para passar de idade
-    % -> Habilidade de voar/double jump/atirar mais forte...
+    %   - Carcassone
     % Player elimination
     % Drafting
     % Ação simultânea (escolha prévia, revelação simultânea)
     % Controle de área
     % Take that
     % Construção de rotas
+    % Rolagem de dados
     %-
     % Portas
     % Blocos empurráveis
     % Interruptores/alavancas
     % Plataformas
     % Esteiras
+    % Tranca e fechadura (não precisa ser literal)
+    % -> Habilidade/tile que permite gerar construções de um tier acima
+    % -> Recursos para passar de idade
+    % -> Habilidade de voar/double jump/atirar mais forte...
     % Tempo limitado (não precisa ser literal)
     % -> Bola rolando atrás do personagem
     % -> Porta se fechando lentamente
     % Quebra-cabeça de tempo (espera)
-
-
-\subsubsection{Em jogos digitais}
-% ------------------------------
-\begin{frame}{\textbf{}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{itemize}
-            \item Forma e função
-            \vskip 1cm%
-            \item Personalidade
-        \end{itemize}
-    \end{minipage}
-\end{frame}
-
-
-\subsubsection{Em jogos analógicos}
-% ------------------------------
-\begin{frame}{\textbf{Quadrado}}
-    \centering
-    \begin{figure}%
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=4.5cm]{ralph}
-            \caption{Ralph (Wreck it Ralph)\footnotemark{}}
-        \end{subfigure}
-        \begin{subfigure}{0.49\textwidth}%
-            \includegraphics[height=4.5cm]{dammd}
-            \caption{Dammd (Final Fight)\footnotemark{}}
-        \end{subfigure}
-    \end{figure}
-    \footnotetext[12]{\url{http://cache.g4tv.com/ImageDb3/303386_S/wreck-it-ralph-game-coming-from-activision-and-disney-interactive.jpg}}
-    \footnotetext{\url{http://www.arcadequartermaster.com/ffight/boss_damnd.png}}
-\end{frame}
-
-\begin{frame}{\textbf{Silhueta}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{team_fortress2_silhueta}
-        \caption{Team Fortress 2\footnote{\url{http://www.mellow3d.com/misc/tf2.png}}}
-    \end{figure}
-\end{frame}
 
 
 % ---------------------------------------------------------------------------- %
@@ -846,51 +891,12 @@ Departamento de Ciência da Computação}
         \vskip \baselineskip
 
         \textit{
-            Killing Floor is a Co-op Survival Horror FPS set in the devastated
-            cities and countryside of England after a series of cloning
-            experiments for the military goes horribly wrong. You and your
-            friends are members of the military dropped into these locations
-            with a simple mission: Survive long enough to cleanse the area of
-            the failed experiments!
-        }
-    \end{frame}
-
-    \begin{frame}{Exemplos}
-        \textbf{Killing Floor}
-        \vskip \baselineskip
-
-        \textit{
             Killing Floor é um FPS cooperativo de sobrevivência e terror que se
             passa em cidades e nos campos devastado da Inglaterra depois de que
             uma série de experimentos militares de clonagem dá horrivelmente
             errado. Você e seus amigos são membros de uma equipe militar enviada
             a esses locais com uma missão simples: sobreviver o suficiente para
             limpar a área dos experimentos que falharam.
-        }
-    \end{frame}
-
-    \begin{frame}{Exemplos}
-        \textbf{Chivalry: Medieval Warfare}
-        \vskip \baselineskip
-
-        \textit{
-            Besiege castles and raid villages in Chivalry: Medieval Warfare, a
-            first-person slasher with a focus on multi-player. Featuring
-            competitive online combat that seeks to capture the experience of
-            truly being on a medieval battlefield. Inspired from the intensity
-            and epicness of swordfighting movies such as 300, Gladiator and
-            Braveheart, Chivalry: Medieval Warfare aims to bring that experience
-            to the hands of a gamer.
-        }
-        \vskip \baselineskip
-
-        \textit{
-            The game is skill-based and controls like a FPS, but instead of guns
-            and grenades, players are given swords, shields, maces, battleaxes
-            and longbows. Set in a fictional, yet gritty and realistic world,
-            players will fight in fast paced online battles besieging castles,
-            raiding medieval villages and fighting for glory in the arena with
-            up to 32 players.
         }
     \end{frame}
 
@@ -924,29 +930,6 @@ Departamento de Ciência da Computação}
         \vskip \baselineskip
 
         \textit{
-            Colonize solar systems, annihilate homeworlds, and obliterate your
-            foes in epic interplanetary battles with multiple players and
-            thousands of units. Planetary Annihilation takes the RTS to a
-            never-before-seen scale -- and gives players powerful tools to
-            control the action.
-        }
-        \vskip \baselineskip
-
-        \textit{
-            Control punishing spacecraft, powerful tanks, and an assortment of
-            other futuristic machines of war in epic battles across entire solar
-            systems. Set up entire planets as bases and teleport your units
-            strategically into the heart of your foes' strongholds. Or end
-            matches with the mother of all weapons: an asteroid on a collision
-            course. Don't just win, annihilate!
-        }
-    \end{frame}
-
-    \begin{frame}{Exemplos}
-        \textbf{Planetary Annihilation}
-        \vskip \baselineskip
-
-        \textit{
             Colonize sistemas solares, aniquile mundos e oblitere seus
             adversários em batalhas interplanetárias épicas com múltiplos
             jogadores e centenas de unidades. Planetary Annihilation leva o RTS
@@ -963,28 +946,6 @@ Departamento de Ciência da Computação}
             fortalezas de seus inimigos. Ou encerre partidas com a mãe de todas
             as armas: um asteroide em curso de colisão. Não apenas vença,
             aniquile!
-        }
-    \end{frame}
-
-    \begin{frame}{Exemplos}
-        \textbf{The Stanley Parable}
-        \vskip \baselineskip
-
-        \textit{
-            The Stanley Parable is a first person exploration game. You will
-            play as Stanley, and you will not play as Stanley. You will follow a
-            story, you will not follow a story. You will have a choice, you will
-            have no choice. The game will end, the game will never end.
-            Contradiction follows contradiction, the rules of how games should
-            work are broken, then broken again. This world was not made for you
-            to understand.
-        }
-        \vskip \baselineskip
-
-        \textit{
-            But as you explore, slowly, meaning begins to arise, the paradoxes
-            might start to make sense, perhaps you are powerful after all. The
-            game is not here to fight you; it is inviting you to dance.
         }
     \end{frame}
 
@@ -1214,4 +1175,3 @@ Departamento de Ciência da Computação}
 
 
 \end{document}
-
