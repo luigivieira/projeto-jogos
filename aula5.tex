@@ -23,6 +23,7 @@
 \usepackage{xcolor,colortbl}
 \usepackage{ragged2e}
 \usepackage{tikz}
+\usepackage{multirow}
 
 % ---------------------------------------------------------------------------- %
 % Presentation definitions
@@ -226,7 +227,136 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Introdução}
+\section{Planejamento}
+% ---------------------------------------------------------------------------- %
+
+% ------------------------------
+\begin{frame}{\textbf{O plano pra hoje}}
+
+	As atividades de hoje são as seguintes:
+
+	\begin{outline}[enumerate]
+		\1 Aula expositiva
+			
+		\vspace{1em}
+
+		\1 Sessão de \textit{playtesting}
+
+		\vspace{1em}
+
+		\1 Intervalo
+
+		\vspace{1em}
+
+		\1 Sessão de refatoração
+
+		\vspace{1em}
+
+		\1 Sessão de \textit{playtesting}
+
+		\vspace{1em}
+
+		\1 Sessão de \textit{pitches}
+
+	\end{outline}
+
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
+\section{Heurísticas de projeto}
+% ---------------------------------------------------------------------------- %
+
+% ------------------------------
+\begin{frame}{\textbf{Heurísticas}}
+
+	\begin{outline}
+
+		\1 \textit{Heurística} é uma palavra de origem grega, que significa ``encontrar'' ou ``descobrir''\footnote{Fonte: \url{http://pt.wikipedia.org/wiki/Heur\%C3\%ADstica}}
+			\2[-] {\scriptsize mesma origem de \textit{Eureca} (``encontrei'')}
+
+		\vspace{1em}
+
+		\1 Método ou processo criado com o objetivo de encontrar uma solução para um problema
+			\2[-] {\scriptsize envove substituir questões difíceis por outras mais fáceis}
+			\2[-] {\scriptsize de forma a encontrar soluções viáveis, ainda que imperfeitas}
+
+		\vspace{1em}
+
+		\1 Exemplo clássico: chave do carro perdida
+			\2[-] {\scriptsize ao invés de procurar em todos os locais possíveis (problema difícil)...}
+			\2[-] {\scriptsize ...a busca é realizada nos locais \emph{mais prováveis} (problema mais fácil)}
+
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{O uso de heurísticas}}
+
+	As heurísticas servem para dois propósitos:
+
+	\begin{outline}
+
+		\1 Servir como melhoras práticas para as escolhas de projeto
+
+		\vspace{1em}
+
+		\1 Servir como pontos de questionamento para a avaliação com protótipos
+
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Exemplo de heurísticas: Lentes de Game Design}}
+
+	\begin{figure}
+		\includegraphics[height=4.5cm]{game-design-lenses}
+		\caption{\tiny\textbf{Exemplos das lentes de game design} \copyright{2008} Jesse Schell\footnote{\url{http://www.amazon.com/The-Art-Game-Design-Lenses/dp/0615218288}}}
+	\end{figure}
+
+	\begin{block}{Lembrete}
+		\centering
+		O aplicativo gratuito (Android) pode ser baixado de:\\
+		{\scriptsize \url{https://play.google.com/store/apps/details?id=com.schellgames.deckoflenses&hl=pt_BR}}
+	\end{block}
+
+	\vspace{1em}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Exemplo de heurísticas: GameFlow}}
+
+	\begin{table}
+		\scriptsize
+		\setlength{\tabcolsep}{1pt}
+		\renewcommand{\arraystretch}{1.5}
+		\caption{\textbf{Algumas das heurísticas do modelo GameFlow} \cite{Sweetser2005}}
+
+		\begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+
+			\toprule
+			\textbf{Elemento} & \textbf{Critério}\\
+			\midrule
+			\multirow{3}{*}{Desafio}  & -- os desafios devem ser equiparados às habilidades do jogador\\
+									  & -- o jogo deve prover diferentes níveis de dificuldade para diferentes jogadores\\
+									  & -- o nível do desafio deve aumentar progressivamente\\[1em]
+			\midrule
+
+			\multirow{4}{*}{Controle} & \\ & -- os jogadores devem ter a sensação de controle sobre seus personagens ou unidades, movimento, e interações no jogo\\
+									  & -- os jogadores devem ter a sensação de controle sobre a interface e os dispositivos de entrada\\
+									  & -- os jogadores não devem ser capazes de cometer erros que são prejudiciais ao jogo\\
+			\bottomrule
+		
+		\end{tabular}
+
+	\end{table}
+
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
+\section{Playtesting}
 % ---------------------------------------------------------------------------- %
 
 % ------------------------------
@@ -240,13 +370,15 @@ Departamento de Ciência da Computação}
 			
 		\vspace{1em}
 			
-		\1 Avaliar a implementação do jogo sob aspectos ``utilitários'' (jogabilidade)
+		\1 Avaliar a implementação do jogo sob aspectos ``utilitários'' (jogabilidade) e estéticos (``juiciness'')
 			\2[-] {\scriptsize símbolos e indicações utilizadas}
 			\2[-] {\scriptsize percepção dos objetivos e do feedback das ações}
 			\2[-] {\scriptsize ergonomia dos dispositivos de interface}
 			\2[-] {\scriptsize balanceamento de dificuldade -- individual e entre jogadores}
-			\2[-] {\scriptsize empatia com personagens, etc}
+			\2[-] {\scriptsize empatia com personagens, preferências por cores, etc}
 		
+		\vspace{1em}
+
 		\1 Avaliar a implementação do jogo sob o ponto de vista técnico
 			\2[-] {\scriptsize durabilidade de componentes}
 			\2[-] {\scriptsize erros de codificação (para jogos digitais)}
@@ -256,8 +388,105 @@ Departamento de Ciência da Computação}
 
 \end{frame}
 
+% ------------------------------
+\begin{frame}{\textbf{Prototipação em Papel}}
 
+	\begin{figure}
+	    \centering
+        \includegraphics[width=0.8\paperwidth]{paper-prototype}
+        \caption{\textbf{Exemplo de protótipo em papel}, Travellr App\footnote{\url{https://www.youtube.com/watch?v=_5FGeSQ7DBU}}}
+    \end{figure}
 
+    \begin{center}
+    	Video 13
+    \end{center}
+
+    \vspace{2em}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{O Mágico de Oz}}
+
+	\begin{figure}
+	    \centering
+        \includegraphics[height=0.7\paperheight]{wizard-of-oz}
+        \caption{\textbf{Avaliação do mecanismo de transição de um carro automatizado}, Stanford Jr Team\footnote{\url{http://310valeo.wordpress.com/2013/11/20/cfp-prototyping/}}}
+    \end{figure}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Observação, questionários e entrevistas}}
+
+	\begin{outline}
+		\1 Observação (de jogadores jogando), questionários e entrevistas são ferramentas muito úteis
+			\2[-] {\scriptsize mas alguns cuidados são necessários}
+
+		\vspace{1em}
+
+		\1 A observação pode ter efeitos sobre a experiência
+			\2[-] {\scriptsize os jogadores podem se sentir incomodados, desejar impressionar ou não desejar magoar o observador}
+			
+		\vspace{1em}
+			
+		\1 Questionários interrompem a experiência ou podem não capturar o ``calor do momento''
+			\2[-] {\scriptsize além disso, deve-se procurar não induzir respostas}
+		
+		\vspace{1em}
+
+		\1 Entrevistas também interrompem a experiência
+			\2[-] {\scriptsize e diminuem o anonimato}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{GEQ: Game Experience Questionnaire}}
+
+	\begin{outline}
+		\1 Dois questionários padronizados produzido pela Universidade de Tecnologia de Eindhoven (Holanda)
+			\2[-] {\scriptsize baseado em todos os assuntos estudados até esta aula}
+			\2[-] {\scriptsize para ser utilizado durante e após as sessões de jogos}
+
+		\vspace{1em}
+
+		\1 Contém questões \emph{Likert} para avaliar oito aspectos da experiência
+			\2[-] {\scriptsize imersão}
+			\2[-] {\scriptsize fluxo}
+			\2[-] {\scriptsize competência}
+			\2[-] {\scriptsize emoções positivas e negativas}
+			\2[-] {\scriptsize tensão}
+			\2[-] {\scriptsize desafio}
+			\2[-] {\scriptsize presença social}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{GEQ: Game Experience Questionnaire}}
+
+	Exemplos de questões:
+
+	\vspace{1em}
+
+	\begin{outline}
+		\0 \textit{Por favor indique como se sentiu enquanto jogou o jogo para cada item, na seguinte escala}:\\
+		\0 \textit{de forma alguma (0), levemente (1), moderadamente (2), bastante (3), extremamente (4)}
+
+		\vspace{1em}
+
+		\1 Eu me senti contente
+		\1 Eu achei que foi divertido
+		\1 Eu pensei sobre outras coisas
+		\1 Eu me senti capaz/competente
+		\1 Foi esteticamente agradável
+		\1 Eu esqueci de tudo ao meu redor
+		\1 Eu fui bem no jogo
+		\1 Eu tive que colocar muito esforço no jogo
+	\end{outline}
+
+\end{frame}
 
 % ------------------------------------------
 % References
