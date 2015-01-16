@@ -1,0 +1,171 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+
+\usepackage{setspace}
+\usepackage[left=1.0cm, right=1.0cm, top=1cm, bottom=1.0cm]{geometry}
+
+% Identa os primeiros parágrafos
+%\usepackage{indentfirst}
+
+% Tira identação
+\setlength\parindent{0pt}
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+
+\newcommand{\hgap}{\hskip 1.75em}
+\newcommand{\vsalto}{\vskip 0.5em}
+\newcommand{\ponto}[1]{%
+    \begin{minipage}[c][4.2em][t]{3em}%
+        \centering
+        \vskip 0.5em%
+        $\bigcirc$\\
+        #1%
+    \end{minipage}%
+}
+\newcommand{\likert}[5]{%
+    \hgap \ponto{#1} \hgap \ponto{#2} \hgap \ponto{#3} \hgap \ponto{#4} \hgap \ponto{#5}%
+}
+
+\title{
+    \vskip -2em
+      Questionário sobre o curso\\
+      \textbf{Introdução ao Projeto de Jogos}}
+\date{}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\maketitle
+
+\vskip -4em
+\begin{tabular}{p{21.5em} p{25.5em}}
+    \hline
+    O que você achou sobre a duração do curso (5 dias)?      & \likert{muito curta}{curta}{regular}{longa}{muito longa}\\
+    \hline
+    O que você achou sobre a duração das aulas (3 horas)?    & \likert{muito curta}{curta}{regular}{longa}{muito longa}\\
+    \hline
+    O que você achou das atividades?                         & \likert{muito ruim}{ruim}{regular}{gostei}{gostei muito}\\
+    \hline
+    O que você achou do conteúdo exposto?                    & \likert{muito ruim}{ruim}{regular}{gostei}{gostei muito}\\
+    \hline
+    O que você achou do valor cobrado?                       & \likert{muito caro}{caro}{regular}{barato}{muito barato}\\
+    \hline
+    Deveria ter havido mais ou menos conteúdo teórico?       & \likert{muito menos}{menos}{estava bom}{mais}{muito mais}\\
+    \hline
+    Deveria ter havido mais ou menos atividade prática?      & \likert{muito menos}{menos}{estava bom}{mais}{muito mais}\\
+    \hline
+    Você indicaria o curso para alguém?                      & \likert{certamente não}{não}{não sei}{sim}{certamente sim}\\
+    \hline
+    Você cursaria uma possível ``módulo 2'' desse curso?     & \likert{certamente não}{não}{não sei}{sim}{certamente sim}\\
+    \hline
+    Os ministrantes dominavam o conteúdo dado?               & \likert{muito pouco}{pouco}{regular}{muito}{totalmente}\\
+    \hline
+    Quanto os ministrantes deveriam ter participado do desenvolvimento do protótipo do seu grupo?& \likert{muito menos}{menos}{estava bom}{mais}{muito mais}\\
+    \hline
+    Quão cordiais e prestativos foram os ministrantes?       & \likert{muito pouco}{pouco}{regular}{muito}{totalmente}\\
+    \hline
+\end{tabular}
+
+
+\vsalto
+Você gostaria de ter visto algum conteúdo que não foi abordado no curso? \ponto{sim} \ponto{não}
+(se sim, quais?)
+
+\vsalto
+\hrulefill
+
+\vsalto
+Suas expectativas com relação ao curso foram atendidas? \ponto{sim} \ponto{não}
+(se não, por que?)
+
+\vsalto
+\hrulefill
+
+%a préconcepção que você teve do curso a partir do título no momento da inscrição foi próxima ao que foi ministrado
+\vsalto
+A ideia que você teve sobre o curso a partir do título (durante a inscrição) foi próxima ao que foi ministrado? \ponto{sim} \ponto{não}
+
+\textbf{Sobre você}
+
+Idade: \makebox[1.5em]{\hrulefill} \hskip 2em%
+Gênero: \ponto{masculino} \hskip 1.5em \ponto{feminino} \hskip 2em%
+Ocupação: \hrulefill%
+
+\vskip 2em
+O que lhe motivou a se inscrever no curso? \hrulefill
+
+\vsalto
+\hrulefill
+
+\vskip 2em
+Como você acha que o curso poderia ter sido melhor? \hrulefill
+
+\vsalto
+\hrulefill
+
+\vskip 2em
+O que você mais gostou do curso? \hrulefill
+
+\vsalto
+\hrulefill
+
+\vskip 2em
+O que você menos gostou do curso? \hrulefill
+
+\vsalto
+\hrulefill
+
+\vskip 2em
+Se você quiser, deixe seu nome e e-mail para eventuais contatos: \hrulefill
+
+\vsalto
+\hrulefill
+
+\vskip 3em
+Se quiser deixar algum comentário, sinta-se livre:
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\vsalto
+\hrulefill
+
+\end{document}
