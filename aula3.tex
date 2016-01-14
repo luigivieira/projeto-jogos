@@ -1,4 +1,4 @@
-% Beamer do material do curso de Verão (2015) do IME-USP
+% Beamer do material do curso de Verão (2016) do IME-USP
 % Introdução ao Projeto de Jogos
 %
 % Baseado no template LaTeX das apresentações do LIDET versão 2
@@ -6,8 +6,8 @@
 %
 
 \providecommand\classopts{}
-\expandafter\documentclass\expandafter[table, usenames, svgnames, dvipsnames,%
-                                       \classopts]{beamer}
+\expandafter\documentclass\expandafter[table, usenames, svgnames, dvipsnames, \classopts]{beamer}
+
 \usepackage{etex}
 \usepackage{beamerthemeshadow}
 \usepackage[portuguese]{babel}
@@ -23,7 +23,7 @@
 \usepackage{xcolor,colortbl}
 \usepackage{ragged2e}
 \usepackage{tikz}
-\usepackage{multicol}
+\usepackage{multirow}
 
 % ---------------------------------------------------------------------------- %
 % Presentation definitions
@@ -36,7 +36,7 @@
 \setbeamerfont{title}{size=\normalsize}
 \beamertemplatenavigationsymbolsempty
 \setbeamertemplate{bibliography item}[text]%
-\setbeamertemplate{headline}{} % Remove a barra superior.
+\setbeamertemplate{headline}{} % Remove upper bar
 
 % colors
 \definecolor{lidet_orange}{rgb}{0.9, 0.49, 0.09}
@@ -51,18 +51,12 @@
 % shadow
 \makeatletter
 \pgfdeclareverticalshading[black,bg]{bmb@shadow}{200cm}{%
-    color(0bp)=(lidet_black!25);%
-    color(4bp)=(black!50!bg);%
-    color(8bp)=(black!50!bg)%
-}
+  color(0bp)=(lidet_black!25); color(4bp)=(black!50!bg); color(8bp)=(black!50!bg)}
 \pgfdeclareradialshading[black,bg]{bmb@shadowball}{\pgfpointorigin}{%
-    color(0bp)=(black!50!bg); color(4bp)=(lidet_black!25)%
-}
+  color(0bp)=(black!50!bg); color(4bp)=(lidet_black!25)}
 \pgfdeclareradialshading[black,bg]{bmb@shadowballlarge}{\pgfpointorigin}{%
-    color(0bp)=(black!50!bg);%
-    color(4bp)=(black!50!bg);%
-    color(8bp)=(lidet_black!25)%
-}
+  color(0bp)=(black!50!bg); color(4bp)=(black!50!bg); color(8bp)=(lidet_black!25)}
+%
 \makeatother
 
 % Captions for images and tables
@@ -79,8 +73,7 @@
 \setlength\aboverulesep{0.10ex}
 
 % Define macros to mark the begining and ending of references
-% Basically, handles the automatically spanned frames (due to parameter
-% allowframebreaks)
+% Basically, handles the automatically spanned frames (due to parameter allowframebreaks)
 % as backup frames, so they do not influence in the frame numbering
 \newcommand{\referencesbegin}{
    \newcounter{framenumberappendix}
@@ -106,19 +99,14 @@
 \AtBeginSection[] 
 {
 	{
-        % Hide the footline locally for these frames
-		\setbeamertemplate{footline}{}
+		\setbeamertemplate{footline}{} % Hide the footline locally for these frames
 		\begin{frame}<beamer>[noframenumbering]
 			\begin{center}
 				\begin{tikzpicture}
-					\node[align=left, left color=lidet_orange,%
-                          right color=lidet_orange, draw, rounded corners,%
-                          minimum width=10cm, minimum height=1cm]%
-                          {\color{white} \textbf{\insertsectionhead}};
+					\node[align=left, left color=lidet_orange, right color=lidet_orange, draw, rounded corners, minimum width=10cm, minimum height=1cm] {\color{white} \textbf{\insertsectionhead}};
 				\end{tikzpicture}
 			\end{center}
-			\footnotesize{\tableofcontents[currentsection,%
-                          hideothersubsections]}
+			\footnotesize{ \tableofcontents[currentsection, hideothersubsections] }
 		\end{frame}
 	}
 }
@@ -150,7 +138,7 @@
 % ---------------------------------------------------------------------------- %
 % Presentation title, author and institution
 % ---------------------------------------------------------------------------- %
-\newcommand{\lessontitle}{Aula 3 - Pensando na Experiência de Jogo}
+\newcommand{\lessontitle}{Aula 3 - Executando testes e avaliações}
 \title{\textbf{Introdução ao Projeto de Jogos}}
 \subtitle{{\small \lessontitle}}
 
@@ -161,8 +149,8 @@
 }
 
 \newcommand{\lidet}{LIDET (IME - USP)}
-\institute[\lidet]{\\[1.0mm] 
-Curso de Verão (2015)\\
+\institute[\lidet]{\\[1.0mm]
+Curso de Verão (2016)\\
 Departamento de Ciência da Computação}
 
 \date{{\tiny 15 de Janeiro de 2016}}
@@ -181,6 +169,7 @@ Departamento de Ciência da Computação}
 
 {%\usebackgroundtemplate{}} 
 \begin{frame}[plain, noframenumbering]
+
 	\begin{columns}[c]
 		\column{0.2\textwidth}
 			\hspace*{-1.5em}
@@ -232,868 +221,248 @@ Departamento de Ciência da Computação}
 % ---------------------------------------------------------------------------- %
 \begin{frame}[plain]
 \frametitle{\textbf{Agenda}}
+
 	\hspace*{+4.0em}
 	\footnotesize{ \tableofcontents }
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Gameplay e Jogabilidade}
+\section{Heurísticas de projeto}
 % ---------------------------------------------------------------------------- %
 
-\subsection{Definições}
-
 % ------------------------------
-\begin{frame}{\textbf{Gameplay vs. Jogabilidade}}
+\begin{frame}{\textbf{Heurísticas}}
 
 	\begin{outline}
-		\1 \textit{Gameplay} e jogabilidade (\textit{playability}) são termos muito utilizados \cite{Nacke2009}
-			\2[-] {\scriptsize as vezes confundidos, embora sejam distintos}
-			
+
+		\1 \textit{Heurística} é uma palavra de origem grega, que significa ``encontrar'' ou ``descobrir''\footnote{Fonte: \url{http://pt.wikipedia.org/wiki/Heur\%C3\%ADstica}}
+			\2[-] {\scriptsize mesma origem de \textit{Eureca} (``encontrei'')}
+
 		\vspace{1em}
-			
-		\1 \textbf{Gameplay}: ``o ato de jogar''
-			\2[-] {\scriptsize padrão de interações que emerge durante uma sessão de jogo}
-			\2[-] {\scriptsize caminho de escolhas do jogador em busca do objetivo}
-			\2[-] {\scriptsize caracteriza a experiência em termos da mecânica}
-		
+
+		\1 Método ou processo criado com o objetivo de encontrar uma solução para um problema
+			\2[-] {\scriptsize envove substituir questões difíceis por outras mais fáceis}
+			\2[-] {\scriptsize de forma a encontrar soluções viáveis, ainda que imperfeitas}
+
 		\vspace{1em}
-			
-		\1 \textbf{Jogabilidade}: ``a capacidade de jogar''
-			\2[-] {\scriptsize qualidades de um jogo que determinam o quão jogável ele é}
-			\2[-] {\scriptsize escolhas de design que buscam facilitar a diversão}
-			\2[-] {\scriptsize caracteriza a experiência em termos da interface e da estética}
+
+		\1 Exemplo clássico: chave do carro perdida
+			\2[-] {\scriptsize ao invés de procurar em todos os locais possíveis (problema difícil)...}
+			\2[-] {\scriptsize ...a busca é realizada nos locais \emph{mais prováveis} (problema mais fácil)}
+
 	\end{outline}
 
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Prazer, satisfação e utilidade}}
+\begin{frame}{\textbf{O uso de heurísticas}}
 
-	\vspace{-1em}
-
-	\begin{columns}[c]
-	
-		\column{0.4\textwidth}
-		
-			\begin{figure}
-				\centering
-				\includegraphics[height=0.6\paperheight]{UX-aspects}\\
-				\caption{\textbf{Elementos da Experiência de Usuário}, baseado em \cite{Jordan2002,Bentley2002}}
-			\end{figure}		
-			
-		\column{0.6\textwidth}
-		
-			\begin{outline}
-				\1 {\scriptsize Aspectos pragmáticos: usabilidade/jogabilidade (no caso de jogos)}
-					\2[-] {\tiny utilidade (características necessárias)}
-					\2[-] {\tiny eficácia e eficiência (bons resultados, fáceis de alcançar)}
-					\2[-] {\tiny segurança (prevenção de erros graves e fácil recuperação)}
-					\2[-] {\tiny aprendizado (fácil de aprender como usar)}
-					\2[-] {\tiny reconhecimento (fácil de lembrar como executar ações)}
-					\2[-] {\tiny satisfação (ausência de desconforto e atitudes positivas)}
-					
-				\1 {\scriptsize Aspectos hedônicos: experiência}
-					\2[-] {\tiny estimulação (dos sentidos)}
-					\2[-] {\tiny identifação (com a criação de significado)}
-					\2[-] {\tiny evocação (com a recorrência de boas memórias)}
-
-			\end{outline}
-			
-	\end{columns}
-
-\end{frame}
-
-% ------------------------------
-\subsection{Trabalhando a jogabilidade}
-% ------------------------------
-
-\begin{frame}{\textbf{Protejendo o jogador de erros...}}
-    \centering
-    \vskip -2cm%
-    ... e ajudando-o a corrigi-los
-    \vskip 1.5cm%
-
-    \begin{minipage}{7cm}
-        \begin{itemize}
-            \item Save points
-            \vskip 0.3cm%
-            \item Guiar o jogador\\
-                  (teste do olho apertado)
-            \vskip 0.3cm%
-            \item Bloqueie acesso a áreas indesejadas
-            \vskip 0.3cm%
-            \item NPC's de auxílio
-            \vskip 0.3cm%
-            \item Não abuse da memória do jogador
-        \end{itemize}
-    \end{minipage}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Mantendo a consistência}}
-    \centering
-    É também importante manter consistência nas escolhas de design:
-    \vskip 0.4cm%
-
-    \begin{minipage}{4.5cm}
-        \begin{itemize}
-            \item Ações
-            \vskip 0.3cm%
-            \item Perigos e inimigos
-            \vskip 0.3cm%
-            \item Recompensas
-        \end{itemize}
-    \end{minipage}
-    
-    \vspace{3em}
-    
-    \begin{block}{}
-    	\centering
-    	Mais dicas de jogabilidade no decorrer desta aula...
-    \end{block}
-    
-\end{frame}
-
-% ---------------------------------------------------------------------------- %
-\section{CCC - Character (Personagem), Câmera, Controle}
-% ---------------------------------------------------------------------------- %
-
-% ------------------------------
-\subsection{Character (personagem)}
-
-% ------------------------------
-\begin{frame}{\textbf{Character (personagem)}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{itemize}
-            \item Forma e função
-            \vskip 1cm%
-            \item Personalidade
-        \end{itemize}
-    \end{minipage}
-\end{frame}
-
-
-% Silhuetas
-\subsubsection{Silhuetas e cores}
-% ------------------------------
-\begin{frame}{\textbf{Silhueta}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{team_fortress2_silhueta}
-        \caption{Team Fortress 2\footnote{\url{http://www.mellow3d.com/misc/tf2.png}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Silhueta}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{dota2_silhueta1}
-        \caption{Dota 2 character art guide\footnote{\url{http://media.steampowered.com/apps/dota2/workshop/Dota2CharacterArtGuide.pdf}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Silhueta}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{dota2_cores1}
-        \caption{Dota 2 character art guide\footnote{\url{http://media.steampowered.com/apps/dota2/workshop/Dota2CharacterArtGuide.pdf}}}
-    \end{figure}
-\end{frame}
-
-% CÍRCULOS
-\subsubsection{Círculo}
-% %s/^zxzx\n\(.*\)\n\(.*\)\n\(.*\)\.png/\% ------------------------------\r\\begin{frame}{\\textbf{Círculos}}\r    \\centering\r    \\begin{figure}\r        \\includegraphics[height=5cm]{\3}\r        \\caption{\1\\footnote{\\url{\2}}}\r    \\end{figure}\r\\end{frame}/g
-%zxzx
-%Sonic
-%http://www.powersonic.com.br/downloads/artworks/classicos/Sonic_3.png
-%sonic.png
-\begin{frame}{\textbf{Círculo}}
-    \centering
-    \begin{figure}%
-        \begin{subfigure}{0.3\textwidth}%
-            \centering
-            \includegraphics[height=5cm]{sonic}%
-            \caption{Sonic\footnotemark{}}%
-        \end{subfigure}%
-        \begin{subfigure}{0.3\textwidth}%
-            \centering
-            \includegraphics[height=5cm]{bomberman}%
-            \caption{Bomberman\footnotemark{}}%
-        \end{subfigure}%
-        \begin{subfigure}{0.3\textwidth}%
-            \centering
-            \includegraphics[height=5cm]{sackboy}
-            \caption{Sackboy\footnotemark{}}%
-        \end{subfigure}%
-    \end{figure}
-\footnotetext[1]{\url{http://www.powersonic.com.br/downloads/artworks/classicos/Sonic_3.png}}
-\footnotetext[2]{\url{http://img2.wikia.nocookie.net/__cb20111012003236/bomberman/images/6/6d/Bomberman_Art_BSDS.jpg}}
-\footnotetext{\url{http://vignette3.wikia.nocookie.net/sackisback/images/d/d6/Sackboy_sitting.png/revision/latest/scale-to-width/1000?cb=20140627233414}}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Círculo}}
-    \centering
-    Simplificando bastante, pode-se\\
-    fazer um personagem assim:
-
-    \begin{figure}
-        \includegraphics[height=5cm]{kirby}
-        \caption{Kirby (Kirby's Return to Dream Land)\footnote{\url{http://upload.wikimedia.org/wikipedia/en/2/22/Kirby_Wii.png}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Círculo}}
-    \centering
-    Ou até assim:
-
-    \begin{figure}
-        \includegraphics[height=4cm]{pacman}
-        \caption{Pacman\footnote{\url{http://upload.wikimedia.org/wikipedia/commons/4/49/Pacman.svg}}}
-    \end{figure}
-\end{frame}
-
-% TRIANGULAR
-\subsubsection{Triângulo}
-% ------------------------------
-\begin{frame}{\textbf{Cabeça triangular}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{neo_cortex}
-        \caption{Doctor Neo Cortex (Crash Bandicoot)\footnote{\url{http://i.ytimg.com/vi/z4JKaqVndYM/hqdefault.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Cabeça triangular}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{diablo}
-        \caption{Diablo (Diablo III)\footnote{\url{http://diablo.incgamers.com/gallery/data/543/Diablo_Glowei009c.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Cabeça triangular}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{joker}
-        \caption{Joker (Batman Arkhan Asylum)\footnote{\url{http://img.photobucket.com/albums/v299/Sepharih/Batman/Joker_1.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Cabeça triangular}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{heihachi}
-        \caption{Heihachi Mishima (Tekken 5)\footnote{\url{http://bestgamewallpapers.com/files/tekken-5/heihachi-mishima.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Cabeça triangular}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{vader}
-        \caption{Darth Vader (Star Wars)\footnote{\url{http://www.versusbattle.com/wp-content/uploads/2013/03/darth-vader.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Cabeça triangular}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{molluck}
-        \caption{Molluck (Abe's Oddysee)\footnote{\url{http://img3.wikia.nocookie.net/__cb20090428062047/oddworld/images/c/cf/Molluck02.jpg}}}
-    \end{figure}
-\end{frame}
-
-
-% QUADRADO
-\subsubsection{Quadrado}
-% ------------------------------
-\begin{frame}{\textbf{Quadrado}}
-    \centering
-    \begin{figure}%
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=4.5cm]{ralph}
-            \caption{Ralph (Wreck it Ralph)\footnotemark{}}
-        \end{subfigure}
-        \begin{subfigure}{0.49\textwidth}%
-            \includegraphics[height=4.5cm]{dammd}
-            \caption{Dammd (Final Fight)\footnotemark{}}
-        \end{subfigure}
-    \end{figure}
-    \footnotetext[12]{\url{http://cache.g4tv.com/ImageDb3/303386_S/wreck-it-ralph-game-coming-from-activision-and-disney-interactive.jpg}}
-    \footnotetext{\url{http://www.arcadequartermaster.com/ffight/boss_damnd.png}}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Quadrado}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{marcus}
-        \caption{Marcus Fenix (Gears of War)\footnote{\url{http://media.gow-series.com/images/site/newsimages/gears-of-war-judgment-marcus-fenix-preorder.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Quadrado}}
-    \centering
-    \begin{figure}%
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=5cm]{kilrogg}
-            \caption{Kilrogg Deadeye (World of Warcraft)\footnotemark{}}
-        \end{subfigure}
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=5cm]{heavy}
-            \caption{Heavy (Team Fortress 2)\footnotemark{}}
-        \end{subfigure}
-    \end{figure}
-    \footnotetext[15]{\url{http://i.ytimg.com/vi/dTUIqJyy1lk/maxresdefault.jpg}}
-    \footnotetext{\url{https://wiki.teamfortress.com/w/images/thumb/a/a0/Community_Heavy_Strategy_Header.png/300px-Community_Heavy_Strategy_Header.png?t=20111122050936}}
-\end{frame}
-
-
-% TRIÂNGULO INVERTIDO
-\subsubsection{Triângulo para baixo}
-% ------------------------------
-\begin{frame}{\textbf{Triângulo para baixo}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{jonny_bravo}
-        \caption{Jonny Bravo\footnote{\url{http://www.jrj-socrates.com/Cartoon\%20Pics/Cartoon\%20Network/Johnny\%20Bravo/Johnny_Bravo_301.gif}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Triângulo para baixo}}
-    \centering
-    \begin{figure}%
-        \begin{subfigure}{0.3\textwidth}%
-            \centering
-            \includegraphics[height=4cm]{cody}
-            \caption{Cody (Final Fight)\footnotemark{}}
-        \end{subfigure}
-        \begin{subfigure}{0.3\textwidth}%
-            \centering
-            \includegraphics[height=4cm]{kratos}
-            \caption{Kratos (God of War II)\footnotemark{}}
-        \end{subfigure}
-        \begin{subfigure}{0.3\textwidth}%
-            \centering
-            \includegraphics[height=4cm]{batman}
-            \caption{Batman (Batman Arkhan Asylum)\footnotemark{}}
-        \end{subfigure}
-    \end{figure}
-    \footnotetext[18]{\url{http://www.arcadequartermaster.com/ffight/sprite_cody.png}}
-    \footnotetext[19]{\url{http://199.101.98.242/media/shots/150564-God_of_War_II_\%28USA\%29-3.jpg}}
-    \footnotetext{\url{http://img1.wikia.nocookie.net/__cb20131108203507/marvel_dc/images/6/62/Batman_Arkhamverse_003.jpg}}
-\end{frame}
-
-
-% Informação pelo personagem
-\subsubsection{Personagem mostrando informação}
-% ------------------------------
-\begin{frame}{\textbf{O personagem mostrando informação}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{mk}
-        \caption{Mortal Kombat 9\footnote{\url{http://i47.fastpic.ru/big/2013/0704/e5/a02c5f822d656c0c57b437b5fcc912e5.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{O personagem mostrando informação}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{deadspace}
-        \caption{Dead Space\footnote{\url{http://www.visualwalkthroughs.com/deadspace/intensivecare/68.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{O personagem mostrando informação}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{doom}
-        \caption{Doom 3\footnote{\url{http://cdn2.gamefront.com/wp-content/uploads/2012/08/d3-1.jpeg}}}
-    \end{figure}
-\end{frame}
-
-
-% Companheiros
-\subsubsection{Companheiros}
-% ------------------------------
-\begin{frame}{\textbf{Personagens companheiros}}
-    \centering
-    Informativos
-    \centering
-    \begin{figure}%
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=4cm]{claptrap}
-            \caption{Claptrap (Borderlands)\footnotemark{}}
-        \end{subfigure}
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=4cm]{akuaku}
-            \caption{Aku Aku\\(Crash Bandicoot)\footnotemark{}}
-        \end{subfigure}
-    \end{figure}
-    \footnotetext[27]{\url{http://i.kinja-img.com/gawker-media/image/upload/s--NHlrEvcg--/18j3aiqqtotcpjpg.jpg}}
-    \footnotetext{\url{http://fc08.deviantart.net/fs71/i/2014/211/9/e/crash_bandicoot_team_racing_psx_aku_aku_by_danytatu-d7sxgo7.jpg}}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Personagens companheiros}}
-    \centering
-    Complementares
-
-    \begin{figure}
-        \includegraphics[height=5cm]{sonic_tails}
-        \caption{Tails (Sonic the Hedgehog 2)\footnote{\url{http://img1.wikia.nocookie.net/__cb20091012201501/sonic/images/4/49/Sonic_and_Tails_5.png}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Personagens companheiros}}
-    \centering
-    Complementares
-
-    \begin{figure}
-        \includegraphics[height=5cm]{donkey_diddy}
-        \caption{Diddy (Donkey Kong Country)\footnote{\url{http://images4.fanpop.com/image/photos/22000000/Donkey-and-Diddy-Kong-donkey-kong-22009280-1280-1280.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Personagens companheiros}}
-    \centering
-    Complementares e \textbf{afetivos}
-
-    \begin{figure}
-        \includegraphics[height=5cm]{agro}
-        \caption{Agro (Shadow of the Colossus)\footnote{\url{http://moderatelygeeky.com/wp-content/uploads/2013/12/Agro.jpg}}}
-    \end{figure}
-\end{frame}
-
-
-% Dimensões
-\subsubsection{Personagem como unidade de medida}
-% ------------------------------
-\begin{frame}{\textbf{Personagens como unidade de medida}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{prince_of_persia}
-        \caption{Prince of Persia\footnote{\url{http://www.popuw.com/images/pop1-16.png}}}
-    \end{figure}
-\end{frame}
-
-\subsubsection{Personagens em jogos de tabuleiro}
-% ------------------------------
-\begin{frame}{\textbf{Com diferentes formas e níveis de detalhe}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{catan-pieces}
-        \caption{\tiny\textbf{Diferentes versões das peças de ``Colonizadores de Catan''} \copyright{1995} Klaus Teuber\footnote{\url{http://boardgamegeek.com/boardgame/13/settlers-catan}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{E mesmo permitindo customizações}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{zombicide-pieces}
-        \caption{\tiny\textbf{Peças de ``Zombicide''} \copyright{2011-2014} Guilhotine Games\footnote{\url{http://zombicide.com/pt/}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\subsection{Câmera}
-
-% Fixa
-\subsubsection{Câmera fixa}
-% ------------------------------
-\begin{frame}{\textbf{Câmera fixa}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{space_invaders}
-        \caption{Space Invaders\footnote{\url{http://upload.wikimedia.org/wikipedia/en/2/20/SpaceInvaders-Gameplay.gif}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Câmera fixa}}
-    \centering
-    \begin{figure}%
-        \begin{subfigure}{0.3\textwidth}%
-            \centering
-            \includegraphics[height=1.4cm]{fear_effect1}%
-            \caption{Fear Effect\footnotemark{}}%
-        \end{subfigure}%
-
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=3.9cm]{fear_effect3}%
-            \caption{Vista lateral\footnotemark{}}%
-        \end{subfigure}%
-        \begin{subfigure}{0.49\textwidth}%
-            \centering
-            \includegraphics[height=3.9cm]{fear_effect2}%
-            \caption{Vista superior\footnotemark{}}%
-        \end{subfigure}%
-    \end{figure}
-\footnotetext[34]{\url{http://picturezzz.ru/pictures/174677cd9d0846e825bf3db338b37569.jpg}}
-\footnotetext[35]{\url{http://www.theisozone.com/images/screens/playstation-57563-41409572983.jpg}}
-\footnotetext{\url{http://s.uvlist.net/l/y2006/09/26654.jpg}}
-\end{frame}
-
-% Rolagem
-\subsubsection{Câmera de rolagem}
-% ------------------------------
-\begin{frame}{\textbf{Câmera de rolagem}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{sonic_screenshot}
-        \caption{Sonic the hedhog\footnote{\url{http://3.bp.blogspot.com/_WaXspDnBJ2c/TC1lZyJEZqI/AAAAAAAACrg/KtPBQA1X3FI/s1600/02.png}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Câmera de rolagem}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{trials_evolution}
-        \caption{Trials Evolution\footnote{\url{http://www.redlynx.com//images/stories/games/trialsevo/screenshots2/trials-evo-010.jpg}}}
-    \end{figure}
-\end{frame}
-
-% Primeira pessoa
-\subsubsection{Câmera em primeira pessoa - Vantagens}
-% ------------------------------
-\begin{frame}{\textbf{Câmera em primeira pessoa}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{cs}
-        \caption{Counter Strike\footnote{\url{http://www.hivegaming.net/images/cs16-screencaps/large/01.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Câmera em primeira pessoa - Desvantagens}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{chivalry}
-        \caption{Chivalry Medieval Warfare\footnote{\url{http://vignette2.wikia.nocookie.net/age-of-chivalry/images/f/fa/I9dNyaRha8FpE_\%281\%29.png/revision/latest?cb=20121215022358}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Câmera em primeira pessoa - Ambientação}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{outlast}
-        \caption{Outlast\footnote{\url{http://cdn.akamai.steamstatic.com/steam/apps/238320/ss_97dfd31784f9c51d2c603ac3f36ae52fac401de3.600x338.jpg?t=1399595107}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Câmera em primeira pessoa - Efeitos}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{farcry3_drops}
-        \caption{Far Cry 3\footnote{\url{http://gamingsnack.com/wp-content/uploads/2013/01/Far-Cry-3-PS3.jpg}}}
-    \end{figure}
-\end{frame}
-
-% Terceira pessoa
-\subsubsection{Câmera em terceira pessoa}
-% ------------------------------
-\begin{frame}{\textbf{Câmera em terceira - Vantagens}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{assassins_creed}
-        \caption{Assassin's Creed\footnote{\url{http://blog.gaming.stackexchange.com/files/2011/06/acreed_03.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Câmera em terceira - Desvantagens}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{resident_evil6}
-        \caption{Resident Evil 6\footnote{\url{http://gamehall.uol.com.br/selectgame/wp-content/gallery/resident-evil-6-1/resident-evil-6-gameplay-7.jpg}}}
-    \end{figure}
-\end{frame}
-
-% 2.5D
-\subsubsection{2.5D}
-% ------------------------------
-\begin{frame}{\textbf{2.5D - 3D fingindo 2D}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{street_fighter}
-        \caption{Street Fighter IV\footnote{\url{http://ha.wishmesh.com/wp-content/uploads/2011/04/street-fighter-iv-ken-vs-ryu.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{2.5D - 2D fingindo ser 3D}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{golden_axe}
-        \caption{Golden Axe\footnote{\url{http://s2.glbimg.com/VWgbIztytg3JVLUQdEwLGATYPMk=/0x600/s.glbimg.com/po/tt2/f/original/2014/09/11/a450e98e012c44fd12313b030e0a.jpeg}}}
-    \end{figure}
-\end{frame}
-
-% Isométrica
-\subsubsection{Projeção isométrica}
-% ------------------------------
-\begin{frame}{\textbf{Projeção isométrica}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{age_of_empires2}
-        \caption{Age of Empires II\footnote{\url{http://www.infobarrel.com/media/image/137340.jpg}}}
-    \end{figure}
-\end{frame}
-
-
-% ------------------------------
-\subsection{Controle}
-
-% ------------------------------
-\begin{frame}{\textbf{Controle}}
-    \centering
-    \begin{minipage}{4cm}
-        \begin{figure}
-            \includegraphics[height=2cm]{keyboard}
-            \caption{Teclado\footnotemark{}}
-        \end{figure}
-    \end{minipage}
-    \hspace{2.5cm}%
-    \begin{minipage}{4cm}
-        \begin{figure}
-            \includegraphics[height=2cm]{touch}
-            \caption{Telas \textit{touch}\footnotemark{}}
-       \end{figure}
-    \end{minipage}
-
-    \vskip -1.7cm%
-    \begin{minipage}{3cm}
-        \begin{figure}
-            \includegraphics[height=2cm]{wii_controller}
-            \caption{Controle do Wii\footnotemark{}}
-        \end{figure}
-    \end{minipage}
-
-    \vskip -0.6cm%
-    \begin{minipage}{4cm}
-        \begin{figure}
-            \includegraphics[height=1.9cm]{playstation_controller}
-            \caption{Controle do PlayStation\footnotemark{}}
-        \end{figure}
-    \end{minipage}
-    \hspace{2.5cm}%
-    \begin{minipage}{4cm}
-        \begin{figure}
-            \includegraphics[height=2cm]{xbox_controller}
-            \caption{Controle do Xbox\footnotemark{}}
-        \end{figure}
-    \end{minipage}
-
-    %Teclado
-    \footnotetext[48]{\url{http://www.fgcu.edu/BTS/images/keyboard-mouse.jpg}}
-
-    %Touch
-    \footnotetext[49]{\url{http://pixabay.com/get/b3d60eb87415c735405c/1420749677/tablet-314153_1280.png?direct}}
-
-    %Wii
-    \footnotetext[50]{\url{http://images.amazon.com/images/G/01/videogames/detail-page/B000IMYKQ0-1-lg.jpg}}
-
-    %PlayStation
-    \footnotetext[51]{\url{http://ecx.images-amazon.com/images/I/71uQYNKiKCL._SL1500_.jpg}}
-
-    %Xbox
-    \footnotetext{\url{http://www.sosgamers.com/wp-content/uploads/2013/05/Xbox-One-Mando-1.jpg}}
-\end{frame}
-
-% Ergonomia
-% ------------------------------
-\begin{frame}{\textbf{Ergonomia}}
-    \begin{figure}
-        \includegraphics[height=5.5cm]{ergonomia}
-        \caption{\footnote{\textbf{Level UP!}, Scott Rogers}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Button mashing}}
-    \centering
-    \begin{figure}
-        \includegraphics[height=5cm]{button_mashing}
-        \caption{Esmagando botões\footnote{\url{http://25.media.tumblr.com/tumblr_laz6viN7NI1qbbpaoo1_500.jpg}}}
-    \end{figure}
-\end{frame}
-
-% ---------------------------------------------------------------------------- %
-\section{Gráfico de ritmo}
-% ---------------------------------------------------------------------------- %
-
-% ------------------------------
-\begin{frame}{\textbf{Gráfico de ritmo}}
-    \centering
-    Na verdade não é um gráfico...
-    \vskip 2em
-
-    são tabelas.
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Exemplo}}
-    \begin{figure}
-        \includegraphics[height=5.5cm]{progretion}
-        \caption{Progressão de novidades\footnote{\textbf{Level UP!}, Scott Rogers}}
-    \end{figure}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Gráfico de ritmo}}
-    \centering
-    \begin{minipage}{7cm}
-        \begin{itemize}
-            \item Descrição sucinta de cada fase
-            \vskip 0.3cm%
-            \item Permite acompanhar e controlar...
-            \begin{itemize}
-                \item aparecimento de inimigos novos
-                \item aprendizado de novas habilidades
-                \item surgimento de novas mecânicas
-                \item dinheiro do personagem
-                \item etc
-            \end{itemize}
-            \vskip 0.3cm%
-            \item Muito útil para balanceamento
-        \end{itemize}
-    \end{minipage}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Gráfico de ritmo}}
-    \scriptsize
-    \begin{table}[h]
-    \begin{tabular}{l p{6cm}}
-    \hline
-    \textbf{Número do nível}         & 1.2                             \\ \hline
-    \textbf{Título/ambiente}         & Tumba dos escravos              \\ \hline
-    \textbf{Hora do dia}             & Noite                           \\ \hline
-    \textbf{Elementos de história}   & Kha encontra um mapa e sai da pirâmide
-                                       por uma passagem secreta feita pelos
-                                       escravos                        \\ \hline
-    \textbf{Progressão de gameplay}  & Jogador sabe se movimentar e combate
-                                       básico                          \\ \hline
-    \textbf{Inimigos}                & Escaravelhos rastejantes, escaravelhos
-                                       voadores, múmias de escravos (básico),
-                                       múmias de escravos (com ferramentas)
-                                       \\ \hline
-    \textbf{Mecânicas}               & Alavancas, portas escondidas, vasos
-                                       quebráveis, plataformas móveis, escritas
-                                       nas paredes                     \\ \hline
-    \textbf{Perigos}                 & Armadilha de espinhos na parede,
-                                       alçapões, lâminas caindo, abismos
-                                       \\ \hline
-    \textbf{Tempo para completar}    & 15 minutos                      \\ \hline
-    \textbf{Habilidades destravados} & Olhar item de perto, pulo duplo,
-                                       escorregar                      \\ \hline
-    \textbf{Power-ups encontrados}   & Haste de alavanca, recuperar vida,
-                                       vaga-lume, moedas de ouro, moedas de prata
-                                       \\ \hline
-    \textbf{Tesouros}                & 25 moedas de prata, 5 moedas de ouro
-                                       \\ \hline
-    \textbf{Esquema de cores}        & Bege (paredes), marrom (terra/chão),
-                                       dourado (estátuas)              \\ \hline
-    \textbf{Trilha musical}          & lento\_mistério                 \\ \hline
-    \textbf{Material extra}          & -                               \\ \hline
-    \end{tabular}
-    \end{table}
-\end{frame}
-
-
-% ---------------------------------------------------------------------------- %
-\section{Átomos de jogos e lentes de game design}
-% ---------------------------------------------------------------------------- %
-
-% ------------------------------
-\begin{frame}{\textbf{Átomos de jogos}}
-    \centering
-    
-    Os elementos a seguir (átomos) servem como referência básica sobre os assuntos tratados:
-    
-    \vspace{1em}
-    
-    %\footnotesize
-	\begin{multicols}{2}
-        \begin{enumerate}
-            \item Objetivo Claro
-            \item Recompensas e punições
-            \item Jogador como Agente de Mudança
-            %\item Contexto Compreensível (* rever o que é)
-            \item Regras Compreensíveis
-            \item Habilidade e Progressão
-            \item Feedback sobre ação
-                  %(visual ou sonoro)
-            \item Interface consistente
-            \item Desafios e IA
-                 %(desafios tipo "soma zero", mesmo sem oponentes humanos)
-            \item Alternância entre Desafios e Pausas
-            \item Balanceamento entre sorte e estratégia
-                  %(sem demonizar os extremos - jogo da vida x xadrez)
-            \item Visibilidade e localização$/$orientação
-            \item Uso de padrões
-            \item Narrativa e fantasia significativas
-        \end{enumerate}
-    \end{multicols}
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Lentes de game design}}
+	As heurísticas servem para dois propósitos:
 
 	\begin{outline}
-		\1 As lentes de game design são também muito úteis
-		
-		\1 O aplicativo gratuito (Android) pode ser baixado de:\\
-			{\scriptsize \url{https://play.google.com/store/apps/details?id=com.schellgames.deckoflenses&hl=pt_BR}}
+
+		\1 Servir como melhoras práticas para as escolhas de projeto
+
+		\vspace{1em}
+
+		\1 Servir como pontos de questionamento para a avaliação com protótipos
+
 	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Exemplo de heurísticas: GameFlow}}
+
+	\begin{table}
+		\scriptsize
+		\setlength{\tabcolsep}{1pt}
+		\renewcommand{\arraystretch}{1.5}
+		\caption{\textbf{Algumas das heurísticas do modelo GameFlow} \cite{Sweetser2005}}
+
+		\begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+
+			\toprule
+			\textbf{Elemento} & \textbf{Critério}\\
+			\midrule
+			\multirow{3}{*}{Desafio}  & -- os desafios devem ser equiparados às habilidades do jogador\\
+									  & -- o jogo deve prover diferentes níveis de dificuldade para diferentes jogadores\\
+									  & -- o nível do desafio deve aumentar progressivamente\\[1em]
+			\midrule
+
+			\multirow{4}{*}{Controle} & \\ & -- os jogadores devem ter a sensação de controle sobre seus personagens ou unidades, movimento, e interações no jogo\\
+									  & -- os jogadores devem ter a sensação de controle sobre a interface e os dispositivos de entrada\\
+									  & -- os jogadores não devem ser capazes de cometer erros que são prejudiciais ao jogo\\
+			\bottomrule
+		
+		\end{tabular}
+
+	\end{table}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Exemplo de heurísticas: Lentes de Game Design}}
 
 	\begin{figure}
 		\includegraphics[height=4.5cm]{game-design-lenses}
 		\caption{\tiny\textbf{Exemplos das lentes de game design} \copyright{2008} Jesse Schell\footnote{\url{http://www.amazon.com/The-Art-Game-Design-Lenses/dp/0615218288}}}
 	\end{figure}
 
+	\begin{block}{O aplicativo gratuito pode ser baixado de:}
+        \begin{outline}
+            \1 {\scriptsize \textbf{Android}: \url{https://play.google.com/store/apps/details?id=com.schellgames.deckoflenses}}
+            
+            \1 {\scriptsize \textbf{iOS}: \url{https://itunes.apple.com/br/app/id385531319}}
+        \end{outline}
+	\end{block}
+
+	\vspace{1em}
+
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Atividade}
+\section{Playtesting}
 % ---------------------------------------------------------------------------- %
 
 % ------------------------------
-\begin{frame}{Atividade}
-    \centering
-    \begin{minipage}{6cm}
-        \begin{itemize}
-            \item Analisar o balanceamento e ritmo do gameplay do projeto
-            \vskip 1cm%
-            \item Atualizar o GDD do projeto conforme o necessário
-        \end{itemize}
-	\end{minipage}
+\begin{frame}{\textbf{Por que testar?}}
+
+	Os testes podem ter diferentes propósitos:
+
+	\begin{outline}
+		\1 Avaliar o potencial de diversão das ideias de design existentes (\textit{gameplay})
+			\2[-] {\scriptsize e coletar novas ideias!}
+			
+		\vspace{1em}
+			
+		\1 Avaliar a implementação do jogo sob aspectos ``utilitários'' (jogabilidade) e estéticos (``juiciness'')
+			\2[-] {\scriptsize símbolos e indicações utilizadas}
+			\2[-] {\scriptsize percepção dos objetivos e do feedback das ações}
+			\2[-] {\scriptsize ergonomia dos dispositivos de interface}
+			\2[-] {\scriptsize balanceamento de dificuldade -- individual e entre jogadores}
+			\2[-] {\scriptsize empatia com personagens, preferências por cores, etc}
+		
+		\vspace{1em}
+
+		\1 Avaliar a implementação do jogo sob o ponto de vista técnico
+			\2[-] {\scriptsize durabilidade de componentes}
+			\2[-] {\scriptsize erros de codificação (para jogos digitais)}
+			\2[-] {\scriptsize condições de uso não previstas}
+		
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Prototipação em Papel}}
+
+	\begin{figure}
+	    \centering
+        \includegraphics[width=0.8\paperwidth]{paper-prototype}
+        \caption{\textbf{Exemplo de protótipo em papel}, Travellr App\footnote{\url{https://www.youtube.com/watch?v=_5FGeSQ7DBU}}}
+    \end{figure}
+
+    \begin{center}
+    	Video 13
+    \end{center}
+
+    \vspace{2em}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{O Mágico de Oz}}
+
+	\begin{figure}
+	    \centering
+        \includegraphics[height=0.7\paperheight]{wizard-of-oz}
+        \caption{\textbf{Avaliação do mecanismo de transição de um carro automatizado}, Stanford Jr Team\footnote{\url{http://310valeo.wordpress.com/2013/11/20/cfp-prototyping/}}}
+    \end{figure}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Observação, questionários e entrevistas}}
+
+	\begin{outline}
+		\1 Observação (de jogadores jogando), questionários e entrevistas são ferramentas muito úteis
+			\2[-] {\scriptsize mas alguns cuidados são necessários}
+
+		\vspace{1em}
+
+		\1 A observação pode ter efeitos sobre a experiência
+			\2[-] {\scriptsize os jogadores podem se sentir incomodados, desejar impressionar ou não desejar magoar o observador}
+			
+		\vspace{1em}
+			
+		\1 Questionários interrompem a experiência ou podem não capturar o ``calor do momento''
+			\2[-] {\scriptsize além disso, deve-se procurar não induzir respostas}
+		
+		\vspace{1em}
+
+		\1 Entrevistas também interrompem a experiência
+			\2[-] {\scriptsize e diminuem o anonimato}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{GEQ: Game Experience Questionnaire}}
+
+	\begin{outline}
+		\1 Dois questionários padronizados produzido pela Universidade de Tecnologia de Eindhoven (Holanda)
+			\2[-] {\scriptsize baseados em todos os assuntos estudados até esta aula}
+			\2[-] {\scriptsize para serem utilizados durante e após as sessões de jogos}
+
+		\vspace{1em}
+
+		\1 Contêm questões \emph{Likert} para avaliar oito aspectos da experiência
+			\2[-] {\scriptsize imersão}
+			\2[-] {\scriptsize fluxo}
+			\2[-] {\scriptsize competência}
+			\2[-] {\scriptsize emoções positivas e negativas}
+			\2[-] {\scriptsize tensão}
+			\2[-] {\scriptsize desafio}
+			\2[-] {\scriptsize presença social}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{GEQ: Game Experience Questionnaire}}
+
+	Exemplos de questões:
+
+	\vspace{1em}
+
+	\begin{outline}
+		\0 \textit{Por favor indique como se sentiu enquanto jogou o jogo para cada item, na seguinte escala}:\\
+		\0 \textit{de forma alguma (0), levemente (1), moderadamente (2), bastante (3), extremamente (4)}
+
+		\vspace{1em}
+
+		\1 Eu me senti contente
+		\1 Eu achei que foi divertido
+		\1 Eu pensei sobre outras coisas
+		\1 Eu me senti capaz/competente
+		\1 Foi esteticamente agradável
+		\1 Eu esqueci de tudo ao meu redor
+		\1 Eu fui bem no jogo
+		\1 Eu tive que colocar muito esforço no jogo
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Como obter o GEQ}}
+	\centering
+	Disponível\footnote{ainda somente em inglês, mas versões em outros idiomas (incluindo português) estão sendo produzidas} por solicitação via site:\\[1em]
+	{\large \url{http://www.gamexplab.nl/index.php?page=contact}}
+    
+    \vspace{2em}
+    
+    
 \end{frame}
 
 % ------------------------------------------

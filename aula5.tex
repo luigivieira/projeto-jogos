@@ -1,4 +1,4 @@
-% Beamer do material do curso de Verão (2015) do IME-USP
+% Beamer do material do curso de Verão (2016) do IME-USP
 % Introdução ao Projeto de Jogos
 %
 % Baseado no template LaTeX das apresentações do LIDET versão 2
@@ -23,7 +23,6 @@
 \usepackage{xcolor,colortbl}
 \usepackage{ragged2e}
 \usepackage{tikz}
-\usepackage{multirow}
 
 % ---------------------------------------------------------------------------- %
 % Presentation definitions
@@ -138,7 +137,7 @@
 % ---------------------------------------------------------------------------- %
 % Presentation title, author and institution
 % ---------------------------------------------------------------------------- %
-\newcommand{\lessontitle}{Aula 5 - Executando testes e avaliações}
+\newcommand{\lessontitle}{Aula 5 - Pensando na Estética do Jogo}
 \title{\textbf{Introdução ao Projeto de Jogos}}
 \subtitle{{\small \lessontitle}}
 
@@ -150,10 +149,10 @@
 
 \newcommand{\lidet}{LIDET (IME - USP)}
 \institute[\lidet]{\\[1.0mm]
-Curso de Verão (2015)\\
+Curso de Verão (2016)\\
 Departamento de Ciência da Computação}
 
-\date{{\tiny 21 de Janeiro de 2016}}
+\date{{\tiny 20 de Janeiro de 2016}}
 
 % ---------------------------------------------------------------------------- %
 % Presentation content
@@ -227,284 +226,441 @@ Departamento de Ciência da Computação}
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Planejamento}
+\section{Prazer sensorial (Juiciness)}
 % ---------------------------------------------------------------------------- %
 
 % ------------------------------
-\begin{frame}{\textbf{O plano pra hoje}}
+\begin{frame}{\textbf{O que é \textit{Juiciness}?}}
+    \centering
+    \begin{minipage}{8cm}
+        \textit{Juiciness} são recompensas sensoriais que aumentam a impressão de
+        que o jogo é vivo e responsivo. Se baseia em dar muito feedback mesmo para
+        poucas ou pequenas ações.
+        \vskip 1em
 
-	As atividades de hoje são as seguintes:
-
-	\begin{outline}[enumerate]
-		\1 Aula expositiva
-			
-		\vspace{1em}
-
-		\1 Sessão de \textit{playtesting}
-
-		\vspace{1em}
-
-		\1 Intervalo
-
-		\vspace{1em}
-
-		\1 Sessão de refatoração
-
-		\vspace{1em}
-
-		\1 Sessão de \textit{playtesting}
-
-		\vspace{1em}
-
-		\1 Sessão de \textit{pitches}
-
-	\end{outline}
+        Efeitos (visuais, sonoros, etc) que poderiam não existir, mas que existindo
+        melhoram a experiência de jogo.
+    \end{minipage}
 
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Heurísticas de projeto}
+\section{Exemplos}
 % ---------------------------------------------------------------------------- %
 
+\subsection{Efeitos Sonoros}
 % ------------------------------
-\begin{frame}{\textbf{Heurísticas}}
-
-	\begin{outline}
-
-		\1 \textit{Heurística} é uma palavra de origem grega, que significa ``encontrar'' ou ``descobrir''\footnote{Fonte: \url{http://pt.wikipedia.org/wiki/Heur\%C3\%ADstica}}
-			\2[-] {\scriptsize mesma origem de \textit{Eureca} (``encontrei'')}
-
-		\vspace{1em}
-
-		\1 Método ou processo criado com o objetivo de encontrar uma solução para um problema
-			\2[-] {\scriptsize envove substituir questões difíceis por outras mais fáceis}
-			\2[-] {\scriptsize de forma a encontrar soluções viáveis, ainda que imperfeitas}
-
-		\vspace{1em}
-
-		\1 Exemplo clássico: chave do carro perdida
-			\2[-] {\scriptsize ao invés de procurar em todos os locais possíveis (problema difícil)...}
-			\2[-] {\scriptsize ...a busca é realizada nos locais \emph{mais prováveis} (problema mais fácil)}
-
-	\end{outline}
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{O uso de heurísticas}}
-
-	As heurísticas servem para dois propósitos:
-
-	\begin{outline}
-
-		\1 Servir como melhoras práticas para as escolhas de projeto
-
-		\vspace{1em}
-
-		\1 Servir como pontos de questionamento para a avaliação com protótipos
-
-	\end{outline}
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Exemplo de heurísticas: Lentes de Game Design}}
-
+\begin{frame}{\textbf{``Provocações'' automáticas}}
+	\centering
 	\begin{figure}
-		\includegraphics[height=4.5cm]{game-design-lenses}
-		\caption{\tiny\textbf{Exemplos das lentes de game design} \copyright{2008} Jesse Schell\footnote{\url{http://www.amazon.com/The-Art-Game-Design-Lenses/dp/0615218288}}}
+        \includegraphics[height=5cm]{taunt}
+        \caption{\scriptsize\textbf{Unreal Tournament 2004}\footnote{http://www.wsgf.org/f/u/imagecache/node-gallery-display/contrib/dr/247/ingame\_16x9.jpg}}
+	\end{figure}
+\end{frame}
+
+\subsection{Movimento}
+% ------------------------------
+\begin{frame}{\textbf{Fruit Ninja}}
+	\centering
+	\begin{figure}
+        \includegraphics[height=5cm]{fruit_ninja}
+        \caption{\scriptsize\textbf{Fruit Ninja}\footnote{http://upload.wikimedia.org/wikipedia/en/0/03/FruitNinja\_screenshot.png}}
+	\end{figure}
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Sonic derrapando}}
+	\centering
+    Vídeo 8
+\end{frame}
+
+\subsection{Luz}
+% ------------------------------
+\begin{frame}{\textbf{Luz guiando o jogador}}
+	\centering
+	\begin{figure}
+        \begin{subfigure}{\textwidth}
+        	\centering
+            \includegraphics[height=2.7cm]{fear1}
+            \caption{\scriptsize\textbf{F.E.A.R. 2}\footnotemark{}}
+	    \end{subfigure}
+
+        \begin{subfigure}{\textwidth}
+	        \centering
+            \includegraphics[height=2.7cm]{fear2}
+            \caption{\scriptsize\textbf{F.E.A.R. 2}\footnotemark{}}
+	    \end{subfigure}
 	\end{figure}
 
-	\begin{block}{Lembrete}
+	\footnotetext[1]{\url{http://www.clement-melendez.com/portfolio/articles/05/Fear2\_Light2.jpg}}
+	\footnotetext{\url{http://www.clement-melendez.com/portfolio/articles/05/Fear2\_Door8.jpg}}
+\end{frame}
+
+%\subsection{Vitoria Espetacular}
+
+%\subsection{Comportamento Viciante}
+
+% ---------------------------------------------------------------------------- %
+\subsection{Exemplos Comparativos}
+% ---------------------------------------------------------------------------- %
+
+% ------------------------------
+\begin{frame}{\textbf{Bang! Bang! vs Worms}}
+
+	\begin{figure}
+	    \centering
+
+	    \begin{subfigure}[!h]{0.4\paperwidth}
+	    	\centering
+	    	\includegraphics[height=0.4\paperheight]{bang_bang}
+	        \caption{\scriptsize\textbf{Bang! Bang!}\footnotemark{}}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.4\paperwidth}
+			\centering
+	        \includegraphics[height=0.4\paperheight]{worms}
+	        \caption{\scriptsize\textbf{Worms Reloaded}\footnotemark{}}
+	    \end{subfigure}
+    \end{figure}
+
+	\footnotetext[1]{\url{http://www.download-central.ws/Win16/Games/B/Bang!Bang!/screenshot.png}}
+	\footnotetext{\url{http://www.blogcdn.com/www.joystiq.com/media/2010/07/wrair-strike.jpg}}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Crush the Castle vs Angry Birds}}
+
+	\begin{figure}
+	    \centering
+
+	    \begin{subfigure}[!h]{0.4\paperwidth}
+	    	\centering
+	    	\includegraphics[height=0.4\paperheight]{crush-castle-screenshot}
+	        \caption{\scriptsize\textbf{Crush the Castle}\\\copyright{2009} Armor Games\footnotemark{}}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.4\paperwidth}
+			\centering
+	        \includegraphics[height=0.4\paperheight]{angry-birds-screenshot}
+	        \caption{\scriptsize\textbf{Angry Birds}\\\copyright{2009} Rovio\footnotemark{}}
+	    \end{subfigure}
+    \end{figure}
+
+	\footnotetext[1]{\url{http://armorgames.com/play/3614/crush-the-castle/}}
+	\footnotetext{\url{http://www.rovio.com/en/our-work/games/view/1/angry-birds/}}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Bejeweled 3 vs Candy Crush Saga}}
+
+	\begin{figure}
+	    \centering
+
+	    \begin{subfigure}[!h]{0.4\paperwidth}
+	    	\centering
+	    	\includegraphics[height=0.4\paperheight]{bejeweled-screenshot}
+	        \caption{\scriptsize\textbf{Bejeweled 3}\\\copyright{2010} PopCap Games\footnotemark{}}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.4\paperwidth}
+			\centering
+	        \includegraphics[height=0.4\paperheight]{candy-crush-screenshot}
+	        \caption{\scriptsize\textbf{Candy Crush Saga}\\\copyright{2012} King\footnotemark{}}
+	    \end{subfigure}
+    \end{figure}
+
+	\footnotetext[1]{\url{http://www.popcap.com/bejeweled-3/}}
+	\footnotetext{\url{http://www.candycrushsaga.com/}}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Mercado de itens no Fallout e no Skirim}}
+
+	\begin{figure}
+	    \centering
+
+	    \begin{subfigure}[!h]{0.4\paperwidth}
+	    	\centering
+	    	\includegraphics[height=0.32\paperheight]{fallout-screenshot}
+	        \caption{\scriptsize\textbf{Fallout}\\\copyright{2008} Bathesda\footnotemark{}}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.4\paperwidth}
+			\centering
+	        \includegraphics[height=0.32\paperheight]{skyrim-screenshot}
+	        \caption{\scriptsize\textbf{The Elder Scrolls V: Skyrim}\\\copyright{2011} Bathesda\footnotemark{}}
+	    \end{subfigure}
+    \end{figure}
+
+	\footnotetext[1]{\url{http://fallout.bethsoft.com/}}
+	\footnotetext{\url{http://www.elderscrolls.com/skyrim/}}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Variações no porquinho do Angry Birds}}
+
+	\begin{figure}
+	    \centering
+
+	    \begin{subfigure}[!h]{0.2\paperwidth}
+	    	\centering
+	    	\includegraphics[height=0.2\paperheight]{angry-birds-pig1}
+	        \caption{\scriptsize ao iniciar: em condição normal}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.2\paperwidth}
+			\centering
+	        \includegraphics[height=0.2\paperheight]{angry-birds-pig2}
+	        \caption{\scriptsize quase acertado: tensão e medo}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.2\paperwidth}
+			\centering
+	        \includegraphics[height=0.2\paperheight]{angry-birds-pig3}
+	        \caption{\scriptsize acertado: machucado}
+	    \end{subfigure}
+	    \\
+		\begin{subfigure}[!h]{0.2\paperwidth}
+			\centering
+	        \includegraphics[height=0.2\paperheight]{angry-birds-pig4}
+	        \caption{\scriptsize acertado várias vezes: bem machucado}
+	    \end{subfigure}
+	    ~
+		\begin{subfigure}[!h]{0.2\paperwidth}
+			\centering
+	        \includegraphics[height=0.2\paperheight]{angry-birds-pig5}
+	        \caption{\scriptsize falha total: risada irônica}
+	    \end{subfigure}
+
+	    \caption{\textbf{Os diferentes estados do porquinho de Angry Birds e a sensação transmitida}}
+    \end{figure}
+
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
+\subsection{Juiciness como forma de controlar problemas}
+% ---------------------------------------------------------------------------- %
+
+% ------------------------------
+\begin{frame}{\textbf{Evitando a parede invisível}}
+    \centering
+    Video 10
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Efeitos sonoros para indicar eventos/estados}}
+    \centering
+    Video 11
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Lidando com limitações técnicas}}
+    \centering
+    \begin{figure}
+        \includegraphics[height=5cm]{mario_original}
+        \caption{\scriptsize\textbf{Mario}\footnote{https://hashtagus.files.wordpress.com/2013/11/super-mario-bros-original1.jpg?w=290}}
+    \end{figure}
+\end{frame}
+
+% ---------------------------------------------------------------------------- %
+\subsection{Mal uso do juiceness}
+% ---------------------------------------------------------------------------- %
+
+% ------------------------------
+\begin{frame}{\textbf{Mal uso do juicenes}}
+    \centering
+    Animações longas e repetitivas
+
+    \vskip 3em
+    Vídeo 9
+\end{frame}
+
+
+
+% ---------------------------------------------------------------------------- %
+\section{Prazer cognitivo não planejado}
+
+% ------------------------------
+\begin{frame}{\textbf{O bote mágico de Zork}}
+
+\begin{columns}[c]  
+\column{0.4\textwidth}
+\begin{figure}
+\centering
+\includegraphics[height=0.5\paperheight]{zork}
+\caption{\tiny \textbf{Zork I} \copyright{1980} Infocom\footnotemark{}}
+\end{figure}
+\column{0.6\textwidth}
+\begin{outline}
+\1 Nessa aventura de texto, o número de itens do inventário era limitado pelo peso total
+\1 Um dos itens, um \textit{}, podia conter outros itens
+\1 Ao ser desinflado, os itens desapareciam temporariamente (até o bote ser reinflado -- devido a um \textit{bug} de programação)
+\2[-] {\scriptsize o jogador podia carregar um número muito maior de itens}
+\1 Depois de descoberto, o erro não foi corrigido
+\2[-] {\scriptsize o designer considerou que um jogador capaz de pensar nisso merecia usar o recurso!}
+\end{outline}
+
+\end{columns}
+\footnotetext{\url{http://www.infocom-if.org/downloads/downloads.html}}
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Battlefield 3}}
+    \centering
+    \begin{figure}
+        \includegraphics[height=5cm]{tank}
+        \caption{\scriptsize\textbf{Battlefield 3}\footnote{http://d1vr6n66ssr06c.cloudfront.net/wp-content/uploads/2012/11/battlefield-3-flip.jpg}}
+    \end{figure}
+\end{frame}
+
+\section{A Quarta Parede}
+
+% ------------------------------
+\begin{frame}{\textbf{Quebrando a quarta parede}}
+
+	\begin{quotation}
+		\noindent
+		``Então, caso representeis, pensai no espectador apenas como se este não existisse. Imaginai, na borda do teatro, uma enorme parede que vos separe da plateia; representai como se a cortina não se levantasse''\\
+		\hfill -- Denis Diderot (1713-1784)\\
+		\hfill (filósofo e escritor Francês)\footnote{Fonte: \url{http://pt.wikipedia.org/wiki/Quarta_parede}}
+	\end{quotation}
+	
+	\vspace{1em}
+
+	\begin{outline}
+		\1 O ato de ``derrubar a quarta parede'' tem origem na teoria do teatro
+		
+		\1 Refere-se a um personagem dirigindo sua atenção para a platéia
+			\2[-] {\scriptsize ou tomando conhecimento de que os personagens e ações não são reais}
+			
+		\1 Tem efeitos humorísticos (nonsense) e de crítica
+			\2[-] {\scriptsize já que intencionamente quebra a suspensão temporária de descrença}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{As charadas do Charada}}
+
+	\begin{figure}
 		\centering
-		O aplicativo gratuito (Android) pode ser baixado de:\\
-		{\scriptsize \url{https://play.google.com/store/apps/details?id=com.schellgames.deckoflenses&hl=pt_BR}}
-	\end{block}
+		\includegraphics[height=0.3\paperheight]{batman-riddler}
+		\caption{\tiny \textbf{Batman: Arkham Asylum} \copyright{2009} Warner Bros. Interactive\footnote{\url{http://www.warnerbros.com/videogame/batman-arkham-asylum}}}
+	\end{figure}
+
+	Após o jogador obter quase todos os troféus, o personagem Charada diz:
 
 	\vspace{1em}
+
+	\begin{verse}
+		\noindent
+		\Large
+		``O quê? Quase completo? Você esta roubando? Procurou as respostas na Internet, não é?''\footnote{Tradução livre de: ``\textit{What? You're nearly done? Are you cheating? Looking them up on the internet? Tell me.}''}
+	\end{verse}
+	
+	\vspace{1em}
+	
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{As charadas do Charada}}
+
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.3\paperheight]{startropics}
+		\caption{\tiny \textbf{StarTropics} \copyright{1990} Nintendo\footnote{\url{http://www.nintendo.com/games/detail/mLqsyMiZqHleOYbtHCKqxhORw6JT45-g}}}
+	\end{figure}
+
+	\vspace{-1em}
+
+	\begin{outline}
+		\1 O manual do jogo acompanhava uma carta do tio do protagonista
+			\2[-] {\scriptsize com informações relacionadas à fantasia, mas sem importância aparente}
+			
+		\vspace{1em}
+		
+		\1 Muito a frente no jogo, um personagem solicitava que a carta fosse mergulhada em água
+			\2[-] {\scriptsize para obtenção de um código que permitiria a continuidade do jogo}
+	\end{outline}
 
 \end{frame}
 
 % ------------------------------
-\begin{frame}{\textbf{Exemplo de heurísticas: GameFlow}}
+\begin{frame}{\textbf{Leitor de mentes}}
 
-	\begin{table}
-		\scriptsize
-		\setlength{\tabcolsep}{1pt}
-		\renewcommand{\arraystretch}{1.5}
-		\caption{\textbf{Algumas das heurísticas do modelo GameFlow} \cite{Sweetser2005}}
+	\begin{figure}
+		\centering
+		\includegraphics[height=0.4\paperheight]{metal-gear}
+		\caption{\tiny \textbf{Metal Gear Solid} \copyright{1998} Konami\footnote{\url{https://www.konami.com/mgs/}}}
+	\end{figure}
 
-		\begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+	\vspace{-1em}
 
-			\toprule
-			\textbf{Elemento} & \textbf{Critério}\\
-			\midrule
-			\multirow{3}{*}{Desafio}  & -- os desafios devem ser equiparados às habilidades do jogador\\
-									  & -- o jogo deve prover diferentes níveis de dificuldade para diferentes jogadores\\
-									  & -- o nível do desafio deve aumentar progressivamente\\[1em]
-			\midrule
-
-			\multirow{4}{*}{Controle} & \\ & -- os jogadores devem ter a sensação de controle sobre seus personagens ou unidades, movimento, e interações no jogo\\
-									  & -- os jogadores devem ter a sensação de controle sobre a interface e os dispositivos de entrada\\
-									  & -- os jogadores não devem ser capazes de cometer erros que são prejudiciais ao jogo\\
-			\bottomrule
+	\begin{outline}
+		\1 O vilão Psycho Mantis lia pensamentos
 		
-		\end{tabular}
+		\1 Citando jogos que o jogador gostava
+			\2[-] {\scriptsize lendo dados de jogos gravados no cartão de memória}
 
-	\end{table}
+		\1 Prevendo os golpes do jogador, de forma a ser impossível de vencer
+			\2[-] {\scriptsize a não ser que o controle fosse conectado à outra porta do console}
+	\end{outline}
+
+\end{frame}
+
+% ------------------------------
+\begin{frame}{\textbf{Dezenas de outros exemplos}}
+
+	\begin{outline}
+		\1 Monkey Island 2: LeChuck's Revenge (1991)
+			\2[-] {\scriptsize protagonista liga para desenvolvedors para criticar piada da versão anterior}
+			
+		\1 X-men (1993)
+			\2[-] {\scriptsize para remover um vírus o jogador é solicitado a reiniciar o jogo}
+									
+		\1 Tomb Raider II (1997)
+			\2[-] {\scriptsize protagonista está para tomar banho quando percebe o jogador assistindo}
+
+		\1 Eternal Darkness: Sanity's Requiem (2002)
+			\2[-] {\scriptsize perda de sanidade gera situações bizarras (simulação de sentar no controle remoto)}
+
+		\1 Warcraft III: Reign of Chaos (2004)
+			\2[-] {\scriptsize personagem é selecionado com o mouse e diz: ``Eu fui escolhido pela grande mão metálica no céu!''}
+
+		\1 Assassin's Creed 2 (2009)
+			\2[-] {\scriptsize personagem olha para o jogador e fala diretamente com ele}
+			
+		\1 The Stanley Parable (2013)
+			\2[-] {\scriptsize narrador reconhece a insubordinação do jogador em seguir ordens}
+
+	\end{outline}
 
 \end{frame}
 
 % ---------------------------------------------------------------------------- %
-\section{Playtesting}
+\section{Atividade}
 % ---------------------------------------------------------------------------- %
 
 % ------------------------------
-\begin{frame}{\textbf{Por que testar?}}
-
-	Os testes podem ter diferentes propósitos:
+\begin{frame}{\textbf{Atividade}}
 
 	\begin{outline}
-		\1 Avaliar o potencial de diversão das ideias de design existentes (\textit{gameplay})
-			\2[-] {\scriptsize e coletar novas ideias!}
-			
-		\vspace{1em}
-			
-		\1 Avaliar a implementação do jogo sob aspectos ``utilitários'' (jogabilidade) e estéticos (``juiciness'')
-			\2[-] {\scriptsize símbolos e indicações utilizadas}
-			\2[-] {\scriptsize percepção dos objetivos e do feedback das ações}
-			\2[-] {\scriptsize ergonomia dos dispositivos de interface}
-			\2[-] {\scriptsize balanceamento de dificuldade -- individual e entre jogadores}
-			\2[-] {\scriptsize empatia com personagens, preferências por cores, etc}
+	
+		\1 Descrever oportunidades de utilização de ``\textit{juiciness}'' em seu projeto
 		
 		\vspace{1em}
-
-		\1 Avaliar a implementação do jogo sob o ponto de vista técnico
-			\2[-] {\scriptsize durabilidade de componentes}
-			\2[-] {\scriptsize erros de codificação (para jogos digitais)}
-			\2[-] {\scriptsize condições de uso não previstas}
 		
-	\end{outline}
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Prototipação em Papel}}
-
-	\begin{figure}
-	    \centering
-        \includegraphics[width=0.8\paperwidth]{paper-prototype}
-        \caption{\textbf{Exemplo de protótipo em papel}, Travellr App\footnote{\url{https://www.youtube.com/watch?v=_5FGeSQ7DBU}}}
-    \end{figure}
-
-    \begin{center}
-    	Video 13
-    \end{center}
-
-    \vspace{2em}
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{O Mágico de Oz}}
-
-	\begin{figure}
-	    \centering
-        \includegraphics[height=0.7\paperheight]{wizard-of-oz}
-        \caption{\textbf{Avaliação do mecanismo de transição de um carro automatizado}, Stanford Jr Team\footnote{\url{http://310valeo.wordpress.com/2013/11/20/cfp-prototyping/}}}
-    \end{figure}
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Observação, questionários e entrevistas}}
-
-	\begin{outline}
-		\1 Observação (de jogadores jogando), questionários e entrevistas são ferramentas muito úteis
-			\2[-] {\scriptsize mas alguns cuidados são necessários}
-
-		\vspace{1em}
-
-		\1 A observação pode ter efeitos sobre a experiência
-			\2[-] {\scriptsize os jogadores podem se sentir incomodados, desejar impressionar ou não desejar magoar o observador}
-			
-		\vspace{1em}
-			
-		\1 Questionários interrompem a experiência ou podem não capturar o ``calor do momento''
-			\2[-] {\scriptsize além disso, deve-se procurar não induzir respostas}
+		\1 Atualizar sua documentação (GDD) conforme necessário
 		
-		\vspace{1em}
+		\vspace{4em}
 
-		\1 Entrevistas também interrompem a experiência
-			\2[-] {\scriptsize e diminuem o anonimato}
+		\1 \textbf{OBSERVAÇÃO}: NÃO ESQUEÇAM DE TRAZER MATERIAL PARA A PROTOTIPAÇÃO NA PRÓXIMA AULA!
+	
 	\end{outline}
 
 \end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{GEQ: Game Experience Questionnaire}}
-
-	\begin{outline}
-		\1 Dois questionários padronizados produzido pela Universidade de Tecnologia de Eindhoven (Holanda)
-			\2[-] {\scriptsize baseado em todos os assuntos estudados até esta aula}
-			\2[-] {\scriptsize para ser utilizado durante e após as sessões de jogos}
-
-		\vspace{1em}
-
-		\1 Contém questões \emph{Likert} para avaliar oito aspectos da experiência
-			\2[-] {\scriptsize imersão}
-			\2[-] {\scriptsize fluxo}
-			\2[-] {\scriptsize competência}
-			\2[-] {\scriptsize emoções positivas e negativas}
-			\2[-] {\scriptsize tensão}
-			\2[-] {\scriptsize desafio}
-			\2[-] {\scriptsize presença social}
-	\end{outline}
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{GEQ: Game Experience Questionnaire}}
-
-	Exemplos de questões:
-
-	\vspace{1em}
-
-	\begin{outline}
-		\0 \textit{Por favor indique como se sentiu enquanto jogou o jogo para cada item, na seguinte escala}:\\
-		\0 \textit{de forma alguma (0), levemente (1), moderadamente (2), bastante (3), extremamente (4)}
-
-		\vspace{1em}
-
-		\1 Eu me senti contente
-		\1 Eu achei que foi divertido
-		\1 Eu pensei sobre outras coisas
-		\1 Eu me senti capaz/competente
-		\1 Foi esteticamente agradável
-		\1 Eu esqueci de tudo ao meu redor
-		\1 Eu fui bem no jogo
-		\1 Eu tive que colocar muito esforço no jogo
-	\end{outline}
-
-\end{frame}
-
-% ------------------------------
-\begin{frame}{\textbf{Material da aula}}
-	\centering
-	Disponível em:\\[1em]
-	{\large \url{http://www.ime.usp.br/~lidet/projeto-jogos/}}
-\end{frame}
-
-% ------------------------------------------
-% References
-% ------------------------------------------
-
-\referencesbegin
-\begin{frame}[plain, allowframebreaks]
-	\frametitle{\textbf{References}}
-	\bibliographystyle{abbrv}
-	{\tiny \bibliography{bibliography}}
-\end{frame}
-\referencesend
-
 \end{document}
